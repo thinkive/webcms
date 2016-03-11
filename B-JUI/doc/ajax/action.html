@@ -1,0 +1,120 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">Ajax 动作</h3>
+        <blockquote>
+            <p>本节主要介绍框架的Ajax 动作（如：删除、导出等）。</p>
+        </blockquote>
+        <p><span class="label label-default">DOM示例：</span>　<a href="doc/ajax/myaction.html" data-toggle="dialog" data-id="myaction" data-title="我的ajaxAction" data-width="600" data-height="400">打开ajaxAction演示</a></p>
+        <ul>
+            <li><b>doAjax(适用于 <code>删除</code> 等)</b>：
+                <p>DOM示例代码：</p>
+                <pre class="brush: html">
+                    &lt;a type="button" class="btn btn-default" href="ajaxDone3.html" data-toggle="doajax" data-confirm-msg="确定要删除吗？">删除动作&lt;/a>
+                </pre>
+                <p>jQuery API:</p>
+                <pre class="brush: js">
+                    $(selector).bjuiajax('doAjax', options)
+                </pre>
+            </li>
+            <li><b>doExport(适用于 <code>导出</code>)</b>：
+                <p>DOM示例代码：</p>
+                <pre class="brush: html">
+                    &lt;a type="button" class="btn btn-default" href="book1.xlsx" data-toggle="doexport" data-confirm-msg="确定要导出吗？">导出数据&lt;/a>
+                </pre>
+                <p>jQuery API:</p>
+                <pre class="brush: js">
+                    $(selector).bjuiajax('doExport', options)
+                </pre>
+            </li>
+            <li><b>doAjaxChecked(适用于 <code>选中项删除</code> 等)</b>：
+                <p>DOM示例代码：</p>
+                <pre class="brush: html">
+                    &lt;a type="button" class="btn btn-default" href="ajaxDone3.html" data-toggle="doajaxchecked" data-group="delids" data-confirm-msg="确定要删除选中项吗？">批量删除动作&lt;/a>
+                </pre>
+                <p>jQuery API:</p>
+                <pre class="brush: js">
+                    $(selector).bjuiajax('doAjaxChecked', options)
+                </pre>
+            </li>
+            <li><b>doExportChecked(适用于 <code>选中项导出</code>)</b>：
+                <p>DOM示例代码：</p>
+                <pre class="brush: html">
+                    &lt;a type="button" class="btn btn-default" href="ajaxDone3.html" data-toggle="doexportchecked" data-confirm-msg="确定要导出选中项吗？">批量导出&lt;/a>
+                </pre>
+                <p>jQuery API:</p>
+                <pre class="brush: js">
+                    $(selector).bjuiajax('doExportChecked', options)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>url</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[必选] <span class="badge"><i>D-Url</i></span> ajax处理的URL，a链接触发时可以将url定义在href属性。</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>string</td>
+                    <td>POST</td>
+                    <td>[可选] ajax请求方式。(<code>导出类动作无效</code>)</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>object</td>
+                    <td>null</td>
+                    <td>[可选] ajax请求发送到服务器的数据。(<code>导出类动作无效</code>)</td>
+                </tr>
+                <tr>
+                    <td>confirmMsg</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[可选] 执行动作前的确认提示。</td>
+                </tr>
+                <tr>
+                    <td>callback</td>
+                    <td>function(json)</td>
+                    <td>null</td>
+                    <td>[可选] 回调函数。</td>
+                </tr>
+                <tr>
+                    <td>loadingmask</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] ajax请求时是否显示数据加载遮罩。</td>
+                </tr>
+                <tr>
+                    <td>group</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td><code>[批量操作专用 - 必选]</code> 选项checkbox框的名称。</td>
+                </tr>
+                <tr>
+                    <td>idname</td>
+                    <td>string</td>
+                    <td>ids</td>
+                    <td><code>[批量操作专用 - 可选]</code> 发送到服务端的参数名称，发送到服务端的id值以<code>,</code>分隔。</td>
+                </tr>
+            </tbody>
+        </table>
+        <blockquote class="point">
+            <p>本节涉及的<code>selector</code>，请尽量使用该容器内部的元素，否则会影响默认回调函数的正确执行。</p>
+        </blockquote>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

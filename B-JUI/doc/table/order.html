@@ -1,0 +1,74 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">表格字段排序</h3>
+        <blockquote>
+            <p>本节主要介绍表格的字段排序，支持普通表格和固定表头表格。</p>
+        </blockquote>
+        <blockquote class="point">
+            <p>本框架的字段排序和分页都<code>不是客户端处理</code>，是通过将参数提交到服务端，处理好后再返回页面呈现。</p>
+            <p><code>提交到服务端的参数位置：</code>排序字段（字段名和排序方向）及 分页参数（当前页和页大小）都通过页片中的<code>#pagerForm</code>提交。</p>
+            <p><code>#pagerForm</code>需要内置4个隐藏的input存放上述参数，代码如下：</p>
+            <pre class="brush: html">
+                &lt;input type="hidden" name="pageSize" value="${model.pageSize}">             <!-- 页大小 -->
+                &lt;input type="hidden" name="pageCurrent" value="${model.pageCurrent}">       <!-- 当前页 -->
+                &lt;input type="hidden" name="orderField" value="${param.orderField}">         <!-- 排序字段 -->
+                &lt;input type="hidden" name="orderDirection" value="${param.orderDirection}"> <!-- 排序方向 -->
+            </pre>
+            <p><code>注意1：</code>如果页片中<code>没有#pageForm</code>，<code>将不能触发</code>字段排序及分页，如果<code>#pageForm没有放置参数input</code>，框架会<code>自动加入</code>。</p>
+            <p><code>注意2：</code>如果修改了框架初始化参数<code>pageInfo</code>，请注意手动放置的参数input的name要与之一致，如果不一致框架将会自动加入<code>pageInfo</code>定义的参数input。</p>
+        </blockquote>
+        <h4>初始化</h4>
+        <ul>
+            <li>Data属性：th元素添加属性<code>data-order-field="排序字段名"</code>后，th会自动添加排序按钮，点击按钮即可触发排序操作。<br>
+                <span class="label label-default">DOM示例：</span>　<a href="doc/table/myorder.html" data-toggle="dialog" data-id="myorder" data-title="我的order表格" data-width="600" data-height="400">打开order表格</a><br>
+                <p>示例代码(仅表头部分)：</p>
+                <pre class="brush: html">
+                    &lt;thead>
+                        &lt;tr>
+                            &lt;th data-order-field="operation">ID&lt;/th>
+                            &lt;th data-order-field="name">姓名&lt;/th>
+                            &lt;th data-order-field="sex">性别&lt;/th>
+                            &lt;th data-order-field="birthday">出生日期&lt;/th>
+                            &lt;th data-order-field="birthplace">出生地&lt;/th>
+                        &lt;/tr>
+                    &lt;/thead>
+                </pre>
+            </li>
+            <li>jQuery API：
+                <pre class="brush: js">
+                    $(th).tablefixed('setOrder', options)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>orderField</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[必选] 发送到服务端的排序字段名称。</td>
+                </tr>
+                <tr>
+                    <td>orderDirection</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[可选值( asc/desc )] <code>非发送到服务端的参数</code>仅用于标示当前字段的排序方向。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

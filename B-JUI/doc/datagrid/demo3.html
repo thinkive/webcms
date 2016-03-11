@@ -1,0 +1,39 @@
+<script type="text/javascript">
+function doc_datagrid_demo_column() {
+    return [{name:'name', width:'150', label:'姓名'}, {name:'firstname', width:'120', label:'拼音姓'}, {name:'lastname', label:'拼音名'}]
+}
+function doc_datagrid_demo_data() {
+    return [{'name':'孙悟空','firstname':'Sun','lastname':'Wukong'},{'name':'罗宾汉','firstname':'Luo','lastname':'Binhan'},{'name':'美国队长','firstname':'Meiguo','lastname':'Duizhang'}]
+}
+</script>
+<div class="bjui-pageContent">
+    <div style="padding:20px;">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#datagrid-demo3-demo" role="tab" data-toggle="tab">示例</a></li>
+            <li><a href="#datagrid-demo3-source" role="tab" data-toggle="tab">源码</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="datagrid-demo3-demo">
+                <table data-toggle="datagrid" data-options="{
+                    columns:'doc_datagrid_demo_column',
+                    data:'doc_datagrid_demo_data'
+                }">
+                </table>
+            </div>
+            <div class="tab-pane fade" id="datagrid-demo3-source">
+                <pre class="brush: html">
+                    &lt;table data-toggle="datagrid" data-options="{
+                        columns:'doc_datagrid_demo_column',
+                        data:'doc_datagrid_demo_data'
+                    }">
+                    &lt;/table>
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

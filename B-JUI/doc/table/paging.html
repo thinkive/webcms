@@ -1,0 +1,84 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">分页组件</h3>
+        <blockquote>
+            <p>本节主要介绍框架的分页组件。</p>
+        </blockquote>
+        <blockquote class="point">
+            <p>处理方式及参数位置参见前一节：<code>字段排序</code>。</p>
+            <p>分页组件通常放置在页脚中<code>div[class="bjui-footBar"]</code>。</p>
+            <p>分页组件不包含调整页大小参数，如需要调整页大小，需要如下代码：</p>
+            <pre class="brush: html">
+                &lt;div class="pages">
+                    &lt;span>每页&nbsp;&lt;/span>
+                    &lt;div class="selectPagesize">
+                        &lt;select data-toggle="selectpicker" data-toggle-change="changepagesize">
+                            &lt;option value="5">5&lt;/option>
+                            &lt;option value="30">30&lt;/option>
+                            &lt;option value="60">60&lt;/option>
+                            &lt;option value="100">100&lt;/option>
+                        &lt;/select>
+                    &lt;/div>
+                    &lt;span>&nbsp;条，共 10 条&lt;/span>
+                &lt;/div>
+            </pre>
+        </blockquote>
+        <h4>初始化</h4>
+        <ul>
+            <li>Data属性：div添加属性<code>data-toggle="pagination"</code>，添加<code>Class[ pagination-box ]</code>。<br>
+                <span class="label label-default">DOM示例：</span>　<a href="doc/table/mypaging.html" data-toggle="dialog" data-id="mypaging" data-title="我的分页演示" data-width="620" data-height="400">打开分页演示</a><br>
+                <p>示例代码：<code>分页组件默认右浮动，若要左浮动需添加Class[ pull-left ]</code></p>
+                <pre class="brush: html">
+                    &lt;div class="pagination-box" data-toggle="pagination" data-total="10" data-page-size="5" data-page-current="1">&lt;/div>
+                </pre>
+            </li>
+            <li>jQuery API：
+                <pre class="brush: js">
+                    $(div).pagination(options)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>total</td>
+                    <td>int</td>
+                    <td>0</td>
+                    <td>[必选] 总记录数。</td>
+                </tr>
+                <tr>
+                    <td>pageSize</td>
+                    <td>int</td>
+                    <td>10</td>
+                    <td>[可选] 页大小(每页记录数)。</td>
+                </tr>
+                <tr>
+                    <td>pageCurrent</td>
+                    <td>int</td>
+                    <td>1</td>
+                    <td>[可选] 当前页。</td>
+                </tr>
+                <tr>
+                    <td>pageNum</td>
+                    <td>int</td>
+                    <td>10</td>
+                    <td>[可选] 显示的数字页码个数。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

@@ -1,0 +1,115 @@
+<div class="bjui-pageContent">
+    <form action="ajaxDone1.html" id="j_form_form" class="pageForm" data-toggle="validate">
+        <div style="margin:15px auto 0; width:800px;">
+            <fieldset>
+                <legend>选项卡</legend>
+                <!-- Tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+                    <li><a href="form-input.html" role="tab" data-toggle="ajaxtab" data-target="#profile" data-reload="false">ajax加载</a></li>
+                    <li><a href="#messages" role="tab" data-toggle="tab">固定表头表格</a></li>
+                    <li><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="home"><p>选项卡的a标签上添加[data-toggle="ajaxtab"]属性可以实现ajax加载内容。</p><p>[data-reload]属性可以定义点击该选项卡时是否每次都需要重新加载。</p></div>
+                    <div class="tab-pane fade" id="profile"><!-- Ajax加载 --></div>
+                    <div class="tab-pane fade" id="messages">
+                        <table class="table table-bordered table-hover table-striped table-condensed" data-toggle="tablefixed" data-height="150">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" data-order-field="operation">ID</th>
+                                    <th rowspan="2" data-order-field="name">姓名</th>
+                                    <th rowspan="2" data-order-field="sex">性别</th>
+                                    <th colspan="2" align="center">出生信息</th>
+                                </tr>
+                                <tr>
+                                    <th data-order-field="birthday">出生日期</th>
+                                    <th data-order-field="birthplace">出生地</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>一一</td>
+                                    <td>♂</td>
+                                    <td>2000-01-01</td>
+                                    <td>CN</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>二二</td>
+                                    <td>♀</td>
+                                    <td>1999-01-01</td>
+                                    <td>JP</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>三三</td>
+                                    <td>♂</td>
+                                    <td>2000-01-01</td>
+                                    <td>CN</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>四四</td>
+                                    <td>♀</td>
+                                    <td>2005-01-01</td>
+                                    <td>US</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>五五</td>
+                                    <td>♀</td>
+                                    <td>2000-01-01</td>
+                                    <td>KR</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>六六</td>
+                                    <td>♂</td>
+                                    <td>2000-01-01</td>
+                                    <td>CN</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>七七</td>
+                                    <td>♀</td>
+                                    <td>1999-01-01</td>
+                                    <td>JP</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>八八</td>
+                                    <td>♂</td>
+                                    <td>2000-01-01</td>
+                                    <td>CN</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>九九</td>
+                                    <td>♀</td>
+                                    <td>2005-01-01</td>
+                                    <td>US</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>十十</td>
+                                    <td>♀</td>
+                                    <td>2000-01-01</td>
+                                    <td>KR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="settings">No4. Settings</div>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

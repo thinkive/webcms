@@ -1,0 +1,42 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">Highcharts图表说明</h3>
+        <blockquote>
+        <p>本节主要介绍框架的Highcharts图形报表功能（由 <a href="http://www.topjui.com" target="_blank">小策一喋</a> 整合图表库Highcharts），Demo演示只展示了3种常用的图形报表：3D饼图、折线图及3D柱状图，其它图表类型请根据Hightcharts图表库使用方法生成对应的json数据格式即可，更多图表类型及参数请查看<a href="http://www.hcharts.cn" target="_blank">Highcharts中文网</a></p>
+        </blockquote>
+        <blockquote class="point">
+            <code>界面调用：</code>在HTML代码中加入代码：<br>
+            <pre class="brush: html">
+                &lt;div style="min-width:400px;height:350px" data-toggle="highcharts" data-url="chart-lineData.html">&lt;/div>
+            </pre>
+            <code>图表数据：</code>图表的JSON数据通过AJAX调用，data-url参数值为图表JSON数据调用地址，Demo演示中的图表JSON数据请进入对应的html文件查看<br>
+            <code>图表主题：</code>设置图表主题，在index.html中引入BJUI/plugins/highcharts/themes下对应的js主题文件即可，例如：
+            <pre class="brush: html">&lt;script src="BJUI/plugins/highcharts/themes/dark-unica.js">&lt;/script></pre>
+        </blockquote>
+
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>url</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[必选] 图表JSON数据调用地址</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

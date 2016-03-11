@@ -1,0 +1,87 @@
+<script type="text/javascript">
+function doc_navtab_onLoad($navtab) {
+    $navtab.alertmsg('info', 'onLoad回调：不填写工号是不能关闭本navtab的。')
+}
+function doc_navtab_beforeClose($navtab) {
+    var code = $navtab.find('#doc-mytab-code').val()
+    
+    if (code) return true
+    $navtab.alertmsg('error', 'beforeClose回调：关闭navtab前请先填入你的工号。')
+    return false
+}
+function doc_navtab_onClose() {
+    $(this).alertmsg('info', 'onClose回调：你刚刚关闭了一个navtab。')
+}
+</script>
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">创建navtab</h3>
+        <blockquote>
+            <p>创建一个navtab有以下两种方式：</p>
+        </blockquote>
+        <ul>
+            <li>Data属性：DOM添加属性<code>data-toggle="navtab"</code>后，单击触发。<br>
+                <span class="label label-default">DOM示例1：</span>　<a href="doc/navtab/mytab.html?d=1" data-toggle="navtab" data-id="mynavtab" data-reload-warn="已打开业务页面，确认将重新载入?" data-title="我的业务页面">打开navtab</a><br>
+                <pre class="brush: html">
+                    <a href="mytab.html?d=1" data-toggle="navtab" data-id="mynavtab" data-reload-warn="已打开业务页面，确认将重新载入?" data-title="我的业务页面">打开navtab</a>
+                </pre>
+                <span class="label label-default">DOM示例2：</span>　<button type="button" class="btn-green" data-toggle="navtab" data-id="mynavtab" data-reload-warn="已打开业务页面，确认将重新载入?" data-url="doc/navtab/mytab.html?d=2" data-title="我的业务页面">打开navtab</button>
+                <pre class="brush: html">
+                    <button type="button" class="btn-green" data-toggle="navtab" data-id="mynavtab" data-reload-warn="已打开业务页面，确认将重新载入?" data-url="mytab.html?d=2" data-title="我的业务页面">打开navtab</button>
+                </pre>
+                <span class="label label-default">DOM示例3(参数集合)：</span>　<button type="button" class="btn-green" data-toggle="navtab" data-options="{id:'mynavtab', reloadWarn:'已打开业务页面，确认将重新载入?', url:'doc/navtab/mytab.html?d=5', title:'我的业务页面(参数集合写法)'}">打开navtab(参数集合)</button>
+                <pre class="brush: html">
+                    <button type="button" class="btn-green" data-toggle="navtab" data-options="{id:'mynavtab', reloadWarn:'已打开业务页面，确认将重新载入?', url:'doc/navtab/mytab.html?d=5', title:'我的业务页面(参数集合写法)'}">打开navtab(参数集合)</button>
+                </pre>
+                <span class="label label-default">其他示例[回调函数]：</span>　<button type="button" class="btn-green" data-toggle="navtab" data-id="mynavtab" data-reload-warn="已打开业务页面，确认将重新载入?" data-url="doc/navtab/mytab.html?d=3" data-title="navtab回调函数示例" data-on-load="doc_navtab_onLoad" data-before-close="doc_navtab_beforeClose" data-on-close="doc_navtab_onClose">打开navtab</button>
+                <pre class="brush: js; html-script: true">
+                    &lt;script type="text/javascript">
+                        function doc_navtab_beforeClose($navtab) {
+                            var code = $navtab.find('#doc-mytab-code').val()
+                            
+                            if (code) return true
+                            $navtab.alertmsg('error', '关闭navtab前请先填入你的工号。')
+                            return false
+                        }
+                        function doc_navtab_onClose() {
+                            $(this).alertmsg('info', '你刚刚关闭了一个navtab。')
+                        }
+                    &lt;/script>
+                    &lt;button type="button" class="btn-green" data-toggle="navtab" data-id="mynavtab" data-reload-warn="已打开业务页面，确认将重新载入?" data-url="doc/navtab/mytab.html?d=3" data-title="navtab回调函数示例" data-before-close="doc_navtab_beforeClose" data-on-close="doc_navtab_onClose">打开navtab&lt;/button>
+                </pre>
+            </li>
+            <li>jQuery API：<br>
+                <script type="text/javascript">
+                    function openMytab(obj) {
+                        $(obj).navtab({id:'mynavtab', url:'doc/navtab/mytab.html', title:'我的业务页面'});
+                    }
+                </script>
+                <span class="label label-default">jQuery示例：</span>　<button type="button" class="btn-default" onclick="openMytab(this)">打开navtab</button>
+                <p>本例完整代码：</p>
+                <pre class="brush: js; html-script: true">
+                    &lt;script type="text/javascript">
+                    function openMytab(obj) {
+                        $(obj).navtab({id:'mynavtab', url:'doc/navtab/mytab.html', title:'我的业务页面'});
+                    }
+                    &lt;/script>
+                    <button type="button" class="btn-default" onclick="openMytab(this)">打开navtab</button>
+                </pre>
+                <p>jQuery API代码：</p>
+                <pre class="brush: js">
+                    $(selector).navtab(options)
+                </pre>
+            </li>
+        </ul>
+        <blockquote class="point">
+            <ul>
+                <li>取得当前navtab的内容容器：<code>$.CurrentNavtab</code></li>
+                <li>创建已存在相同ID的navtab时，如果url一致(未设置<code>fresh</code>参数时)，默认会直接切换到该navtab，否则覆盖已存在的navtab，可以增加<code>reloadWarn</code>参数以获得警告提醒</li>
+            </ul>
+        </blockquote>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

@@ -1,0 +1,63 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">第三方插件：iCheck —— 美化复选框、单选框</h3>
+        <blockquote>
+            <p>本节主要介绍表美化复选框、单选框插件 - iCheck，插件地址：<a href="http://www.bootcss.com/p/icheck/" target="_blank">http://www.bootcss.com/p/icheck/</a>。</p>
+        </blockquote>
+        <h4>初始化</h4>
+        <ul>
+            <li>Data属性：checkbox或radio添加属性<code>data-toggle="icheck"</code>后即可触发，属性<code>data-label</code>可以设置显示标签，如果有ID，则点击标签可勾选。<br>
+                <br><span class="label label-default">DOM示例：</span>　<input type="checkbox" name="doc-check1" id="doc-check1" data-toggle="icheck" data-label="我是一个复选框"> <input type="radio" name="doc-radio1" id="doc-radio1" data-toggle="icheck" data-label="单选1"> <input type="radio" name="doc-radio1" id="doc-radio2" data-toggle="icheck" data-label="单选2"><br>
+                <p>示例代码：</p>
+                <pre class="brush: html">
+                    &lt;input type="checkbox" name="doc-check1" id="doc-check1" data-toggle="icheck" data-label="我是一个复选框">
+                    &lt;input type="radio" name="doc-radio1" id="doc-radio1" data-toggle="icheck" data-label="单选1">
+                    &lt;input type="radio" name="doc-radio1" id="doc-radio2" data-toggle="icheck" data-label="单选2">
+                </pre>
+            </li>
+            <li>jQuery API：<a href="http://www.bootcss.com/p/icheck/" target="_blank">http://www.bootcss.com/p/icheck/</a></li>
+        </ul>
+        <h4>状态改变事件</h4>
+        <blockquote class="point">
+            <p>更多事件及方法见插件官网</p>
+        </blockquote>
+        　　<span class="label label-default">示例：</span>　　<input type="checkbox" name="doc-check-t" id="doc-check-t1" value="1000" data-toggle="icheck" data-label="1000">
+        <input type="checkbox" name="doc-check-t" id="doc-check-t2" value="2000" data-toggle="icheck" data-label="2000">
+        <input type="checkbox" name="doc-check-t" id="doc-check-t3" value="3000" data-toggle="icheck" data-label="3000">
+        <input type="checkbox" name="doc-check-t" id="doc-check-t4" value="4000" data-toggle="icheck" data-label="4000">
+        <input type="checkbox" name="doc-check-t" id="doc-check-t5" value="5000" data-toggle="icheck" data-label="5000">
+        <script type="text/javascript">
+            $('input[name="doc-check-t"]').on('ifChanged', function(e) {
+                var checked = $(this).is(':checked'), val = $(this).val()
+                
+                if (checked)
+                    $(this).alertmsg('info', '你选择了'+ val)
+                else
+                    $(this).alertmsg('info', '你取消了'+ val)
+            })
+        </script>
+        <p>示例代码：</p>
+        <pre class="brush: js; html-script: true">
+            &lt;script type="text/javascript">
+                $('input[name="doc-check-t"]').on('ifChanged', function(e) {
+                    var checked = $(this).is(':checked'), val = $(this).val()
+                    
+                    if (checked)
+                        $(this).alertmsg('info', '你选择了'+ val)
+                    else
+                        $(this).alertmsg('info', '你取消了'+ val)
+                })
+            &lt;/script>
+            &lt;input type="checkbox" name="doc-check-t" id="doc-check-t1" value="1000" data-toggle="icheck" data-label="1000">
+            &lt;input type="checkbox" name="doc-check-t" id="doc-check-t2" value="2000" data-toggle="icheck" data-label="2000">
+            &lt;input type="checkbox" name="doc-check-t" id="doc-check-t3" value="3000" data-toggle="icheck" data-label="3000">
+            &lt;input type="checkbox" name="doc-check-t" id="doc-check-t4" value="4000" data-toggle="icheck" data-label="4000">
+            &lt;input type="checkbox" name="doc-check-t" id="doc-check-t5" value="5000" data-toggle="icheck" data-label="5000">
+        </pre>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

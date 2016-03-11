@@ -1,0 +1,76 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">B-JUI框架文件夹结构及文件说明</h3>
+        <blockquote>
+            <p>本节介绍本框架的文件夹结构及其包含文件说明。</p>
+        </blockquote>
+        <pre class="brush: html">
+BJUI/
+├── js/                          [-- 内置组件 JS --]
+│   ├── bjui-core.js             [ 核心文件，包含框架的一些参数配置和初始化入口 ]
+│   ├── bjui-regional.zh-CN.js   [ 国际化文件 ]
+│   ├── bjui-frag.js             [ 一些组件的DOM碎片 ]
+│   ├── bjui-extends.js          [ 包含部分jQuery方法及String方法 ]
+│   ├── bjui-basedrag.js         [ 基础拖动 ]
+│   ├── bjui-slidebar.js         [ 左侧导航菜单 ]
+│   ├── bjui-contextmenu.js      [ 右键弹出菜单(主要应用在navtab 及 taskbar) ]
+│   ├── bjui-navtab.js           [ 标签工作区 ]
+│   ├── bjui-dialog.js           [ 弹窗 ]
+│   ├── bjui-taskbar.js          [ 普通弹窗任务栏 ]
+│   ├── bjui-ajax.js             [ 一些ajax方法 ]
+│   ├── bjui-alertmsg.js         [ 提示框 ]
+│   ├── bjui-pagination.js       [ 分页组件 ]
+│   ├── bjui-util.date.js        [ 日期工具类 ]
+│   ├── bjui-datepicker.js       [ 日期选择器 ]
+│   ├── bjui-ajaxtab.js          [ 为bootstrap的tab增加ajax载入方式 ]
+│   ├── bjui-datagrid.js         [ datagrid ]
+│   ├── bjui-tablefixed.js       [ 固定表头表格 ]
+│   ├── bjui-tabledit.js         [ 可编辑表格 ]
+│   ├── bjui-spinner.js          [ 微调器 ]
+│   ├── bjui-lookup.js           [ 查找带回 ]
+│   ├── bjui-tags.js             [ 自动完成标签 ]
+│   ├── bjui-upload.js           [ 上传组件 ]
+│   ├── bjui-theme.js            [ 皮肤处理 ]
+│   ├── bjui-initui.js           [ 框架初始化接口等 ]
+│   ├── bjui-plugins.js          [ 监听bjui.initUI事件，使框架组件及部分插件初始化 ]
+│   ├── jquery-1.7.2.min.js      
+│   └── jquery.cookie.js         
+├── themes/                      [-- CSS 样式  --]
+│   ├── default/                 [ 皮肤 - 灰 ]
+│   ├── blue/                    [ 皮肤 - 蓝 ]
+│   ├── green/                   [ 皮肤 - 绿 ]
+│   ├── orange/                  [ 皮肤 - 橙 ]
+│   ├── purple/                  [ 皮肤 - 紫 ]
+│   ├── css/                     [ 核心css目录 ]
+│   │   ├── FA/                  [ FontAwesome 图标字体 ]
+│   │   ├── img/                 [ zTree插件用图片 ]
+│   │   ├── style.css            [ 核心css ]
+│   │   ├── bootstrap.min.css    [ bootstrap css ]
+│   │   └── ie7.css              [ 低版本IE警告提示css ]
+│   └── fonts/                   [ bootstrap 图标字体 ]
+├── plugins/                     [ -- 插件目录 -- ]
+│   ├── bootstrapSelect/         [ select美化 ]
+│   ├── colorpicker/             [ 颜色选择器 ]
+│   ├── dragsort/                [ 拖动排序 ]
+│   ├── icheck/                  [ 单、复选框美化 ]
+│   ├── kindeditor_4.1.10/       [ 编辑器 ]
+│   ├── niceValidator/           [ 表单验证 ]
+│   ├── uploadify/               [ 上传组件-用于IE8-9 ]
+│   ├── swfupload/               [ kindeditor和uploadify共用的swf上传插件 ]
+│   ├── ztree/                   [ zTree插件 ]
+│   ├── other/                   [ 其他插件 ]
+│   │   └── jquery.autosize.js   [ textarea高度自适应 ]
+│   └── bootstrap.min.js         
+└── other/                         [-- 其他 --]
+    ├── jquery.iframe-transport.js [ 为iframe方式提交表单提供支持（方便通过ajax方式提交file框） ]
+    ├── html5shiv.min.js           [ for IE8-9 ]
+    └── respond.min.js             [ for IE8-9 ]
+
+        </pre>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

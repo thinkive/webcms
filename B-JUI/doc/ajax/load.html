@@ -1,0 +1,100 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">Ajax加载DOM，局部刷新</h3>
+        <blockquote>
+            <p>本节主要介绍框架的Ajax加载DOM及局部刷新。</p>
+        </blockquote>
+        <blockquote class="point">
+            <p>框架会为局部刷新的容器添加class [ <code>bjui-layout</code> ]以保证刷新DIV时不影响其他内容。</p>
+        </blockquote>
+        <h4>初始化</h4>
+        <ul>
+            <li>Data属性：元素添加属性<code>data-toggle="ajaxload"</code>后，单击触发 <b>或</b> 容器(如：div)添加属性<code>data-toggle="autoajaxload"</code>后，自动加载url指定的内容。<br>
+                <span class="label label-default">DOM示例：</span>　<a href="doc/ajax/myload.html" data-toggle="dialog" data-id="myload" data-title="我的ajaxLoad表单" data-width="600" data-height="400">打开ajaxLoad表单</a><br>
+                <p>示例代码 -- <b>单击加载</b>：</p>
+                <pre class="brush: html">
+                    &lt;a href="doc/ajax/mylayout.html" class="btn btn-default" data-toggle="ajaxload" data-target="#myLoadDiv1">单击加载内容&lt;/a>
+                    <div id="myLoadDiv1"></div>
+                </pre>
+                <p>示例代码 -- <b>自动加载</b>：</p>
+                <pre class="brush: html">
+                    &lt;div id="myLoadDiv2" data-toggle="autoajaxload" data-url="doc/ajax/mylayout.html">&lt;/div>
+                </pre>
+            </li>
+            <li>Data属性：元素添加属性<code>data-toggle="refreshlayout"</code>后，单击可以刷新指定容器。<br>
+                <p>示例代码 -- <b>单击刷新</b>：</p>
+                <pre class="brush: html">
+                    &lt;button type="button" class="btn-default" data-toggle="refreshlayout" data-target="#myLoadDiv1">刷新DIV&lt;/button>
+                </pre>
+            </li>
+            <li>jQuery API：
+                <p><b>加载：</b></p>
+                <pre class="brush: js">
+                    $(selector).bjuiajax('doLoad', options)
+                </pre>
+                <p><b>刷新：</b></p>
+                <pre class="brush: js">
+                    $(selector).bjuiajax('refreshLayout', options)
+                </pre>
+                <p><b>刷新指定ID的div容器<code>多个id以<b> , </b>分隔</code>：</b></p>
+                <pre class="brush: js">
+                    $(selector).bjuiajax('refreshDiv', divid)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>target</td>
+                    <td>selector</td>
+                    <td>null</td>
+                    <td>[必选] 目标容器的 <code>jQuery选择器表达式</code> 或 <code>DOM对象</code>。</td>
+                </tr>
+                <tr>
+                    <td>url</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[必选] <span class="badge"><i>D-Url</i></span> 远程加载的URL，a链接触发时可以将url定义在href属性。</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>string</td>
+                    <td>GET</td>
+                    <td>[可选] ajax请求方式。</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>object</td>
+                    <td>null</td>
+                    <td>[可选] ajax请求发送到服务器的数据。</td>
+                </tr>
+                <tr>
+                    <td>loadingmask</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] ajax请求时是否显示数据加载遮罩。</td>
+                </tr>
+                <tr>
+                    <td>autorefresh</td>
+                    <td>boolean/int(秒)</td>
+                    <td>false</td>
+                    <td>[可选] 指定该div容器是否可自动刷新，为true时默认间隔15秒自动刷新，指定具体的秒数则以指定的间隔秒值自动刷新。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

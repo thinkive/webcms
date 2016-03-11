@@ -1,0 +1,94 @@
+<script type="text/javascript">
+//选择事件
+function S_NodeCheck(e, treeId, treeNode) {
+    var zTree = $.fn.zTree.getZTreeObj(treeId),
+        nodes = zTree.getCheckedNodes(true)
+    var ids = '', names = ''
+    
+    for (var i = 0; i < nodes.length; i++) {
+        ids   += ','+ nodes[i].id
+        names += ','+ nodes[i].name
+    }
+    if (ids.length > 0) {
+        ids = ids.substr(1), names = names.substr(1)
+    }
+    
+    var $from = $('#'+ treeId).data('fromObj')
+    
+    if ($from && $from.length) $from.val(names)
+}
+//单击事件
+function S_NodeClick(event, treeId, treeNode) {
+    var zTree = $.fn.zTree.getZTreeObj(treeId)
+    
+    zTree.checkNode(treeNode, !treeNode.checked, true, true)
+    
+    event.preventDefault()
+}
+</script>
+<div class="bjui-pageContent">
+    <div style="margin:15px auto 0; width:800px;">
+        <fieldset>
+            <legend>文本框</legend>
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>样例</th>
+                        <th>属性</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td align="right">zTree选择[多选]：</td>
+                        <td>
+                            <input type="text" name="menus" id="j_ztree_menus1" data-toggle="selectztree" size="18" data-tree="#j_select_tree1" readonly>
+                            <ul id="j_select_tree1" class="ztree hide" data-toggle="ztree" data-expand-all="true" data-check-enable="true" data-on-check="S_NodeCheck" data-on-click="S_NodeClick">
+                                <li data-id="1" data-pid="0">表单元素</li>
+                                <li data-id="10" data-pid="1" data-url="form-button.html" data-tabid="form-button">按钮</li>
+                                <li data-id="11" data-pid="1" data-url="form-input.html" data-tabid="form-input">文本框</li>
+                                <li data-id="12" data-pid="1" data-url="form-select.html" data-tabid="form-select">下拉选择框</li>
+                                <li data-id="13" data-pid="1" data-url="form-checkbox.html" data-tabid="table">复选、单选框</li>
+                                <li data-id="14" data-pid="1" data-url="form.html" data-tabid="form">表单综合演示</li>
+                                <li data-id="2" data-pid="0">表格</li>
+                                <li data-id="20" data-pid="2" data-url="table.html" data-tabid="table">普通表格</li>
+                                <li data-id="21" data-pid="2" data-url="table-fixed.html" data-tabid="table-fixed">固定表头表格</li>
+                                <li data-id="22" data-pid="2" data-url="table-edit.html" data-tabid="table-edit">可编辑表格</li>
+                            </ul>
+                        </td>
+                        <td>data-toggle="selectztree" data-tree="#j_select_tree1"</td>
+                    </tr>
+                    <tr>
+                        <td align="right">zTree选择[单选]：</td>
+                        <td>
+                            <input type="text" name="menus" id="j_ztree_menus2" data-toggle="selectztree" size="18" data-tree="#j_select_tree2" readonly>
+                            <ul id="j_select_tree2" class="ztree hide" data-toggle="ztree" data-expand-all="true" data-check-enable="true" data-chk-style="radio" data-radio-type="all" data-on-check="S_NodeCheck" data-on-click="S_NodeClick">
+                                <li data-id="1" data-pid="0">表单元素</li>
+                                <li data-id="10" data-pid="1" data-url="form-button.html" data-tabid="form-button">按钮</li>
+                                <li data-id="11" data-pid="1" data-url="form-input.html" data-tabid="form-input">文本框</li>
+                                <li data-id="12" data-pid="1" data-url="form-select.html" data-tabid="form-select">下拉选择框</li>
+                                <li data-id="13" data-pid="1" data-url="form-checkbox.html" data-tabid="table">复选、单选框</li>
+                                <li data-id="14" data-pid="1" data-url="form.html" data-tabid="form">表单综合演示</li>
+                                <li data-id="2" data-pid="0">表格</li>
+                                <li data-id="20" data-pid="2" data-url="table.html" data-tabid="table">普通表格</li>
+                                <li data-id="21" data-pid="2" data-url="table-fixed.html" data-tabid="table-fixed">固定表头表格</li>
+                                <li data-id="22" data-pid="2" data-url="table-edit.html" data-tabid="table-edit">可编辑表格</li>
+                            </ul>
+                        </td>
+                        <td>data-toggle="selectztree" data-tree="#j_select_tree2"</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div class="alert alert-warning form-inline"><i class="fa fa-warning"></i> <strong>data-tree 属性说明：</strong>对应一个隐藏的zTree选择器。</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

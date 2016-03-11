@@ -1,0 +1,86 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">Ajax提交表单</h3>
+        <blockquote>
+            <p>本节主要介绍框架的普通表单提交及相关参数。</p>
+        </blockquote>
+        <h4>初始化</h4>
+        <ul>
+            <li>Data属性：form添加属性<code>data-toggle="validate"</code>或<code>data-toggle="ajaxform"</code>。其中<code>data-toggle="validate"</code>属性需要通过验证后才能提交。<br>
+                <span class="label label-default">DOM示例：</span>　<a href="doc/ajax/myform.html" data-toggle="dialog" data-id="myform" data-title="我的表单页面" data-width="600" data-height="400">打开测试表单</a><br>
+                <p>示例代码：</p>
+                <pre class="brush: html">
+                    &lt;form action="ajaxDone1.html" data-toggle="validate">
+                        <p><label class="x85">登录名：</label><input type="text" name="username" data-rule="required" placeholder="登录名"></p>
+                        <p><label class="x85">密码：</label><input type="password" name="password" data-rule="required;" placeholder="登录密码"></p>
+                        <p class="text-center"><button type="submit" class="btn-default">提 交</button></p>
+                    &lt;/form>
+                </pre>
+                <pre class="brush: html">
+                    &lt;form action="ajaxDone1.html" data-toggle="ajaxform">
+                        <p><label class="x85">登录名：</label><input type="text" name="username" data-rule="required" placeholder="登录名"></p>
+                        <p><label class="x85">密码：</label><input type="password" name="password" data-rule="required;" placeholder="登录密码"></p>
+                        <p class="text-center"><button type="submit" class="btn-default">提 交</button></p>
+                    &lt;/form>
+                </pre>
+            </li>
+            <li>jQuery API：<code>API方式目前不支持验证提交。</code><br>
+                <pre class="brush: js">
+                    $(form).bjuiajax('ajaxForm', options)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>confirmMsg</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[可选] 提交表单前的确认提示。</td>
+                </tr>
+                
+                <tr>
+                    <td>callback</td>
+                    <td>function(json)</td>
+                    <td>null</td>
+                    <td>[可选] 默认由内置回调函数处理，参数json由服务端返回。</td>
+                </tr>
+                <tr>
+                    <td>loadingmask</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] ajax请求时是否显示数据加载遮罩。</td>
+                </tr>
+                <tr>
+                    <td>reload</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td><code>[默认回调函数使用]</code> 表单提交成功后，是否刷新当前窗口。</td>
+                </tr>
+                <tr>
+                    <td>reloadNavtab</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td><code>[默认回调函数使用](仅限dialog及局部刷新)</code> 表单提交成功后，是否刷新当前navtab。</td>
+                </tr>
+            </tbody>
+        </table>
+        <blockquote class="point">
+            <p>form如果有属性<code>enctype="multipart/form-data"</code>，支持HTML5的浏览器以FormData方式提交数据，不支持的（IE8-9）则由iframe提交。</p>
+        </blockquote>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

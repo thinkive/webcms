@@ -1,0 +1,173 @@
+<script type="text/javascript">
+$('#test-datagrid').datagrid({
+    gridTitle : 'datagrid 完整示例',
+    showToolbar: true,
+    toolbarItem: 'all',
+    local: 'local',
+    dataUrl: 'datagrid/datagrid-demo-json.js',
+    dataType: 'json',
+    sortAll: true,
+    filterAll: true,
+    columns: [
+        {
+            name: 'code',
+            label: '门诊号',
+            align: 'center',
+            width: 70
+        },
+        {
+            label: '挂号信息',
+            columns: [{
+                name: 'regdate',
+                label: '挂号日期',
+                align: 'center',
+                type: 'date',
+                pattern: 'yyyy-MM-dd HH:mm:ss',
+                render: function(value) {
+                    return value ? value.substr(0, 16) : value
+                }
+            },
+            {
+                name: 'order',
+                label: '当日序号',
+                align: 'center',
+                width: 50
+            },
+            {
+                name: 'regname',
+                label: '挂号类别'
+            },
+            {
+                name: 'deptname',
+                label: '科室名称'
+            },
+            {
+                name: 'regfee',
+                label: '挂号费',
+                align: 'center',
+                width: 60
+            }]
+        },
+        {
+            label: '病人信息',
+            columns: [{
+                name: 'name',
+                label: '姓名',
+                align: 'center',
+                width: 70
+            },
+            {
+                name: 'sex',
+                label: '性别',
+                align: 'center',
+                width: 45,
+                render: function(value) {
+                    return String(value) == 'true' ? '男' : '女'
+                }
+            },
+            {
+                name: 'age',
+                label: '年龄',
+                align: 'center',
+                type: 'number',
+                width: 45,
+                render: function(value) {
+                    return 2015 - parseInt(value)
+                }
+            }]
+        },
+        {
+            label: '就诊信息',
+            columns: [{
+                name: 'fr',
+                label: '是否初诊',
+                align: 'center',
+                width: 70
+            },
+            {
+                name: 'see',
+                label: '已就诊',
+                align: 'center',
+                width: 55
+            },
+            {
+                name: 'seedate',
+                label: '就诊时间',
+                align: 'center',
+                type: 'date',
+                pattern: 'yyyy-MM-dd HH:mm:ss'
+            }]
+        },
+        {
+            name: 'opercode',
+            label: '操作员编号',
+            align: 'center'
+        },
+        {
+            name: 'operdate',
+            label: '操作时间',
+            align: 'center',
+            type: 'date',
+            pattern: 'yyyy-MM-dd HH:mm:ss'
+        }
+    ],
+    hiddenFields: [{name:'deptcode'}],
+    editUrl: 'ajaxDone1.html',
+    paging: {pageSize:50, pageCurrent:10},
+    showCheckboxCol: true,
+    showEditBtnsCol: true,
+    linenumberAll: true,
+    fullGrid:true
+})
+</script>
+<div class="bjui-pageContent">
+<script type="text/javascript">
+var $datagrid = $('#test-datagrid')
+
+function displayLinenumberCol(flag) {
+    $datagrid.datagrid('showLinenumber', flag)
+}
+function unLockLinenumberCol() {
+    $datagrid.datagrid('colLock', 0, false)
+}
+function displayCheckboxCol(flag) {
+    $datagrid.datagrid('showCheckboxcol', flag)
+}
+function displayEditCol(flag) {
+    $datagrid.datagrid('showEditCol', flag)
+}
+function displayCol(flag, index) {
+    $datagrid.datagrid('showhideColumn', index, flag)
+}
+function lockCol(flag, index) {
+    $datagrid.datagrid('colLock', index, flag)
+}
+function doEditTr(index) {
+    $datagrid.datagrid('doEditRow', index)
+}
+function doCancelEditTr(index) {
+    $datagrid.datagrid('doCancelEditRow', index)
+}
+function doSaveEditTr(index) {
+    $datagrid.datagrid('doSaveEditRow', index)
+}
+function doDelTr(index) {
+    $datagrid.datagrid('doDelRow', index)
+}
+</script>
+    <div style="margin:15px;">
+        <button type="button" class="btn-default" onclick="displayLinenumberCol(true);">显示行号列</button>
+        <button type="button" class="btn-default" onclick="displayLinenumberCol(false);">隐藏行号列</button>
+        <button type="button" class="btn-default" onclick="displayLinenumberCol('lock');">锁定行号列</button>
+        <button type="button" class="btn-default" onclick="displayLinenumberCol('unlock');">解锁行号列</button>
+        <button type="button" class="btn-default" onclick="displayCheckboxCol(true);">显示复选框列</button>
+        <button type="button" class="btn-default" onclick="displayCheckboxCol(false);">隐藏复选框列</button>
+        <button type="button" class="btn-default" onclick="displayCheckboxCol('lock');">锁定复选框列</button>
+        <button type="button" class="btn-default" onclick="displayCheckboxCol('unlock');">解锁复选框列</button>
+        <button type="button" class="btn-default" onclick="displayEditCol(true);">显示编辑按钮列</button>
+        <button type="button" class="btn-default" onclick="displayEditCol(false);">隐藏编辑按钮列</button>
+        <hr style="margin: 5px 0">
+        <table id="test-datagrid" data-width="100%" data-height="500" class="table table-bordered">
+        </table>
+    </div>
+</div>

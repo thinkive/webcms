@@ -1,0 +1,108 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">日期选择器</h3>
+        <blockquote>
+            <p>本节主要介绍框架的日期选择器。</p>
+        </blockquote>
+        <h4>初始化</h4>
+        <ul>
+            <li>Data属性：input添加属性<code>data-toggle="datepicker"</code>。
+                <span class="label label-default">DOM示例：</span>　<input type="text" class="doc_datepicker" data-toggle="datepicker"><br>
+                <p>示例代码：</p>
+                <pre class="brush: html">
+                    &lt;input type="text" data-toggle="datepicker">
+                </pre>
+            </li>
+            <li>jQuery API：<code>options为空时，默认初始化为当前日期</code><br>
+                <pre class="brush: js">
+                    $(input).datepicker(options)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>pattern</td>
+                    <td>string</td>
+                    <td>yyyy-MM-dd</td>
+                    <td>[可选] 日期格式（y=年， M=月，d=日，H=时，m=分，s=秒）。</td>
+                </tr>
+                <tr>
+                    <td>minDate</td>
+                    <td>string</td>
+                    <td>1900-01-01</td>
+                    <td>[可选] 日历范围的开始日期。支持动态格式，如<code>data-min-date="{%y-10}-%M-%d"</code>表示将最开始日期定为比当前日期小十年。<code>%y = 本年</code>，<code>%M = 本月</code>，<code>%d = 今天</code>。</td>
+                </tr>
+                <tr>
+                    <td>maxDate</td>
+                    <td>string</td>
+                    <td>2099-12-31</td>
+                    <td>[可选] 日历范围的结束日期。支持动态格式，同上。</td>
+                </tr>
+                <tr>
+                    <td>mmStep</td>
+                    <td>int</td>
+                    <td>1</td>
+                    <td>[可选] 调整时间：[分] 的步长。<code>日期格式包含 [m] 时有效</code></td>
+                </tr>
+                <tr>
+                    <td>ssStep</td>
+                    <td>int</td>
+                    <td>1</td>
+                    <td>[可选] 调整时间：[秒] 的步长。<code>日期格式包含 [s] 时有效</code></td>
+                </tr>
+                <tr>
+                    <td>nobtn</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] 文本框右边是否显示日历按钮</td>
+                </tr>
+                <tr>
+                    <td>onlybtn</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] 只有点击日历按钮时才触发日期选择器</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>事件</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>事件名称</th>
+                    <th>中文说明</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>afterchange.bjui.datepicker</td>
+                    <td>日期选择后的事件</td>
+                    <td>监听该事件，可以在选定某个日期后进行相关操作。</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>这样监听datepicker的事件：<code>mydate - selector</code>表示触发日期选择的input选择器</p>
+        <pre class="brush: js">
+            $('mydate - selector').on('afterchange.bjui.datepicker', function(e, data) {
+                var mydate = data.value
+                
+                // do something...
+            })
+        </pre>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

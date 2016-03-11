@@ -1,0 +1,25 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">示例：myvalidate， 我的测试表单。</h3>
+        <form action="ajaxDone1.html" data-toggle="validate">
+            <p><label class="x85">用户身份：</label><select name="role" data-rule="required" data-toggle="selectpicker">
+                    <option value=""></option>
+                    <option value="a">管理员</option>
+                    <option value="b">项目负责人</option>
+                    <option value="c">执行人</option>
+                </select>
+            </p>
+            <p><label class="x85">登录名：</label><input type="text" name="username" data-rule="required" data-tip="你好啊，请填写用户名" data-ok="用户名可用" placeholder="登录名"></p>
+            <p><label class="x85">密码：</label><input type="password" name="password" data-rule="required;" placeholder="登录密码"></p>
+            <p><label class="x85">记住：</label><input type="checkbox" name="remember" value="true" id="doc-validate-remember" data-toggle="icheck" data-rule="checked" data-label="记住登陆信息"></p>
+            <p><hr></p>
+            <p><label class="x85"></label><button type="submit" class="btn-default">提 交</button></p>
+            <p><div id="A1"></div></p>
+        </form>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

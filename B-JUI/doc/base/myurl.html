@@ -1,0 +1,24 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">示例：我的URL动态赋值演示。</h3>
+        <fieldset>
+            <legend>搜索表单</legend>
+            <form action="doQueryUser?name={#test-myurl-username}&sex={#test-myurl-sex}" id="test-myurl-form">
+                <p><label class="x85">用户名：</label><input type="text" name="username" id="test-myurl-username" value="八戒" placeholder="用户名"></p>
+                <p><label class="x85">性别：</label><select data-toggle="selectpicker" id="test-myurl-sex"><option value="0">男</option><option value="1">女</option><option value="2">妖</option></select></p>
+                <p class="text-center">
+                    <button type="button" class="btn-default" onclick="$('#test-myurl-url').html($('#test-myurl-form').attr('action'))">未动态赋值</button>
+                    <button type="button" class="btn-orange" onclick="$('#test-myurl-url').html($('#test-myurl-form').attr('action').replacePlh($('#test-myurl-url').closest('.unitBox')))">动态赋值</button>
+                </p>
+            </form>
+        </fieldset>
+        <b>结果URL：</b><br>
+        <p id="test-myurl-url"></p>
+        <blockquote class="point"><p>请尝试更改用户名，再点击动态赋值。</p></blockquote>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

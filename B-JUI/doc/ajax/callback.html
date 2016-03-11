@@ -1,0 +1,79 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">Ajax回调函数</h3>
+        <blockquote>
+            <p>本节主要介绍框架的Ajax回调函数。</p>
+        </blockquote>
+        <blockquote class="point">
+            <p>自定义函数参数为：callback，通过DOM附加：<code>data-callback="自定义函数名称"</code>，自定义函数名称不带括号及参数。</p>
+        </blockquote>
+        <p>自定义回调函数示例：</p>
+        <pre class="brush: js">
+            function mycallback(json) {
+                $(this)
+                    .bjuiajax('ajaxDone', json)       // 信息提示
+                    .navtab('refresh')                // 刷新当前navtab
+                    .navtab('reloadFlag', json.tabid) // 为指定的tabid设置刷新标记
+                
+                //do other something...
+            }
+        </pre>
+        <h4>JSON参数</h4>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>statusCode</td>
+                    <td>int</td>
+                    <td><strong>必选。</strong>状态码(ok = 200, error = 300, timeout = 301)，可以在BJUI.init时配置三个参数的默认值。</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>string</td>
+                    <td><strong>可选。</strong>信息内容。</td>
+                </tr>
+                <tr>
+                    <td>tabid</td>
+                    <td>string</td>
+                    <td><strong>可选。</strong>待刷新navtab id，多个id以英文逗号分隔开，当前的navtab id不需要填写，填写后可能会导致当前navtab重复刷新。</td>
+                </tr>
+                <tr>
+                    <td>dialogid</td>
+                    <td>string</td>
+                    <td><strong>可选。</strong>待刷新dialog id，多个id以英文逗号分隔开，请不要填写当前的dialog id，<strong>要控制刷新当前dialog，请设置dialog中表单的reload参数。</strong></td>
+                </tr>
+                <tr>
+                    <td>divid</td>
+                    <td>string</td>
+                    <td><strong>可选。</strong>待刷新div id，多个id以英文逗号分隔开，请不要填写当前的div id，<strong>要控制刷新当前div，请设置该div中表单的reload参数。</strong></td>
+                </tr>
+                <tr>
+                    <td>closeCurrent</td>
+                    <td>boolean</td>
+                    <td><strong>可选。</strong>是否关闭当前窗口(navtab或dialog)。</td>
+                </tr>
+                <tr>
+                    <td>forward</td>
+                    <td>string</td>
+                    <td><strong>可选。</strong>跳转到某个url。</td>
+                </tr>
+                <tr>
+                    <td>forwardConfirm</td>
+                    <td>string</td>
+                    <td><strong>可选。</strong>跳转url前的确认提示信息。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

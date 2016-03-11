@@ -1,0 +1,191 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">navtab参数、方法及事件</h3>
+        <blockquote>
+            <p>本节介绍navtab组件的参数、方法及事件。</p>
+        </blockquote>
+        <h4>参数（options）</h4>
+        <blockquote>
+            <p>DOM方式初始化navtab的，推荐使用集合属性<code>data-options</code>定义参数，如果使用<code>data属性</code>定义参数，注意转换成对应的名称，参见<a href="doc/base/data.html" data-toggle="navtab" data-id="doc-base">data属性</a>一节。</p>
+        </blockquote>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id</td>
+                    <td>string</td>
+                    <td>undefined</td>
+                    <td>[必选] 标签的ID，如果指定重复，将覆盖现有的ID相同标签。</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>string</td>
+                    <td>New tab</td>
+                    <td>[可选] 标签打开后显示的名称。</td>
+                </tr>
+                <tr>
+                    <td>url</td>
+                    <td>string</td>
+                    <td>undefined</td>
+                    <td>[必选] <span class="badge"><i>D-Url</i></span> 请求数据的url，a链接触发时可以将url定义在href属性。</td>
+                </tr>
+                <tr>
+                    <td>external</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] 是否以iframe方式加载外部页面。</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>string</td>
+                    <td>GET</td>
+                    <td>[可选] Http请求方式，可选‘GET/POST’。</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>object</td>
+                    <td>{}</td>
+                    <td>[可选] 请求url时，需要发送的data数据。</td>
+                </tr>
+                <tr>
+                    <td>loadingmask</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] ajax请求时是否显示数据加载遮罩。</td>
+                </tr>
+                <tr>
+                    <td>fresh</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] 是否保持该navtab的新生状态，表现在重复打开该navtab时，是否重新载入内容。</td>
+                </tr>
+                <tr>
+                    <td>reloadWarn</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[可选] 当准备在已存在的navtab上加载内容时的确认提示信息。</td>
+                </tr>
+                <tr>
+                    <td>autorefresh</td>
+                    <td>boolean/int(秒)</td>
+                    <td>false</td>
+                    <td>[可选] 指定该navtab是否可自动刷新，为true时默认间隔15秒自动刷新，指定具体的秒数则以指定的间隔秒值自动刷新。</td>
+                </tr>
+                <tr>
+                    <td>onLoad</td>
+                    <td>function($navtab)</td>
+                    <td>null</td>
+                    <td>[可选] navtab加载完成后的事件回调，回调函数的参数<code>$navtab</code>为该navtab内容区的jQuery对象。</td>
+                </tr>
+                <tr>
+                    <td>beforeClose</td>
+                    <td>function($navtab)</td>
+                    <td>null</td>
+                    <td>[可选] <b>返回值: boolean</b>。 navtab关闭前的事件回调，返回true则关闭，返回false不关闭。</td>
+                </tr>
+                <tr>
+                    <td>onClose</td>
+                    <td>function()</td>
+                    <td>null</td>
+                    <td>[可选] navtab关闭后的事件回调。</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>方法</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>方法名</th>
+                    <th>参数类型</th>
+                    <th>参数说明</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>switchTab(tabid)</td>
+                    <td>string</td>
+                    <td>标签ID</td>
+                    <td>切换到某个标签。</td>
+                </tr>
+                <tr>
+                    <td>refresh(tabid)</td>
+                    <td>string</td>
+                    <td>标签ID，<code>ID为空</code>则刷新当前标签</td>
+                    <td>刷新某个标签。</td>
+                </tr>
+                <tr>
+                    <td>reloadFlag(tabids)</td>
+                    <td>string</td>
+                    <td>一个或多个标签ID，多个ID以<code>,</code>分隔</td>
+                    <td>为某(几)个标签设定重载标记(当切换到该标签时重新载入)。</td>
+                </tr>
+                <tr>
+                    <td>reload(options)</td>
+                    <td>object</td>
+                    <td>同navtab默认参数</td>
+                    <td>重新载入某个标签，如果未指定ID，则默认重载入当前标签。</td>
+                </tr>
+                <tr>
+                    <td>closeTab(tabid)</td>
+                    <td>string</td>
+                    <td>标签ID</td>
+                    <td>关闭某个标签。</td>
+                </tr>
+                <tr>
+                    <td>closeCurrentTab([tabid])</td>
+                    <td>string</td>
+                    <td>标签ID，可选。</td>
+                    <td>关闭当前标签。</td>
+                </tr>
+                <tr>
+                    <td>closeAllTab()</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>关闭所有标签。</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>事件</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>事件名称</th>
+                    <th>中文说明</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>bjui.beforeLoadNavtab</td>
+                    <td>载入navtab内容前事件</td>
+                    <td>监听该事件，可以在载入navtab内容前进行相关操作。</td>
+                </tr>
+                <tr>
+                    <td>bjui.beforeCloseNavtab</td>
+                    <td>关闭navtab前事件</td>
+                    <td>监听该事件，可以在关闭navtab前进行相关操作。</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>这样监听navtab的事件：</p>
+        <pre class="brush: js">
+            $(document).on('bjui.beforeLoadNavtab', function(e) {
+                var $navtab = $(e.target)
+                // do something...
+            })
+        </pre>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

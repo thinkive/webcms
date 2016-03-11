@@ -1,0 +1,82 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">横向导航菜单(hnav)</h3>
+        <blockquote>
+            <p>本节介绍B-JUI框架的横向导航菜单，html结构如下：</p>
+        </blockquote>
+        <pre class="brush: html">
+            &lt;div id="bjui-hnav"&gt;
+                &lt;button type="button" class="bjui-hnav-toggle btn-default" data-toggle="collapse" data-target="#bjui-hnav-navbar"&gt;
+                    &lt;i class="fa fa-bars"&gt;&lt;/i&gt;
+                &lt;/button&gt;
+                &lt;ul id="bjui-hnav-navbar"&gt;
+                    <!-- 欢迎 -->
+                    &lt;li style="width:204px;"&gt;&lt;a&gt;欢迎您，超级管理员！&lt;/a&gt;&lt;/li&gt;
+                    
+                    <!-- zTree菜单 - BEGIN -->
+                    &lt;li class="active"&gt;&lt;a href="javascript:;" data-toggle="slidebar"&gt;表单元素&lt;/a&gt;
+                        &lt;div class="items hide" data-noinit="true"&gt;
+                            &lt;ul id="bjui-hnav-tree-input" class="ztree ztree_main" data-toggle="ztree" data-on-click="MainMenuClick" data-expand-all="true" data-faicon="check-square-o" data-title="基本元素"&gt;
+                                &lt;li data-id="1" data-pid="0" data-faicon="folder-open-o" data-faicon-close="folder-o"&gt;表单元素&lt;/li&gt;
+                                &lt;li data-id="10" data-pid="1" data-url="form-button.html" data-tabid="form-button" data-faicon="hand-o-up"&gt;按钮&lt;/li&gt;
+                                &lt;li data-id="11" data-pid="1" data-url="form-input.html" data-tabid="form-input" data-faicon="terminal"&gt;文本框&lt;/li&gt;
+                                &lt;li data-id="12" data-pid="1" data-url="form-select.html" data-tabid="form-select" data-faicon="caret-square-o-down"&gt;下拉选择框&lt;/li&gt;
+                                &lt;li data-id="13" data-pid="1" data-url="form-checkbox.html" data-tabid="table" data-faicon="check-square-o"&gt;复选、单选框&lt;/li&gt;
+                                
+                            &lt;/ul&gt;
+                            &lt;ul id="bjui-hnav-tree-form" class="ztree ztree_main" data-toggle="ztree" data-on-click="MainMenuClick" data-expand-all="true" data-faicon="list" data-title="综合演示"&gt;
+                                &lt;li data-id="1" data-pid="0" data-faicon="folder-open-o" data-faicon-close="folder-o"&gt;表单演示&lt;/li&gt;
+                                &lt;li data-id="14" data-pid="1" data-url="form.html" data-tabid="form" data-faicon="list"&gt;表单综合演示&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;<!-- zTree菜单 - END -->
+                    
+                    <!-- 列表菜单 - BEGIN -->
+                    &lt;li&gt;&lt;a href="javascript:;" data-toggle="slidebar"&gt;表单元素&演示&lt;/a&gt;
+                        &lt;div class="items hide" data-noinit="true"&gt;
+                            &lt;ul class="menu-items" data-faicon="hand-o-up"&gt;
+                                &lt;li&gt;&lt;a href="form-button.html" data-options="{id:'form-button', faicon:'hand-o-up'}"&gt;按钮&lt;/a&gt;&lt;b&gt;&lt;i class="fa fa-angle-down"&gt;&lt;/i&gt;&lt;/b&gt;
+                                    <!-- 子级菜单 -->
+                                    &lt;ul class="menu-items-children"&gt;
+                                        &lt;li&gt;&lt;a href="form-input.html" data-options="{id:'form-input', faicon:'terminal'}"&gt;文本框&lt;/a&gt;&lt;/li&gt;
+                                        &lt;li&gt;&lt;a href="form-select.html" data-options="{id:'form-select', faicon:'caret-square-o-down'}"&gt;下拉选择框&lt;/a&gt;&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;&lt;a href="form-input.html" data-options="{id:'form-input', faicon:'terminal'}"&gt;文本框&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="form-select.html" data-options="{id:'form-select', faicon:'caret-square-o-down'}"&gt;下拉选择框&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="form-checkbox.html" data-options="{id:'form-checkbox', faicon:'check-square-o'}"&gt;复选、单选框&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;ul class="menu-items" data-title="表单Demo" data-faicon="list"&gt;
+                                &lt;li&gt;&lt;a href="form.html" data-options="{id:'form-demo', faicon:'th-large'}"&gt;表单示例&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;<!-- zTree菜单 - End -->
+                    
+                    <!-- 下拉菜单 - BEGIN -->
+                    &lt;li&gt;&lt;a href="#" class="dropdown-toggle" data-toggle="dropdown"&gt;<!-- 下拉菜单 -->&lt;/a&gt;
+                        &lt;ul class="dropdown-menu" role="menu"&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;<!-- 下拉菜单一 -->&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;<!-- 下拉菜单二 -->&lt;/a&gt;&lt;/li&gt;
+                            ...
+                        &lt;/ul&gt;
+                    &lt;/li&gt;<!-- 下拉菜单 - END -->
+                    ...
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        </pre>
+        <blockquote class="point">
+            <p><strong>说明：</strong></p>
+            <ul>
+                <li>横向菜单(#bjui-hnav-navbar)的li元素添加Class<code>active</code>，并含有class为<code>items hide</code>包裹有zTree菜单或列表菜单的div，则在框架初始化完成后，对应的zTree或列表会自动加载到左侧导航栏</li>
+                <li>zTree菜单：横向菜单的a链接属性 <code>data-toggle</code>为<code>slidebar</code>时，点击本链接将对应的zTree或列表加载到左侧导航栏</li>
+                <li>下拉菜单：横向菜单的a链接属性 <code>data-toggle</code>为<code>dropdown</code>时，触发下拉菜单</li>
+                <li>div(items)容器中的ul属性<code>data-faicon</code>可以定义左侧导航栏模块的icon图标，属性<code>data-tit</code>可定义模块的名称</li>
+            </ul>
+        </blockquote>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

@@ -1,0 +1,88 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">固定表头</h3>
+        <blockquote>
+            <p>本节主要介绍框架的固定表头功能。</p>
+        </blockquote>
+        <blockquote class="point">
+            <p>支持多行表头固定，调整列宽。</p>
+        </blockquote>
+        <h4>初始化</h4>
+        <ul>
+            <li>Data属性：table添加属性<code>data-toggle="tablefixed"</code>。<br>
+                <span class="label label-default">DOM示例：</span>　<a href="doc/table/myfixed.html" data-toggle="dialog" data-id="myfixed" data-title="我的固定表头" data-width="600" data-height="300">打开固定表头演示</a><br>
+                <p>示例代码：</p>
+                <pre class="brush: html">
+                    &lt;table class="table table-bordered table-hover table-striped table-top" data-toggle="tablefixed" data-height="150">
+                        &lt;thead>
+                            &lt;tr>
+                                &lt;th rowspan="2" data-order-field="operation">ID&lt;/th>
+                                &lt;th rowspan="2" data-order-field="name">姓名&lt;/th>
+                                &lt;th rowspan="2" data-order-field="sex">性别&lt;/th>
+                                &lt;th colspan="2" align="center">出生信息&lt;/th>
+                            &lt;/tr>
+                            &lt;tr>
+                                &lt;th data-order-field="birthday">出生日期&lt;/th>
+                                &lt;th data-order-field="birthplace">出生地&lt;/th>
+                            &lt;/tr>
+                        &lt;/thead>
+                        &lt;tbody>
+                            &lt;tr>
+                                &lt;td>1&lt;/td>
+                                &lt;td>一一&lt;/td>
+                                &lt;td>♂&lt;/td>
+                                &lt;td>2000-01-01&lt;/td>
+                                &lt;td>CN&lt;/td>
+                            &lt;/tr>
+                            ...
+                        &lt;/tbody>
+                    &lt;/table>
+                </pre>
+            </li>
+            <li>jQuery API：
+                <pre class="brush: js">
+                    $(table).tablefixed(options)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>nowrap</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] 禁止单元格内容自动换行。</td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>int/percent</td>
+                    <td>100%</td>
+                    <td>[可选] 表格宽度，可设固定宽度(像素)或百分比。</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>int</td>
+                    <td>null</td>
+                    <td>[可选] 表格高度(像素)。</td>
+                </tr>
+            </tbody>
+        </table>
+        <blockquote class="point">
+            <p>表格宽度(css定义的宽度)超出页片的宽度将出现<code>横向滚动条</code>，普通表格也适用。</p>
+        </blockquote>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

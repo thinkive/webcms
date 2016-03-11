@@ -1,0 +1,65 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">页面结构</h3>
+        <blockquote>
+            <p>B-JUI仅有一个主页面(document)，框架内的所有子页面将通过Ajax获取后作为一个页面片段附加到主页面上，外部页面则通过iframe嵌入主页面， 本节介绍 B-JUI的主页面结构。</p>
+        </blockquote>
+        <h4>HTML5 文档类型</h4>
+        <blockquote>
+            <p>同Bootstrap， B-JUI使用 HTML5 文档类型，参照下面的格式进行设置。</p>
+        </blockquote>
+        <pre class="brush: html">
+            &lt;!DOCTYPE html>
+            &lt;html lang="zh-CN">
+              ...
+            &lt;/html>
+        </pre>
+        <h4>主页面结构(仅body部分)</h4>
+        <blockquote>
+            <p>主页面由上（页头）、中左（导航菜单）、中右（工作区）、下（页脚）四部分组成，其中左侧导航菜单可收缩。结构如下：</p>
+        </blockquote>
+        <pre class="brush: html">
+            &lt;header id="bjui-header"&gt;
+                <!-- logo --><!-- 快捷菜单(消息、用户信息、切换皮肤) -->
+                &lt;div id="bjui-hnav"&gt;
+                    <!-- 横向菜单 -->
+                &lt;/div&gt;
+            &lt;/header&gt;
+            &lt;div id="bjui-container" class="clearfix"&gt;
+                &lt;div id="bjui-leftside"&gt;
+                    <!-- 导航栏 -->
+                &lt;/div&gt;
+                &lt;div id="bjui-navtab" class="tabsPage"&gt;
+                    <!-- 工作区(navtab) -->
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;footer id="bjui-footer"&gt;
+                <!-- 页脚 -->
+            &lt;/footer&gt;
+        </pre>
+        <h4>子页面（即页面片段[后面简称：页片]）标准结构</h4>
+        <blockquote>
+            <p>页片通常由三部分组成，也可以只保留bjui-pageContent部分，或者自定义内容。一个标准的页片结构如下：</p>
+        </blockquote>
+        <pre class="brush: html">
+            <div class="bjui-pageHeader">
+                <!-- 顶部模块[如：功能按钮、搜索面板] -->
+            </div>
+            <div class="bjui-pageContent">
+                <!-- 内容区 -->
+            </div>
+            <div class="bjui-pageFooter">
+                <!-- 底部模块[如：工具条、分页组件]  -->
+            </div>
+        </pre>
+        <blockquote class="point">
+            <p><strong>注意1：</strong>在标准结构中，<code>bjui-pageHeader</code> 和 <code>bjui-pageFooter</code> 部分是固定在页片中的，<code>bjui-pageContent</code>中的内容溢出会出现滚动条。</p>
+            <p><strong>注意2：</strong><code>bjui-pageContent</code>默认padding 10px，像表格之类的布局不需要padding的，需要再添加个Class: <code>tableContent</code>。</p>
+        </blockquote>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

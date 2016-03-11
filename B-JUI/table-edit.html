@@ -1,0 +1,198 @@
+<script type="text/javascript">
+//自动有效日期
+$(document).on('afterchange.bjui.datepicker', '.j_custom_issuedate', function(e, data) {
+    var pattern = 'yyyy-MM-dd'
+    var start   = end = data.value
+    var $end    = $(this).closest('tr').find('.j_custom_indate')
+    
+    if ($end.length) {
+        end.setFullYear(start.getFullYear() + 10)
+        end.setDate(start.getDate() - 1)
+        $end.val(end.formatDate(pattern))
+    }
+})
+//上传图片完成回调
+function custom_pic_upload_success(file, data, $upload) {
+    var json = $.parseJSON(data)
+    if (json[BJUI.keys.statusCode] == BJUI.statusCode.ok) {
+        var pic = json.navTabId
+        
+        $upload.next().val(pic).next().html('<img src="'+ pic +'" width="80" />')
+    }
+}
+//删除回调
+$('#tabledit1').on('afterdelete.bjui.tabledit', function(e) {
+    var $tbody = $(e.relatedTarget)
+    
+    console.log('你删除了一条数据，还有['+ $tbody.find('> tr').length +']条数据！')
+})
+</script>
+<div class="bjui-pageHeader">
+    <form id="pagerForm" data-toggle="ajaxsearch" action="table-edit.html" method="post">
+        <input type="hidden" name="pageNum" value="${model.pageNum}">
+        <input type="hidden" name="numPerPage" value="${model.numPerPage}">
+        <input type="hidden" name="orderField" value="${param.orderField}">
+        <input type="hidden" name="orderDirection" value="${param.orderDirection}">
+        <div class="bjui-searchBar">
+            <label>姓名：</label><input type="text" value="" name="name" size="10">&nbsp;
+            <label>护照号：</label><input type="text" value="" name="passportno" size="8">&nbsp;
+            <label>出生日期:</label><input type="text" value="" name="birthday" size="10">&nbsp;
+            <button type="submit" class="btn-default" data-icon="search">查询</button>&nbsp;
+            <a class="btn btn-orange" href="javascript:;" onclick="$(this).navtab('reloadForm', true)" data-icon="undo">清空查询</a>&nbsp;
+            <div class="alert alert-info search-inline"><i class="fa fa-info-circle"></i> 双击行可编辑</div>&nbsp;
+            <div class="pull-right">
+                <div class="btn-group">
+                    <button type="button" class="btn-default dropdown-toggle" data-toggle="dropdown" data-icon="copy">批量操作<span class="caret"></span></button>
+                    <ul class="dropdown-menu right" role="menu">
+                        <li><a href="book1.xlsx" data-toggle="doexport" data-confirm-msg="确定要导出信息吗？">导出<span style="color: green;">全部</span></a></li>
+                        <li><a href="book1.xlsx" data-toggle="doexportchecked" data-confirm-msg="确定要导出选中项吗？" data-idname="expids" data-group="ids">导出<span style="color: red;">选中</span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="ajaxDone2.html" data-toggle="doajaxchecked" data-confirm-msg="确定要删除选中项吗？" data-idname="delids" data-group="ids">删除选中</a></li>
+                    </ul>
+                </div>
+            </div>
+            <button type="button" class="btn-green" data-toggle="tableditadd" data-target="#tabledit1" data-num="1" data-icon="plus">添加编辑行</button>&nbsp;
+            <button type="button" class="btn-green" onclick="$(this).tabledit('add', $('#tabledit1'), 2)">添加编辑行2</button>
+        </div>
+    </form>
+</div>
+<div class="bjui-pageContent tableContent">
+    <form action="ajaxDone2.html" id="j_custom_form" class="pageForm" data-toggle="validate" method="post">
+        <table id="tabledit1" class="table table-bordered table-hover table-striped table-top" data-toggle="tabledit" data-initnum="0" data-action="ajaxDone3.html" data-single-noindex="true">
+            <thead>
+                <tr data-idname="customList[#index#].id">
+                    <th title="No."><input type="text" name="customList[#index#].no" class="no" data-rule="required" value="1" size="2"></th>
+                    <th title="客人姓名"><input type="text" name="customList[#index#].name" data-rule="required" value="熊大" size="5"></th>
+                    <th title="拼音姓"><input type="text" name="customList[#index#].surname" data-rule="required" value="Xiong" size="5"></th>
+                    <th title="拼音名"><input type="text" name="customList[#index#].enname" data-rule="required" value="Da" size="5"></th>
+                    <th title="性别"><select name="customList[#index#].sex" data-toggle="selectpicker" data-rule="required"><option value="true">男</option><option value="false">女</option></select></th>
+                    <th title="出生日期"><input type="text" name="customList[#index#].birthday" data-toggle="datepicker" data-rule="required" value="2010-01-02" size="10"></th>
+                    <th title="出生地"><input type="text" name="customList[#index#].birthplace" data-rule="required" value="火星" size="3"></th>
+                    <th title="居住地"><input type="text" name="customList[#index#].add" data-rule="required" value="森林" size="5"></th>
+                    <th title="护照号"><input type="text" name="customList[#index#].passportno" data-rule="required" value="010101" size="5"></th>
+                    <th title="签发日期"><input type="text" name="customList[#index#].issuedate" data-rule="required" class="j_custom_issuedate" data-toggle="datepicker" value="" size="10"></th>
+                    <th title="有效日期"><input type="text" name="customList[#index#].indate" data-rule="required" class="j_custom_indate"  data-toggle="datepicker" value="" size="10"></th>
+                    <th title="签发地"><input type="text" name="customList[#index#].issueat" data-rule="required" value="北京" size="5"></th>
+                    <th title="签证"><input type="checkbox" name="customList[#index#].visa" class="j-icheck" data-toggle="icheck" value="true"></th>
+                    <th title="职业"><input type="text" name="customList[#index#].profession" data-rule="required" value="" size="10" data-toggle="lookup" data-url="table-edit-lookup.html" data-group="customList[#index#]" data-width="700" data-height="300"></th>
+                    <th title="手机"><input type="text" name="customList[#index#].mobile" data-toggle="spinner" data-rule="required" value="1111111" size="5"></th>
+                    <th title="备注"><textarea name="customList[#index#].note" data-toggle="autoheight" rows="1"></textarea></th>
+                    <th title="照片">
+                        <div id="fileInput-custom-i[#index#]"
+                            data-toggle="upload" 
+                            data-uploader="ajaxPic.html?sessionid=?" 
+                            data-file-size-limit="1024000000"
+                            data-file-type-exts="*.jpg;*.png;*.gif;*.mpg"
+                            data-multi="true"
+                            data-on-upload-success="custom_pic_upload_success"></div>
+                        <input type="hidden" name="customList[#index#].pic" class="pic-name" value=""><span class="pic-box"></span>
+                    </th>
+                    <th title="" data-addtool="true" width="100">
+                        <a href="javascript:;" class="btn btn-green" data-toggle="dosave">保存</a>
+                        <a href="ajaxDone2.html" class="btn btn-red row-del" data-confirm-msg="确定要删除该行信息吗？">删</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-id="1">
+                    <td data-id-val="1">1</td>
+                    <td>孙悟空</td>
+                    <td>Sun</td>
+                    <td>Wukong</td>
+                    <td data-val="02">男</td>
+                    <td>0100-01-01</td>
+                    <td>花果山</td>
+                    <td>灵山</td>
+                    <td>0000011</td>
+                    <td>1000-05-01</td>
+                    <td>9999-12-31</td>
+                    <td>五指山</td>
+                    <td data-val="false">--</td>
+                    <td>保镖、斗战圣佛</td>
+                    <td>1</td>
+                    <td>--</td>
+                    <td></td>
+                    <td data-noedit="true">
+                        <button type="button" class="btn-green" data-toggle="doedit">编辑</button>
+                        <a href="ajaxDone2.html" class="btn btn-red row-del" data-confirm-msg="确定要删除该行信息吗？">删</a>
+                    </td>
+                </tr>
+                <tr data-id="2">
+                    <td>2</td>
+                    <td>唐僧</td>
+                    <td>Tang</td>
+                    <td>Seng</td>
+                    <td data-val="true">男</td>
+                    <td>0600-10-11</td>
+                    <td>洛阳</td>
+                    <td>灵山</td>
+                    <td>0000012</td>
+                    <td>1000-04-01</td>
+                    <td>9999-12-31</td>
+                    <td>洛阳</td>
+                    <td data-val="true">是</td>
+                    <td>念经</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td></td>
+                    <td data-noedit="true">
+                        <button type="button" class="btn-green" data-toggle="doedit">编辑</button>
+                        <a href="ajaxDone2.html" class="btn btn-red row-del" data-confirm-msg="确定要删除该行信息吗？">删</a>
+                    </td>
+                </tr>
+                <tr data-id="3">
+                    <td>3</td>
+                    <td>猪八戒</td>
+                    <td>Zhu</td>
+                    <td>Bajie</td>
+                    <td data-val="true">男</td>
+                    <td>0400-10-11</td>
+                    <td>高老庄</td>
+                    <td>灵山</td>
+                    <td>0000013</td>
+                    <td>1001-06-01</td>
+                    <td>9999-12-31</td>
+                    <td>高老庄</td>
+                    <td data-val="false">--</td>
+                    <td>吃饭</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td></td>
+                    <td data-noedit="true">
+                        <button type="button" class="btn-green" data-toggle="doedit">编辑</button>
+                        <a href="ajaxDone2.html" class="btn btn-red row-del" data-confirm-msg="确定要删除该行信息吗？">删</a>
+                    </td>
+                </tr>
+                <tr data-id="4">
+                    <td>4</td>
+                    <td>沙和尚</td>
+                    <td>Sha</td>
+                    <td>Heshang</td>
+                    <td data-val="true">男</td>
+                    <td>0450-10-11</td>
+                    <td>流沙河</td>
+                    <td>灵山</td>
+                    <td>0000013</td>
+                    <td>1005-07-01</td>
+                    <td>9999-12-31</td>
+                    <td>流沙河</td>
+                    <td data-val="false">--</td>
+                    <td>罗汉</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td data-val="pic-id-4"><img src="images/logo.jpg" height="30"></td>
+                    <td data-noedit="true">
+                        <button type="button" class="btn-green" data-toggle="doedit">编辑</button>
+                        <a href="ajaxDone2.html" class="btn btn-red row-del" data-confirm-msg="确定要删除该行信息吗？">删</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">全部保存</button></li>
+    </ul>
+</div>

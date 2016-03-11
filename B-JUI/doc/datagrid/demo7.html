@@ -1,0 +1,54 @@
+<div class="bjui-pageContent">
+    <div style="padding:20px;">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#datagrid-demo7-demo" role="tab" data-toggle="tab">示例</a></li>
+            <li><a href="#datagrid-demo7-source" role="tab" data-toggle="tab">源码</a></li>
+            <li><a href="#datagrid-demo7-source-xml" role="tab" data-toggle="tab">Xml源码</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="datagrid-demo7-demo">
+                <table id="doc-datagrid-table4" data-toggle="datagrid" data-options="{
+                    columns: [{name:'name', width:'150', label:'姓名'}, {name:'firstname', width:'120', label:'拼音姓'}, {name:'lastname', label:'拼音名'}],
+                    dataUrl: 'doc/datagrid/demo7-xml.xml',
+                    dataType: 'xml'
+                }"></table>
+            </div>
+            <div class="tab-pane fade" id="datagrid-demo7-source">
+                <pre class="brush: html">
+                    &lt;table id="doc-datagrid-table4" data-toggle="datagrid" data-options="{
+                        columns: [{name:'name', width:'150', label:'姓名'}, {name:'firstname', width:'120', label:'拼音姓'}, {name:'lastname', label:'拼音名'}],
+                        dataUrl: 'doc/datagrid/demo7-xml.xml',
+                        dataType: 'xml'
+                    }"&gt;&lt;/table&gt;
+                </pre>
+            </div>
+            <div class="tab-pane fade" id="datagrid-demo7-source-xml">
+                <pre class="brush: html">
+                    &lt;?xml version="1.0" encoding="UTF-8"?>
+                    &lt;rows>
+                        &lt;row>
+                            &lt;cell name="name">孙悟空&lt;/cell>
+                            &lt;cell name="firstname">Sun&lt;/cell>
+                            &lt;cell name="lastname">WuKong&lt;/cell>
+                        &lt;/row>
+                        &lt;row>
+                            &lt;cell name="name">罗宾汉&lt;/cell>
+                            &lt;cell name="firstname">Luo&lt;/cell>
+                            &lt;cell name="lastname">Binhan&lt;/cell>
+                        &lt;/row>
+                        &lt;row>
+                            &lt;cell name="name">美国队长&lt;/cell>
+                            &lt;cell name="firstname">Meiguo&lt;/cell>
+                            &lt;cell name="lastname">Duizhang&lt;/cell>
+                        &lt;/row>
+                    &lt;/rows>
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

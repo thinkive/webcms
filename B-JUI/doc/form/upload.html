@@ -1,0 +1,188 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">上传组件</h3>
+        <blockquote>
+            <p>本节主要介绍框架的上传组件功能。在本框架中，IE8-9使用uploadify组件上传，其余支持HTML5的浏览器使用HTML5上传，两种上传的API基本一致。</p>
+        </blockquote>
+        <h4>初始化</h4>
+        <script type="text/javascript">
+            function doc_upload_success(file, data) {
+                var json = $.parseJSON(data)
+                
+                $(this).bjuiajax('ajaxDone', json)
+                if (json[BJUI.keys.statusCode] == BJUI.statusCode.ok) {
+                    $('#doc_pic').val(json.filename)
+                    $('#doc_span_pic').html('已上传图片：<img src="'+ json.filename +'" width="100">')
+                }
+            }
+        </script>
+        <ul>
+            <li>Data属性：div添加属性<code>data-toggle="upload"</code>后可触发上传组件。<br>
+                <span class="label label-default">DOM示例：</span>
+                    <div style="display:inline-block; vertical-align:middle;">
+                        <div id="doc_pic_up" data-toggle="upload" data-uploader="ajaxUpload.html" 
+                            data-file-size-limit="1024000000"
+                            data-file-type-exts="*.jpg;*.png;"
+                            data-multi="true"
+                            data-on-upload-success="doc_upload_success"
+                            data-icon="cloud-upload"></div>
+                        <input type="hidden" name="doc.pic" value="" id="doc_pic">
+                    </div>
+                    <span id="doc_span_pic"></span>
+                    <br>
+                <p>示例代码：</p>
+                <pre class="brush: js; html-script: true">
+                    &lt;script type="text/javascript">
+                        function doc_upload_success(file, data) {
+                            var json = $.parseJSON(data)
+                            
+                            $(this).bjuiajax('ajaxDone', json)
+                            if (json[BJUI.keys.statusCode] == BJUI.statusCode.ok) {
+                                $('#doc_pic').val(json.filename)
+                                $('#doc_span_pic').html('已上传图片：&lt;img src="'+ json.filename +'" width="100">')
+                            }
+                        }
+                    &lt;/script>
+                    &lt;div style="display:inline-block; vertical-align:middle;">
+                        &lt;div id="doc_pic_up" data-toggle="upload" data-uploader="doc/form/ajaxPic.html" 
+                            data-file-size-limit="1024000000"
+                            data-file-type-exts="*.jpg;*.png;*.gif;*.mpg"
+                            data-multi="true"
+                            data-on-upload-success="doc_upload_success"
+                            data-icon="cloud-upload">&lt;/div>
+                        &lt;input type="hidden" name="doc.pic" value="" id="doc_pic">
+                    &lt;/div>
+                    &lt;span id="doc_span_pic">&lt;/span>
+                </pre>
+            </li>
+            <li>jQuery API：<br>
+                <pre class="brush: js">
+                    $(div).uplopd(options)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>uploader</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[必选] <span class="badge"><i>D-Url</i></span> 上传处理URL。</td>
+                </tr>
+                <tr>
+                    <td>formData</td>
+                    <td>object</td>
+                    <td>{}</td>
+                    <td>[可选] 发送到服务端的额外数据。</td>
+                </tr>
+                <tr>
+                    <td>fileTypeExts</td>
+                    <td>string</td>
+                    <td>*.jpg;*.png</td>
+                    <td>[可选] 限制上传文件类型，多个以<code>;</code>分隔。</td>
+                </tr>
+                <tr>
+                    <td>fileObjName</td>
+                    <td>string</td>
+                    <td>file</td>
+                    <td>[可选] 服务端接收到的file域名称。</td>
+                </tr>
+                <tr>
+                    <td>buttonText</td>
+                    <td>string</td>
+                    <td>选择上传文件</td>
+                    <td>[可选] 上传按钮的名称。</td>
+                </tr>
+                <tr>
+                    <td>auto</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] 是否开启自动上传。</td>
+                </tr>
+                <tr>
+                    <td>multi</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] 是否支持一次性选择多个上传文件。</td>
+                </tr>
+                <tr>
+                    <td>fileSizeLimit</td>
+                    <td>int</td>
+                    <td>204800</td>
+                    <td>[可选] 上传文件大小限制，单位 KB。</td>
+                </tr>
+                <tr>
+                    <td>onUploadSuccess</td>
+                    <td>function(file, data, $element)</td>
+                    <td>null</td>
+                    <td>[必选] 上传成功时的回调函数，data是服务端返回的JSON数据，$element是触发上传的jQuery对象。</td>
+                </tr>
+                <tr>
+                    <td>dragDrop</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] <code>HTML5专用</code>是否开启拖动上传，开启后，将文件拖到按钮上即可上传。</td>
+                </tr>
+                <tr>
+                    <td>previewImg</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] <code>HTML5专用</code>是否预览上传图片。</td>
+                </tr>
+                <tr>
+                    <td>previewLoadimg</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[可选] <code>HTML5专用</code>载入预览图片前显示的loading图标，previewImg=true时生效。</td>
+                </tr>
+                <tr>
+                    <td>icon</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[可选] <code>HTML5专用</code>上传按钮的图标。</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>回调函数的JSON参数</h4>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>statusCode</td>
+                    <td>int</td>
+                    <td><strong>必选。</strong>状态码(ok = 200, error = 300, timeout = 301)，可以在BJUI.init时配置三个参数的默认值。</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>string</td>
+                    <td><strong>可选。</strong>提示信息内容。</td>
+                </tr>
+                <tr>
+                    <td>filename</td>
+                    <td>string</td>
+                    <td><strong>可选。</strong>上传成功后的文件名称或路径。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

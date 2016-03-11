@@ -1,0 +1,227 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">dialog参数、方法及事件</h3>
+        <blockquote>
+            <p>本节介绍dialog组件的参数、方法及事件。</p>
+        </blockquote>
+        <h4>参数（options）</h4>
+        <blockquote>
+            <p>DOM方式初始化dialog的，推荐使用集合属性<code>data-options</code>定义参数，如果使用<code>data属性</code>定义参数，注意转换成对应的名称，参见<a href="doc/base/data.html" data-toggle="navtab" data-id="doc-base">data属性</a>一节。</p>
+        </blockquote>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id</td>
+                    <td>string</td>
+                    <td>dialog</td>
+                    <td>[必选] 弹窗的ID，如果指定重复，将覆盖现有的ID相同弹窗。</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>string</td>
+                    <td>New Dialog</td>
+                    <td>[可选] 弹窗打开后显示的名称，可从data-title属性获取或直接获取触发DOM的text值。</td>
+                </tr>
+                <tr>
+                    <td>url</td>
+                    <td>string</td>
+                    <td>undefined</td>
+                    <td>[可选] <code>url参数或target参数必选一项</code> <span class="badge"><i>D-Url</i></span> 请求数据的url，a链接触发时可以将url定义在href属性。</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>string</td>
+                    <td>GET</td>
+                    <td>[可选] Http请求方式，可选‘GET/POST’。</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>object</td>
+                    <td>{}</td>
+                    <td>[可选] 请求url时，需要发送的data数据。</td>
+                </tr>
+                <tr>
+                    <td>loadingmask</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] ajax请求时是否显示数据加载遮罩。</td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>int</td>
+                    <td>500</td>
+                    <td>[可选] 弹窗的宽度。</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>int</td>
+                    <td>300</td>
+                    <td>[可选] 弹窗的高度。</td>
+                </tr>
+                <tr>
+                    <td>max</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] 打开弹窗时直接最大化。</td>
+                </tr>
+                <tr>
+                    <td>mask</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] 是否模态窗口。</td>
+                </tr>
+                <tr>
+                    <td>resizable</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] 可以调整弹窗的大小。</td>
+                </tr>
+                <tr>
+                    <td>drawable</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] 可以拖动弹窗。</td>
+                </tr>
+                <tr>
+                    <td>maxable</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] 是否显示最大化按钮。</td>
+                </tr>
+                <tr>
+                    <td>minable</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] 是否显示最小化按钮（模态弹窗无效）。</td>
+                </tr>
+                <tr>
+                    <td>target</td>
+                    <td>selector</td>
+                    <td>null</td>
+                    <td>[可选] 从指定的jQuery容器中加载内容到dialog，请为该容器添加属性<code>data-noinit="true"</code>以阻止容器中的内容提前初始化，为容器添加Class[<code>hide</code>]以隐藏待加载内容。</td>
+                </tr>
+                <tr>
+                    <td>fresh</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] 是否保持该dialog的新生状态，表现在重复打开该dialog时，是否重新载入内容。</td>
+                </tr>
+                <tr>
+                    <td>reloadWarn</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[可选] 当准备在已存在的dialog上加载内容时的确认提示信息。</td>
+                </tr>
+                <tr>
+                    <td>onLoad</td>
+                    <td>function($dialog)</td>
+                    <td>null</td>
+                    <td>[可选] dialog加载完成后的事件回调，回调函数的参数<code>$dialog</code>为该dialog的jQuery对象。</td>
+                </tr>
+                <tr>
+                    <td>beforeClose</td>
+                    <td>function($dialog)</td>
+                    <td>null</td>
+                    <td>[可选] <b>返回值: boolean</b>。 dialog关闭前的事件回调，返回true则关闭，返回false不关闭。</td>
+                </tr>
+                <tr>
+                    <td>onClose</td>
+                    <td>function()</td>
+                    <td>null</td>
+                    <td>[可选] dialog关闭后的事件回调。</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>方法</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>方法名</th>
+                    <th>参数类型</th>
+                    <th>参数说明</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>switchDialog(id)</td>
+                    <td>string</td>
+                    <td>dialog ID</td>
+                    <td>切换到某个弹窗(模态弹窗无效)。</td>
+                </tr>
+                <tr>
+                    <td>refresh(id)</td>
+                    <td>string</td>
+                    <td>dialog ID</td>
+                    <td>刷新某个弹窗。</td>
+                </tr>
+                <tr>
+                    <td>reloadFlag(tabids)</td>
+                    <td>string</td>
+                    <td>一个或多个标签ID，多个ID以<code>,</code>分隔</td>
+                    <td>为某(几)个标签设定重载标记(当切换到该标签时重新载入)。</td>
+                </tr>
+                <tr>
+                    <td>reload(options)</td>
+                    <td>object</td>
+                    <td>同dialog默认参数</td>
+                    <td>重新载入某个弹窗，如果未指定ID，则默认重载入当前弹窗。</td>
+                </tr>
+                <tr>
+                    <td>close(id)</td>
+                    <td>string</td>
+                    <td>dialog ID</td>
+                    <td>关闭某个弹窗。</td>
+                </tr>
+                <tr>
+                    <td>closeCurrent()</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>关闭当前弹窗。</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>事件</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>事件名称</th>
+                    <th>中文说明</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>bjui.beforeLoadDialog</td>
+                    <td>载入dialog内容前事件</td>
+                    <td>监听该事件，可以在载入dialog内容前进行相关操作。</td>
+                </tr>
+                <tr>
+                    <td>bjui.beforeCloseDialog</td>
+                    <td>关闭dialog前事件</td>
+                    <td>监听该事件，可以在关闭dialog前进行相关操作。</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>这样监听dialog的事件：</p>
+        <pre class="brush: js">
+            $(document).on('bjui.beforeLoadDialog', function(e) {
+                var $dialog = $(e.target)
+                // do something...
+            })
+        </pre>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

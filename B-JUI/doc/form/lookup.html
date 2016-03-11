@@ -1,0 +1,140 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">查找带回</h3>
+        <blockquote>
+            <p>本节主要介绍框架的查找带回功能，流程：1. 打开一个呈现数据的弹出窗口；2. 选择一个或多个值，将值返回到触发页面对应的input；3. 关闭弹出窗口。</p>
+        </blockquote>
+        <blockquote class="point">
+            <code>关于动态更换url：</code>如果需要动态更换lookup的url，需要为lookupbtn新增属性<code>data-newurl</code>，如：<br>
+            <pre class="brush: js">
+                $('input').parent().find('a.bjui-lookup').data('newurl', 'new url') //通过input框修改附加按钮的url
+                $('lookupbtn').data('newurl', 'new url')                            //直接修改lookup按钮的url
+            </pre>
+        </blockquote>
+        <h4>初始化</h4>
+        <ul>
+            <li>Data属性：input添加属性<code>data-toggle="lookup"</code> 或 点击含有属性<code>data-toggle="lookupbtn"</code>的元素触发。<br>
+                <span class="label label-default">DOM示例1：</span>　<label>PID:</label><input type="text" name="pid" class="doc_lookup" size="5">&nbsp;<label>查找名称：</label><input type="text" data-toggle="lookup" data-url="doc/form/mylookup.html" name="name" class="doc_lookup" size="10"><br>
+                <p>示例代码：</p>
+                <pre class="brush: html">
+                    &lt;label>PID:&lt;/label>&lt;input type="text" name="pid" size="5">
+                    &lt;label>查找名称：&lt;/label>&lt;input type="text" data-toggle="lookup" data-url="doc/form/mylookup.html" name="name" size="10">
+                </pre>
+                <span class="label label-default">DOM示例2：</span>　<label>PID:</label><input type="text" name="t2.pid" size="5">&nbsp;<label>查找名称：</label><input type="text" name="t2.name" size="10"> <a href="doc/form/mylookup.html" data-toggle="lookupbtn" data-group="t2">打开Lookup窗口</a><br>
+                <p>示例代码：</p>
+                <pre class="brush: html">
+                    &lt;label>PID:&lt;/label>&lt;input type="text" name="t2.pid" size="5">
+                    &lt;label>查找名称：&lt;/label>&lt;input type="text" name="t2.name" size="10"> &lt;a href="doc/form/mylookup.html" data-toggle="lookupbtn" data-group="t2">打开Lookup窗口&lt;/a>
+                </pre>
+            </li>
+            <li>jQuery API：<br>
+                <pre class="brush: js">
+                    $(input).lookup(options)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>url</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[必选] <span class="badge"><i>D-Url</i></span> 打开lookup的URL，a链接触发时可以将url定义在href属性。。</td>
+                </tr>
+                <tr>
+                    <td>group</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[可选] input的名称，适用于input名称为"aa.bb"的形式，其中 group为：<code>aa</code>。</td>
+                </tr>
+                <tr>
+                    <td>suffix</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[可选] input的名称后缀，适用于input名称为"abcd[]"或"aa.bb[]"的形式，其中 suffix为：<code>[]</code>，<code>特别注意：</code>如果真实情况suffix为"[]"，请写为<code>" []"</code>，空格加"[]"，以防止被转义为空数组。</td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>string</td>
+                    <td>lookup_dialog</td>
+                    <td>[可选] 弹出窗口的id。</td>
+                </tr>
+                <tr>
+                    <td>mask</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] 是否弹出模态窗口。</td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>int</td>
+                    <td>600</td>
+                    <td>[可选] 弹出窗口的宽度。</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>int</td>
+                    <td>400</td>
+                    <td>[可选] 弹出窗口的高度。</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>string</td>
+                    <td>Lookup</td>
+                    <td>[可选] 弹出窗口的标题，单击触发时，如未明确定义title，将取元素的text值作为title。</td>
+                </tr>
+                <tr>
+                    <td>maxable</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] 弹出窗口可以最大化。</td>
+                </tr>
+                <tr>
+                    <td>resizable</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] 弹出窗口可以调整大小。</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>事件</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>事件名称</th>
+                    <th>中文说明</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>afterchange.bjui.lookup</td>
+                    <td>带回值后的事件</td>
+                    <td>监听该事件，可以在input取得返回值后进行相关操作。</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>这样监听lookup的事件：<code>mylookup - selector</code>表示lookup赋值了的input选择器</p>
+        <pre class="brush: js">
+            $('mylookup - selector').on('afterchange.bjui.lookup', function(e, data) {
+                var myvalue = data.value
+                
+                // do something...
+            })
+        </pre>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

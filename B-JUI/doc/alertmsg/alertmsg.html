@@ -1,0 +1,140 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">信息提示框 alertmsg</h3>
+        <blockquote>
+            <p>本节主要介绍框架的信息提示框及相关参数。</p>
+        </blockquote>
+        <h4>初始化</h4>
+        <ul>
+            <li>Data属性：DOM添加属性<code>data-toggle="alertmsg"</code>，并定义type及msg参数。<br>
+                <span class="label label-default">DOM示例1：</span>　<button type="button" class="btn-default" data-toggle="alertmsg" data-msg="我是一个信息提示" data-type="info">我是信息提示</button><br>
+                <p>示例代码：</p>
+                <pre class="brush: html">
+                    &lt;button type="button" class="btn-default" data-toggle="alertmsg" data-msg="我是一个信息提示" data-type="info">我是信息提示&lt;/button>
+                </pre>
+                <span class="label label-default">DOM示例2(集合参数)：</span>　<button type="button" class="btn-default" data-toggle="alertmsg" data-options="{msg:'我是错误提示', type:'error', okCall:'doOK'}">我是错误提示</button><br>
+                <p>示例代码：</p>
+                <pre class="brush: html">
+                    &lt;button type="button" class="btn-default" data-toggle="alertmsg" data-options="{msg:'我是错误提示', type:'error'}">我是错误提示&lt;/button>
+                </pre>
+            </li>
+            <li>jQuery API：<br>
+                <p>示例代码：</p>
+                <script type="text/javascript">
+                    $('#doc-alertmsg-demo').click(function() {
+                        $(this).alertmsg('confirm', '我是提示内容', {displayMode:'slide', displayPosition:'bottomcenter', okName:'Yes', cancelName:'no', title:'我是提示标题'})
+                    })
+                </script>
+                <a href="javascript:;" id="doc-alertmsg-demo">测试提示框</a>
+                <pre class="brush: js; html-script: true">
+                    &lt;script type="text/javascript">
+                    $('#doc-alertmsg-demo').click(function() {
+                        $(this).alertmsg('confirm', '我是提示内容', {displayMode:'slide', displayPosition:'bottomcenter', okName:'Yes', cancelName:'no', title:'我是提示标题'})
+                    })
+                    &lt;/script>
+                    &lt;a id="doc-alertmsg-demo">测试提示框&lt;/a>
+                </pre>
+                <p>API调用方法：</p>
+                <pre class="brush: js; html-script: true">
+                    $(selector).alertmsg(type, msg, options)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <blockquote>
+            <p>DOM方式初始化datagrid的，推荐使用集合属性<code>data-options</code>定义参数，如果使用<code>data属性</code>定义参数，注意转换成对应的名称，参见<a href="doc/base/data.html" data-toggle="navtab" data-id="doc-base">data属性</a>一节。</p>
+        </blockquote>
+        <blockquote class="point">
+            <p>参数<code>displayPosition</code>、<code>displayMode</code>、<code>closeTimer</code>有可以在框架初始化时进行全局设置，参考<a href="doc/base/init.html" data-toggle="navtab" data-id="doc-base">框架初始化</a></p>
+        </blockquote>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>type</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[必选] 信息提示方式，参数有['ok' | 'correct' | 'info' | 'warn' | 'error' | 'confirm' ]，其中ok为correct的别名，confirm为确认提示框。</td>
+                </tr>
+                <tr>
+                    <td>msg</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[必选] 提示的内容。</td>
+                </tr>
+                <tr>
+                    <td>displayPosition</td>
+                    <td>string</td>
+                    <td>topcenter</td>
+                    <td>[可选] 提示框显示位置，参数有['topleft' | 'topcenter' | 'topright' | 'middleleft' | 'middlecenter' | 'middleright' | 'bottomleft' | 'bottomcenter' | 'bottomright']，<code>本参数可以覆盖全局设置</code>。</td>
+                </tr>
+                <tr>
+                    <td>displayMode</td>
+                    <td>string</td>
+                    <td>slide</td>
+                    <td>[可选] 提示框显示动画(无动画、渐显渐隐、滑动)，参数['none' | 'fade' | 'slide']，<code>本参数可以覆盖全局设置</code>。</td>
+                </tr>
+                <tr>
+                    <td>autoClose</td>
+                    <td>boolean</td>
+                    <td>null</td>
+                    <td>[可选] 是否自动关闭提示框，默认在type为['ok' | 'correct' | 'info']三种方式时参数值为true。</td>
+                </tr>
+                <tr>
+                    <td>alertTimeout</td>
+                    <td>int</td>
+                    <td>null</td>
+                    <td>[可选] 自动关闭提示框的时间(毫秒)，autoClose参数为true时生效，<code>本参数可以覆盖全局设置</code>。</td>
+                </tr>
+                <tr>
+                    <td>mask</td>
+                    <td>boolean</td>
+                    <td>null</td>
+                    <td>[可选] 是否模态显示提示框，默认在type为['warn' | 'error' | 'confirm']三种方式时参数值为true。</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>string</td>
+                    <td>见bjui-regional.zh-CN.js中alertmsg</td>
+                    <td>[可选] 信息提示框的标题，设置本参数将会覆盖bjui-regional.zh-CN.js中alertmsg的对应设置。</td>
+                </tr>
+                <tr>
+                    <td>okName</td>
+                    <td>string</td>
+                    <td>确定</td>
+                    <td>[可选] 确定按钮的名称，设置本参数将会覆盖bjui-regional.zh-CN.js中alertmsg的对应设置。</td>
+                </tr>
+                <tr>
+                    <td>cancelName</td>
+                    <td>string</td>
+                    <td>取消</td>
+                    <td>[可选] <code>仅type为'confirm'时有效</code>取消按钮的名称，设置本参数将会覆盖bjui-regional.zh-CN.js中alertmsg的对应设置。</td>
+                </tr>
+                <tr>
+                    <td>okCall</td>
+                    <td>function()</td>
+                    <td>null</td>
+                    <td>[可选] 确定按钮的回调方法，支持字符串类型的方法名，<code>该方法会在提示框关闭后被调用</code>。</td>
+                </tr>
+                <tr>
+                    <td>cancelCall</td>
+                    <td>function()</td>
+                    <td>null</td>
+                    <td>[可选] <code>仅type为'confirm'时有效</code>取消按钮的回调方法，支持字符串类型的方法名，<code>该方法会在提示框关闭后被调用</code>。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

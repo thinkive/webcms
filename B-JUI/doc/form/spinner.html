@@ -1,0 +1,90 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">微调器</h3>
+        <blockquote>
+            <p>本节主要介绍框架的微调器。</p>
+        </blockquote>
+        <h4>初始化</h4>
+        <ul>
+            <li>Data属性：input添加属性<code>data-toggle="spinner"</code>。
+                <span class="label label-default">DOM示例：</span>　<input type="text" data-toggle="spinner" class="doc_spinner"><br>
+                <p>示例代码：</p>
+                <pre class="brush: html">
+                    &lt;input type="text" data-toggle="spinner">
+                </pre>
+            </li>
+            <li>jQuery API：<code>options可为空</code><br>
+                <pre class="brush: js">
+                    $(input).spinner(options)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>min</td>
+                    <td>int</td>
+                    <td>0</td>
+                    <td>[可选] 最小值。</td>
+                </tr>
+                <tr>
+                    <td>max</td>
+                    <td>int</td>
+                    <td>100</td>
+                    <td>[可选] 最大值。</td>
+                </tr>
+                <tr>
+                    <td>step</td>
+                    <td>number</td>
+                    <td>1</td>
+                    <td>[可选] 步长，每次调整的值大小。</td>
+                </tr>
+                <tr>
+                    <td>decimalPlace</td>
+                    <td>int</td>
+                    <td>0</td>
+                    <td>[可选] 小数位数。</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>事件</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>事件名称</th>
+                    <th>中文说明</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>afterchange.bjui.spinner</td>
+                    <td>微调后的事件</td>
+                    <td>监听该事件，可以在调整值后进行相关操作。</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>这样监听spinner的事件：<code>myspinner - selector</code>表示触发微调的input选择器</p>
+        <pre class="brush: js">
+            $('myspinner - selector').on('afterchange.bjui.spinner', function(e, data) {
+                var myvalue = data.value
+                
+                // do something...
+            })
+        </pre>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

@@ -1,0 +1,109 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">事件</h3>
+        <blockquote>
+            <p>本框架内置组件的事件基本上都是jQuery自定义事件。</p>
+        </blockquote>
+        <p>监听事件</p>
+        <pre class="brush: js">
+            $(selector).on('Event name', function(e) {
+                //do something...
+            })
+        </pre>
+        <p>触发事件</p>
+        <pre class="brush: js">
+            $(selector).trigger('Event name')
+        </pre>
+        <h4>全局事件</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>事件名称</th>
+                    <th>中文说明</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>bjui.initUI</td>
+                    <td>框架初始化事件</td>
+                    <td>监听该事件，可以为指定的DOM初始化框架组件及插件，例如：本框架监听该事件用于在文档加载完成或ajax加载完成时，初始化框架及插件</td>
+                </tr>
+                <tr>
+                    <td>bjui.beforeInitUI</td>
+                    <td>框架初始化前事件</td>
+                    <td>监听该事件，可以在框架初始化前进行相关操作。例如：本框架的任一容器DOM如果添加了属性<code>['data-noinit="true"]</code>，该容器内的元素都不会被初始化，处理这个流程就监听了本件事。</td>
+                </tr>
+                <tr>
+                    <td>bjui.afterInitUI</td>
+                    <td>框架初始化后事件</td>
+                    <td>监听该事件，可以在框架初始化后进行相关操作，示例同上。</td>
+                </tr>
+                <tr>
+                    <td>bjui.ajaxStatus</td>
+                    <td>ajax请求状态事件</td>
+                    <td><code>框架内部事件</code>。本事件用于在ajax请求过程中（<code>ajaxStart - > ajaxStop</code>），显示/隐藏 框架的Mask loading效果。</td>
+                </tr>
+                <tr>
+                    <td>bjui.resizeGrid</td>
+                    <td>窗口缩放事件</td>
+                    <td>监听该事件，可在浏览器窗口或dialog窗口缩放时进行相关操作。</td>
+                </tr>
+                <tr>
+                    <td>bjui.beforeAjaxLoad</td>
+                    <td>ajax载入前事件</td>
+                    <td>监听该事件，可在使用<code>ajaxUrl</code>方法 <b>(navtab/dialog均用此方法加载子页片内容)</b> 前进行相关操作，例如：本框架监听该事件用于在重载入子页片前释放在body中生成的selectpicker插件资源。</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>bjui.initUI事件示例：</h4>
+        <ol>
+            <li>定义一个div容器，并为它添加一个文本框，让div容器监听bjui.initUI事件（将文本框的边框颜色改为红色）。</li>
+            <li>点击"创建div容器"按钮，将div容器附加到按钮后面。</li>
+            <li>点击"触发bjui.initUI事件"按钮，让div容器触发bjui.initUI事件。</li>
+        </ol>
+        <blockquote class="point">
+            <p>可以多次监听某一事件，jQuery会依次处理，本例触发bjui.initUI事件时会先触发框架的监听事件(<code>bjui-plugins.js: 为文本框添加Class[form-control]</code>)，再触发自定义的监听事件(<code>红色边框</code>)。</p>
+        </blockquote>
+        <script type="text/javascript">
+            var $doc_div = $('<div class="doc-eventbox" style="display:inline-block; margin-left:10px;"><input type="text"></div>')
+            $doc_div.on('bjui.initUI', function() {
+                $(this).find('input').css('border-color','red')
+            })
+            $('a.doc-event-1').click(function() {
+                $doc_div.insertAfter('a.doc-event-2')
+                $('a.doc-event-2').removeClass('hide')
+                $(this).hide()
+            })
+            $('a.doc-event-2').click(function() {
+                $(this).hide()
+                $doc_div.trigger('bjui.initUI')
+            })
+        </script>
+        <p><span class="label label-default">事件示例：</span>　<a href="javascript:;" class="btn btn-default doc-event-1">创建div容器</a><a href="javascript:;" class="btn btn-default hide doc-event-2">触发bjui.initUI事件</a></p>
+        <p>示例完整代码：</p>
+        <pre class="brush: js; html-script: true">
+            &lt;script type="text/javascript">
+                var $doc_div = $('&lt;div class="doc-eventbox" style="display:inline-block; margin-left:10px;">&lt;input type="text">&lt;/div>')
+                $doc_div.on('bjui.initUI', function() {
+                    $(this).find('input').css('border-color','red')
+                })
+                $('a.doc-event-1').click(function() {
+                    $doc_div.insertAfter('a.doc-event-2')
+                    $('a.doc-event-2').removeClass('hide')
+                    $(this).hide()
+                })
+                $('a.doc-event-2').click(function() {
+                    $(this).hide()
+                    $doc_div.trigger('bjui.initUI')
+                })
+            &lt;/script>
+            <a href="javascript:;" class="btn btn-default doc-event-1">创建div容器</a><a href="javascript:;" class="btn btn-default hide doc-event-2">触发bjui.initUI事件</a>
+        </pre>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

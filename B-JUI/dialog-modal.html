@@ -1,0 +1,60 @@
+<div class="bjui-pageContent">
+    <form action="ajaxDone1.html" class="pageForm" data-toggle="validate">
+        <input type="hidden" name="dialog.id" value="edce142bc2ed4ec6b623aacaf602a4de">
+        <table class="table table-condensed table-hover">
+            <tbody>
+                <tr>
+                    <td colspan="2" align="center"><h3>* 我是一个弹出窗口</h3></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="j_dialog_operation" class="control-label x90">所属业务：</label>
+                        <select name="dialog.operation" id="j_dialog_operation" data-toggle="selectpicker">
+                            <option value="">全部</option>
+                            <option value="1">业务1</option>
+                            <option value="2" selected>订房部</option>
+                            <option value="3">领队</option>
+                            <option value="4">导游</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="j_dialog_code" class="control-label x85">团号：</label>
+                        <input type="text" name="dialog.code" id="j_dialog_code" value="20141105-CD2TW-1112" data-rule="required" size="20">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="j_dialog_name" class="control-label x90">联系客户姓名：</label>
+                        <input type="text" name="dialog.name" id="j_dialog_name" value="" data-rule="required" size="20">
+                    </td>
+                    <td>
+                        <label for="j_dialog_tel" class="control-label x85">联系电话：</label>
+                        <input type="text" name="dialog.tel" id="j_dialog_tel" value="" data-rule="required;mobile" size="20">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="j_dialog_profession" class="control-label x90">客户职业：</label>
+                        <input type="text" name="dialog.profession" id="j_dialog_profession" value="" data-rule="required" data-toggle="lookup" data-url="table-edit-lookup.html" data-group="dialog" data-width="580" data-height="300" size="20">
+                    </td>
+                    <td>
+                        <label for="j_dialog_visa" class="control-label x85">签证：</label>
+                        <input type="checkbox" name="dialog.visa" id="j_dialog_visa" value="" data-toggle="icheck" data-label="需要办理签证">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <br>
+                        <label>其他业务：</label><a href="dialog-modal2.html" class="btn btn-default" data-toggle="dialog" data-width="500" data-height="280" data-id="dialog-mask2" data-mask="true">继续打开模态弹出窗口</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close">关闭</button></li>
+        <li><button type="submit" class="btn-default">保存</button></li>
+    </ul>
+</div>

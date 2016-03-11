@@ -1,0 +1,67 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">Ajax搜索表单</h3>
+        <blockquote>
+            <p>本节主要介绍框架的搜索表单提交及相关参数。</p>
+        </blockquote>
+        <h4>初始化</h4>
+        <ul>
+            <li>Data属性：form添加属性<code>data-toggle="ajaxsearch"</code>。<br>
+                <span class="label label-default">DOM示例：</span>　<a href="doc/ajax/mysearch.html" data-toggle="dialog" data-id="mysearch" data-title="我的搜索表单" data-width="600" data-height="400">打开搜索表单</a><br>
+                <p>示例代码：</p>
+                <pre class="brush: html">
+                    &lt;form action="ajaxDone1.html" data-toggle="ajaxsearch">
+                        <p><label class="x85">用户名：</label><input type="text" name="username" placeholder="用户名"></p>
+                        <p><label class="x85">注册时间：</label><input type="text" name="date" data-toggle="datepicker" placeholder="注册时间"></p>
+                        <p class="text-center"><button type="submit" class="btn-default">搜索</button></p>
+                    &lt;/form>
+                </pre>
+                <p>搜索表单内的按钮或a链接添加属性<code>data-toggle="reloadsearch"</code>可触发表单重载（主要用于清空查询）：</p>
+                <pre class="brush: html">
+                    <a href="javascript:;" data-toggle="reloadsearch" data-clear-query="true">清空查询</a>
+                </pre>
+            </li>
+            <li>jQuery API：<br>
+                <pre class="brush: js">
+                    $(form).bjuiajax('doSearch', options)
+                </pre>
+            </li>
+        </ul>
+        <h4>参数（options）</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>url</td>
+                    <td>string</td>
+                    <td>null</td>
+                    <td>[必选] <span class="badge"><i>D-Url</i></span> 处理搜索的URL，如未明确指定，将自动获取form的action属性。</td>
+                </tr>
+                <tr>
+                    <td>clearQuery</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>[可选] 清除查询条件。请在<code>清空查询</code>时设为true。</td>
+                </tr>
+                <tr>
+                    <td>loadingmask</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>[可选] ajax请求时是否显示数据加载遮罩。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

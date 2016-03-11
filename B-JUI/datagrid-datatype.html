@@ -1,0 +1,371 @@
+<script type="text/javascript">
+$('#test-datagrid-json').datagrid({
+    gridTitle : 'Test datagrid - Json 数据类型，多表头，行内编辑，右键菜单',
+    showToolbar: true,
+    toolbarItem: 'all',
+    addLocation:'first',
+    local: 'local',
+    dataUrl: 'datagrid/datagrid-json.js',
+    dataType: 'json',
+    filterThead: false,
+    columns: [
+        {
+            name: 'operation',
+            label: '类型',
+            type : 'select',
+            items: [{'01':'神话'}, {'02':'传说'}, {'03':'漫画'}, {'04':'历史'}, {'05':'其他'}],
+            align: 'center',
+            width: 80,
+            render: $.datagrid.renderItem
+        },
+        {
+            label: '基本信息',
+            columns: [{
+                name: 'name',
+                label: '姓名',
+                align: 'center',
+                width: 100,
+                rule: 'required'
+            },
+            {
+                name: 'sex',
+                label: '性别',
+                type: 'select',
+                items: [{'':''}, {'true':'男'}, {'false':'女'}],
+                align: 'center',
+                width: 40,
+                render: $.datagrid.renderItem
+            },
+            {
+                name: 'age',
+                label: '年龄',
+                type: 'spinner',
+                attrs: {'data-max':'10000'},
+                align: 'center',
+                width: 45
+            },
+            {
+                label: '拼音姓名',
+                columns: [{
+                    name: 'firstname',
+                    label: '拼音姓',
+                    width: 80
+                },{
+                    name: 'lastname',
+                    label: '拼音名',
+                    width: 80,
+                    hide : true
+                }]
+            },
+            {
+                label: '护照信息',
+                columns: [{
+                    label: '护照号',
+                    columns: [{
+                        name: 'passportno',
+                        label: '护照号',
+                        width: 100
+                    },{
+                        name: 'nation',
+                        label: '国籍',
+                        type: 'lookup',
+                        attrs: {'data-url':'datagrid-lookup-nation.html'},
+                        align: 'center',
+                        width: 50,
+                        rule: 'required',
+                        render: function(value) {
+                            return '<img src="images/datagrid/'+ value +'.gif">'
+                        }
+                    }]
+                },
+                {
+                    name: 'issuestate',
+                    label: '签发状态',
+                    type: 'select',
+                    items: function(aa) {
+                        return $.getJSON('/datagrid/demo-items-state.js')
+                    },
+                    align: 'center',
+                    width: 70,
+                    render: $.datagrid.renderItem
+                },
+                {
+                    name: 'issuedate',
+                    label: '签发日期',
+                    type: 'date',
+                    width: 150
+                }]
+            }]
+        },
+        {
+            name: 'isdisable',
+            label: '禁用',
+            type: 'boolean',
+            align: 'center',
+            width: 40,
+            render: function(value) {
+                return (value && String(value) == 'true') ? '<span style="color:red;">True</span>' : ''
+            }
+        },
+        {
+            name: 'createtime',
+            label: '登记日期',
+            type: 'date',
+            pattern: 'yyyy-MM-dd HH:mm'
+        }
+    ],
+    editUrl: 'ajaxDone1.html',
+    delUrl : 'ajaxDone1.html',
+    contextMenuB: true,
+    paging: {total:30, pageSize:5},
+    editMode: 'inline',
+    fullGrid: true,
+    showLinenumber: false
+    //showCheckboxcol: true
+})
+
+$('#test-datagrid-array').datagrid({
+    gridTitle : 'Test datagrid - Array 数据类型，dialog编辑，显示行号及复选框，表头快速筛选，显示页脚',
+    showToolbar: true,
+    toolbarItem: 'all',
+    addLocation: 'first',
+    local: 'local',
+    dataUrl: 'datagrid/datagrid-array.js',
+    dataType: 'array',
+    columns: [
+        {
+            name: 'operation',
+            label: '类型',
+            type : 'select',
+            items: [{'01':'神话'}, {'02':'传说'}, {'03':'漫画'}, {'04':'历史'}, {'05':'其他'}],
+            align: 'center',
+            width: 80,
+            render: $.datagrid.renderItem
+        },
+        {
+            name: 'name',
+            label: '姓名',
+            align: 'center',
+            width: 100,
+            rule: 'required'
+        },
+        {
+            name: 'sex',
+            label: '性别',
+            type: 'select',
+            items: [{'true':'男'}, {'false':'女'}],
+            align: 'center',
+            width: 40,
+            render: $.datagrid.renderItem
+        },
+        {
+            name: 'age',
+            label: '年龄',
+            type: 'spinner',
+            attrs: {'data-max':'10000'},
+            align: 'center',
+            width: 45,
+            calc: 'avg',
+            calcTit: '平均',
+            calcDecimal: 2
+        },
+        {
+            name: 'firstname',
+            label: '拼音姓',
+            width: 80
+        },
+        {
+            name: 'lastname',
+            label: '拼音名',
+            width: 80,
+            hide : true
+        },
+        {
+            name: 'passportno',
+            label: '护照号',
+            width: 100
+        },
+        {
+            name: 'nation',
+            label: '国籍',
+            type: 'lookup',
+            attrs: {'data-url':'datagrid-lookup-nation.html'},
+            align: 'center',
+            width: 50,
+            rule: 'required',
+            render: function(value) {
+                return '<img src="images/datagrid/'+ value +'.gif">'
+            }
+        },
+        {
+            name: 'issuestate',
+            label: '签发状态',
+            type: 'select',
+            items: function(aa) {
+                return $.getJSON('/datagrid/demo-items-state.js')
+            },
+            align: 'center',
+            width: 70,
+            render: $.datagrid.renderItem
+        },
+        {
+            name: 'issuedate',
+            label: '签发日期',
+            type: 'date',
+            width: 150
+        },
+        {
+            name: 'isdisable',
+            label: '禁用',
+            type: 'boolean',
+            align: 'center',
+            width: 40,
+            render: function(value) {
+                return (value && String(value) == 'true') ? '<span style="color:red;">True</span>' : ''
+            }
+        },
+        {
+            name: 'createtime',
+            label: '登记日期',
+            type: 'date',
+            pattern: 'yyyy-MM-dd HH:mm'
+        }
+    ],
+    hiddenFields: ['id', 'nationid'],
+    editUrl: 'ajaxDone1.html',
+    delUrl : 'ajaxDone1.html',
+    paging: {total:30, pageSize:5},
+    showTfoot: true,
+    editMode: 'dialog',
+    fullGrid: true,
+    showLinenumber: true,
+    showCheckboxcol: true
+})
+
+$('#test-datagrid-xml').datagrid({
+    gridTitle : 'Test datagrid - Xml 数据类型，显示编辑按钮列，仅允许行内编辑一行，表格不充满容器显示',
+    showToolbar: true,
+    toolbarItem: 'all',
+    addLocation: 'next',
+    local: 'local',
+    dataUrl: 'datagrid/datagrid-xml.xml',
+    dataType: 'xml',
+    filterThead: false,
+    columns: [
+        {
+            name: 'operation',
+            label: '类型',
+            type : 'select',
+            items: [{'01':'神话'}, {'02':'传说'}, {'03':'漫画'}, {'04':'历史'}, {'05':'其他'}],
+            align: 'center',
+            width: 80,
+            render: $.datagrid.renderItem
+        },
+        {
+            name: 'name',
+            label: '姓名',
+            align: 'center',
+            width: 100,
+            rule: 'required'
+        },
+        {
+            name: 'sex',
+            label: '性别',
+            type: 'select',
+            items: [{'true':'男'}, {'false':'女'}],
+            align: 'center',
+            width: 40,
+            render: $.datagrid.renderItem
+        },
+        {
+            name: 'age',
+            label: '年龄',
+            type: 'spinner',
+            attrs: {'data-max':'10000'},
+            align: 'center',
+            width: 45
+        },
+        {
+            name: 'firstname',
+            label: '拼音姓',
+            width: 80
+        },
+        {
+            name: 'lastname',
+            label: '拼音名',
+            width: 80,
+            hide : true
+        },
+        {
+            name: 'passportno',
+            label: '护照号',
+            width: 100
+        },
+        {
+            name: 'nation',
+            label: '国籍',
+            type: 'lookup',
+            attrs: {'data-url':'datagrid-lookup-nation.html'},
+            align: 'center',
+            width: 50,
+            rule: 'required',
+            render: function(value) {
+                return '<img src="images/datagrid/'+ value +'.gif">'
+            }
+        },
+        {
+            name: 'issuestate',
+            label: '签发状态',
+            type: 'select',
+            items: function(aa) {
+                return $.getJSON('/datagrid/demo-items-state.js')
+            },
+            align: 'center',
+            width: 70,
+            render: $.datagrid.renderItem
+        },
+        {
+            name: 'issuedate',
+            label: '签发日期',
+            type: 'date',
+            width: 150
+        },
+        {
+            name: 'isdisable',
+            label: '禁用',
+            type: 'boolean',
+            align: 'center',
+            width: 40,
+            render: function(value) {
+                return (value && String(value) == 'true') ? '<span style="color:red;">True</span>' : ''
+            }
+        },
+        {
+            name: 'createtime',
+            label: '登记日期',
+            type: 'date',
+            pattern: 'yyyy-MM-dd HH:mm'
+        }
+    ],
+    editUrl: 'ajaxDone1.html',
+    delUrl : 'ajaxDone1.html',
+    paging: {total:30, pageSize:5},
+    pagingAlign: 'left',
+    editMode: 'inline',
+    inlineEditMult: false,
+    showEditbtnscol: true,
+    contextMenuB: true
+})
+</script>
+<div class="bjui-pageContent">
+    <div style="padding:15px; height:100%; width:100%;">
+        <table id="test-datagrid-json" data-width="100%" class="table table-bordered">
+        </table>
+        <br>
+        <table id="test-datagrid-array" data-width="100%" data-height="280" class="table table-bordered">
+        </table>
+        <br>
+        <table id="test-datagrid-xml" data-width="100%" class="table table-bordered">
+        </table>
+    </div>
+</div>

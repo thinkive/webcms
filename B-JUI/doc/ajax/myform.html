@@ -1,0 +1,28 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">示例：myform， 我的测试表单。</h3>
+        <h4>验证后提交：</h4>
+        <fieldset>
+            <legend>data-toggle="validate"</legend>
+            <form action="ajaxDone1.html" data-toggle="validate">
+                <p><label class="x85">登录名：</label><input type="text" name="username" data-rule="required" placeholder="登录名"></p>
+                <p><label class="x85">密码：</label><input type="password" name="password" data-rule="required;" placeholder="登录密码"></p>
+                <p class="text-center"><button type="submit" class="btn-default">提 交</button></p>
+            </form>
+        </fieldset>
+        <h4>直接提交：</h4>
+        <fieldset>
+            <legend>data-toggle="ajaxform"</legend>
+            <form action="ajaxDone1.html" data-toggle="ajaxform">
+                <p><label class="x85">登录名：</label><input type="text" name="username" data-rule="required" placeholder="登录名"></p>
+                <p><label class="x85">密码：</label><input type="password" name="password" data-rule="required;" placeholder="登录密码"></p>
+                <p class="text-center"><button type="submit" class="btn-default">提 交</button></p>
+            </form>
+        </fieldset>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

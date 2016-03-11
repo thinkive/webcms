@@ -1,0 +1,25 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">示例：myform， 我的测试表单。</h3>
+        <h4>单击加载：</h4>
+        <p>
+            <a href="doc/ajax/mylayout.html" class="btn btn-default" data-toggle="ajaxload" data-target="#myLoadDiv1" onclick="$(this).next().show()">单击加载内容</a>
+            <button type="button" class="btn-default" data-toggle="refreshlayout" data-target="#myLoadDiv1" style="display:none;">刷新DIV</button>
+        </p>
+        <fieldset>
+            <legend>内容加载区</legend>
+            <div id="myLoadDiv1"></div>
+        </fieldset>
+        <h4>直接加载：</h4>
+        <p><button type="button" class="btn-default" data-toggle="refreshlayout" data-target="#myLoadDiv2">刷新DIV</button></p>
+        <fieldset>
+            <legend>内容加载区</legend>
+            <div id="myLoadDiv2" data-toggle="autoajaxload" data-url="doc/ajax/mylayout.html"></div>
+        </fieldset>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>

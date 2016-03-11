@@ -1,0 +1,42 @@
+<div class="bjui-pageContent">
+    <div class="bjui-doc">
+        <h3 class="page-header">jQuery API调用</h3>
+        <blockquote>
+            <p>本框架内置组件及部分插件都可以通过jQuery选择器进行API调用，支持链式操作，如下示例。</p>
+        </blockquote>
+        <p>以下是示例展示打开一个ID为'mydialog'的弹出窗口，然后更改该选择器的值为'OK'：<br>
+            <script type="text/javascript">
+                $('a.api-test').click(function() {
+                    $(this).dialog({id:'mydialog', url:'doc/base/mydialog.html', title:'测试弹窗'}).text('OK')
+                });
+            </script>
+            <span class="label label-default">API示例：</span>　<a href="javascript:;" class="api-test">测试API</a>
+        </p>
+        <p>本例的完整代码：</p>
+        <pre class="brush: html">
+            &lt;script type="text/javascript">
+                $('a.api-test').click(function() {
+                    $(this).dialog({id:'mydialog', url:'doc/base/mydialog.html', title:'测试弹窗'}).text('OK')
+                });
+            &lt;/script>
+            &lt;a href="javascript:;" class="api-test">测试API&lt;/a>
+        </pre>
+        <p>jQuery API代码：</p>
+        <pre class="brush: js">
+            $(selector).dialog({id:'mydialog', url:'doc/base/mydialog.html', title:'测试弹窗'}).text('OK')
+        </pre>
+        <p><code>selector</code>是符合jQuery规范的选择器。</p>
+        <code class="h4">组件的初始化：</code>
+        <p>本框架的内置组件通过如下方式进行初始化，以及调用开放的方法。</p>
+        <ul>
+            <li><code>$(selector).datepicker()</code>：以默认值初始化（创建）一个日期选择器。<span class="label label-danger">部分组件不支持默认值初始化，如<span class="badge">dialog\navtab</span>必须提供url参数</span></li>
+            <li><code>$(selector).dialog({id:'mydialog', url:'mydialog.html', title:'我的弹窗标题'})</code>：根据参数初始化（创建）一个弹出窗口。</li>
+            <li><code>$(selector).dialog('refresh', 'mydialog')</code>：调用dialog组件的刷新方法<code>refresh</code>，方法名后带上相关参数。</li>
+        </ul>
+    </div>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+    </ul>
+</div>
