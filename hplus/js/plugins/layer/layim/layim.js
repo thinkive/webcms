@@ -48,7 +48,7 @@ var config = {
     })(),
     json: function(url, data, callback, error){
         return $.ajax({
-            type: 'POST',
+            type: 'GET',
             url: url,
             data: data,
             dataType: 'json',

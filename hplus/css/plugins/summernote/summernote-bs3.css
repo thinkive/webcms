@@ -2221,8 +2221,8 @@ fieldset[disabled] .note-editor .btn-link:focus {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../../../fonts/glyphicons-halflings-regular.eot');
-  src: url('../../../fonts/glyphicons-halflings-regular.eot?') format('embedded-opentype'), url('../../../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../../../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../../../fonts/glyphicons-halflings-regular.svg') format('svg');
+  src: url('http://www.zi-han.net/theme/hplus/fonts/glyphicons-halflings-regular.eot');
+  src: url('../../../fonts/glyphicons-halflings-regular.eot') format('embedded-opentype'), url('../../../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../../../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../../../fonts/glyphicons-halflings-regular.svg') format('svg');
 }
 .note-editor .glyphicon {
   position: relative;
@@ -2922,8 +2922,6 @@ fieldset[disabled] .note-editor .btn-link:focus {
 }
 .note-editor .open > .dropdown-menu {
   display: block;
-  left:0!important;
-    right:auto!important;
 }
 .note-editor .open > a {
   outline: 0;
