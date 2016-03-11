@@ -2,3 +2,4 @@
 
 1. B-JUI客户端框架 http://www.wecloud.net.cn/B-JUI/index.html
 2. H+客户端框架 http://www.wecloud.net.cn/hplus/index.html
+3. 音乐博客 http://www.wecloud.net.cn/cms/music-manager/index.html
