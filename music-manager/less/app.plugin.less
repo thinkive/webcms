@@ -1,0 +1,105 @@
+.nav-docs{
+  > ul > li > a{
+    padding-top: 5px!important;
+    padding-bottom: 5px!important;
+  }
+}
+
+.dropfile{border:2px dashed #e0e4e8;text-align: center;min-height: 20px}
+.dropfile.hover{border-color: #aac3cc}
+.dropfile small{margin: 50px 0;display: block}
+.portlet{min-height: 30px;}
+
+/*Charts*/
+.jqstooltip{
+  .box-sizing(content-box);
+}
+
+.easypiechart {
+  position: relative;text-align: center;
+  > div{
+    position: relative;
+    z-index: 1;
+    .text{
+      position: absolute;
+      width: 100%;
+      top: 60%;
+      line-height: 1;
+    }
+    img{
+      margin-top: -4px;
+    }
+  }
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0
+  }
+}
+
+.flot-legend{
+  .legend{
+    > div{
+      display: none;
+    }
+    .legendColorBox{
+      > div{
+        border: none !important;
+        margin: 5px;
+        > div{
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}
+
+.doc-buttons .btn{margin-bottom: 5px}
+
+.list-icon i{font-size: 14px;width:40px;vertical-align:middle;margin:0;display: inline-block;text-align: center;.transition(font-size .2s);}
+.list-icon div{line-height: 40px;white-space: nowrap;}
+.list-icon div:hover i{font-size:26px;}
+
+.th-sortable{cursor: pointer;}
+.th-sortable .th-sort{float: right;position: relative;}
+.th-sort i{position:relative;z-index: 1}
+.th-sort .fa-sort{position: absolute;left: 0;top: 3px;color: #bac3cc;z-index: 0}
+.th-sortable.active .text{display: none !important}
+.th-sortable.active .text-active{display: inline-block !important}
+// sortable
+.sortable-placeholder{list-style: none;border: 1px dashed #CCC;min-height: 50px;margin-bottom: 5px}
+
+.input-append.date .add-on i,
+.input-prepend.date .add-on i {
+  display: block;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+
+/*parsely*/
+.parsley-error-list{margin:0;padding: 0;list-style: none;margin-top: 6px;font-size: 12px}
+.parsley-error{border-color: #ff5f5f !important}
+
+// 
+.datepicker td.active, 
+.datepicker td.active:hover,
+.datepicker td.active:hover.active,
+.datepicker td.active.active
+{
+  background: @brand-primary;
+}
+
+#flotTip {
+  padding: 3px 5px;
+  background-color: #000;
+  z-index: 100;
+  color: #fff;
+  opacity: .7;
+  filter: alpha(opacity=70);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}

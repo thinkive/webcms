@@ -1,0 +1,38 @@
+.switch{
+	cursor: pointer;
+	position: relative;
+	input{
+		position: absolute;
+		.opacity(0);
+		&:checked{
+			+ span{
+				background-color: @brand-success;
+				&:after{
+					left: 31px;
+				}
+			}
+		}
+	}
+	span{
+		position: relative;
+		width: 60px;
+		height: 30px;
+		border-radius: 30px;
+		background-color: #fff;
+		border:1px solid #eee;
+		border-color:rgba(0,0,0,0.1);
+		display: inline-block;
+		.transition(background-color 0.2s);
+		&:after{
+			content: "";
+			position: absolute;
+			background-color: #fff;
+			width: 26px;
+			top: 1px;
+			bottom: 1px;
+			border-radius: 30px;
+			.box-shadow(1px 1px 3px rgba(0, 0, 0, 0.25));
+			.transition(left 0.2s);
+		}
+	}
+}

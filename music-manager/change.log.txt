@@ -1,0 +1,28 @@
+v.1.0.1
+
+
+1:Fix jplayer css on firefox
+  js/jplayer/jplayer.flat.css
+
+2:Fix toggle off screen nav on iphone5s
+  <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+
+3:Fix ipad landscape body height issue
+  js/app.js, less/app.layout.less
+
+4:Add profile.html
+  
+5:Add blog.html
+
+6:Add video.html
+
+7:Add video-detail.html
+
+8:Add track-detail.html
+
+9:Add bjax smaple page
+  js/app.js. click titles on genres.html
+
+10:Host the music files on flatfull.com, not included in zip file
+
+

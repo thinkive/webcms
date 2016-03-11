@@ -1,0 +1,96 @@
+.bg-gradient{
+  #gradient > .vertical(rgba(40,50,60,0), rgba(40,50,60,0.05), 0, 100%);
+  filter:none;
+}
+
+.bg-light {
+	.color-variant(@brand-light, 1.5%, 3%, 2.5%, 5%);
+	color: @text-color;
+}
+
+.bg-dark {
+	.color-variant(@brand-dark, 5%, 10%, 5%, 10%);
+	.font-variant(@brand-dark, lighten(@brand-dark,40%), lighten(@brand-dark,50%), #fff);	
+}
+
+.bg-black {
+	.color-variant(@brand-black, 5%, 10%, 5%, 10%);
+	.font-variant(@brand-black, lighten(@brand-black,40%), lighten(@brand-black,50%), #fff);
+}
+
+.bg-primary {
+	.color-variant(@brand-primary, 5%, 10%, 5%, 10%);
+	&-ltest{
+		background-color: @brand-primary-ltest;
+	}
+	.font-variant(@brand-primary, lighten(@brand-primary,40%), lighten(@brand-primary,50%), #fff);	
+}
+
+.bg-success {
+	.color-variant(@brand-success, 5%, 10%, 5%, 10%);
+	&-ltest{
+		background-color: @brand-success-ltest;
+	}
+	.font-variant(@brand-success, lighten(@brand-success,40%), lighten(@brand-success,50%), #fff);
+}
+
+.bg-info {
+	.color-variant(@brand-info, 5%, 10%, 5%, 10%);
+	&-ltest{
+		background-color: @brand-info-ltest;
+	}
+	.font-variant(@brand-info, lighten(@brand-info,40%), lighten(@brand-info,50%), #fff);
+}
+
+.bg-warning {
+	.color-variant(@brand-warning, 5%, 10%, 5%, 10%);
+	&-ltest{
+		background-color: @brand-warning-ltest;
+	}
+	.font-variant(@brand-warning, lighten(@brand-warning,40%), lighten(@brand-warning,50%), #fff);
+}
+
+.bg-danger {
+	.color-variant(@brand-danger, 5%, 10%, 5%, 10%);
+	&-ltest{
+		background-color: @brand-danger-ltest;
+	}
+	.font-variant(@brand-danger, lighten(@brand-danger,40%), lighten(@brand-danger,50%), #fff);
+}
+
+.bg-white {
+	background-color: #fff;
+	color: @text-color;
+	a {
+		color: @link-color;
+		&:hover{
+			color: darken(@link-color, 10%);
+		}
+	}
+	.text-muted{color: @text-muted !important;}
+}
+.bg-white-only{background-color:#fff;}
+.bg-empty{background-color: transparent;}
+
+a.bg-light{
+	&:hover,
+	&:focus{
+		color: @link-color;
+	}
+}
+
+.text-wariant(@brand-primary, primary);
+.text-wariant(@brand-info, info);
+.text-wariant(@brand-success, success);
+.text-wariant(@brand-warning, warning);
+.text-wariant(@brand-danger, danger);
+.text-wariant(@brand-dark, dark);
+.text-black{
+	color: #000;
+};
+.text-white {
+  color: #fff;
+}
+.text-muted {
+  color: @text-muted;
+}
