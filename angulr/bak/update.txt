@@ -1,0 +1,264 @@
+## Release v1.3.3:
+
+#### Features:
+
+ - Added Music app
+ 
+ - Update angular to 1.3.2
+ - Update angular-bootstrap to 0.12.0
+ - Update angular-ui-router to 0.2.12
+ - Update bootstrap to 3.3.0
+ - Update angular-ui-calendar to latest
+ - Update oclazyload to 0.5.0
+
+#### Bugfixes:
+
+ - Fix fullcalendar
+
+
+
+## Release v1.3.2:
+
+#### Features:
+
+ - Added ui-select
+ - Added textAngular
+ - Added Slider
+ - Removed Select2
+ - Code review -- rearrange js files. 
+                  move the components to "src/vendor/", 
+                  split the "src/js/controllers.js" to "js/controllers/**"
+                  split the "src/js/directives.js" to "js/directives/**"
+                  split the "src/js/services.js" to "js/services/**"
+                  split the "src/js/filters.js" to "js/filters/**"
+
+#### Bugfixes:
+
+ - (none)
+
+
+
+## Release v1.3.1:
+
+#### Features:
+
+  - Added mega menu
+  - Added tree view
+  - Added file upload
+  - Added image crop
+  - Added weather app
+  - Added tabs in vbox
+  - Added double click to create event on Fullcalendar
+  - Added background image on boxed layout.
+  - Added angularjs-stripped.html sample page.
+  - Changed lang file .json to .js
+
+#### Bugfixes:
+
+  - Fix fullscreen button stats
+  - Fix fullscreen on ie11(disabled)
+
+
+## Release v1.3.0:
+
+#### Features:
+
+  - Included Grunt build steps and bower dependency management.
+  - Can compile application less files with grunt. Use the command `grunt:less`
+  - Added grunt for versioning and changelogs.
+
+  - Added dashboard v2 page
+  - Added Note app
+  - Added Contacts app
+
+  - Update Fullcalendar to 2.1.1, "js/jquery/fullcalenar/"
+  - Update FontAwesome to 4.2
+
+#### Bugfixes:
+
+  - Fix sparkline on retina display, "js/jquery/charts/sparkline/jquery.sparkline.min.js"
+
+
+v 1.2.0
+
+1: add dock aside option (horizontal menu)
+   added: ".app-aside-dock" class to enable horizontal menu
+   changed: "/tpl/blocks/settings.html", "/tpl/index.html"
+   AppCtrl in "/js/controller.js", uiNav in "/js/directives.js"
+
+2: add boxed layout option
+   added: '.container' class to .app to enable boxed layout. 
+   removed: ".bg-auto-left" and ".bg-auto-right" class
+
+3: add ng-grid
+   added: 'ocLazyLoad' from https://github.com/ocombe/ocLazyLoad
+           'ng-grid' from http://angular-ui.github.io/ng-grid/
+           use ocLazyLoad to lazy load the ng-grid modules
+           'tpl/table_grid.html'
+           'js/modules/ng-grid/'
+   changed: 'js/app.js' to config the ocLazyLoad. and add ngGrid state.
+
+4: add toaster
+   added: 'js/modules/toaster' from https://github.com/jirikavi/AngularJS-Toaster
+          'tpl/ui_toaster.html'
+   changed: 'js/app.js' add ui.toaster state
+
+5: fix sub menu when using ".bg-white"
+   changed: "/css/less/app.color.less"
+
+6: fix dataTables width issue
+   changed: "/js/jquery/datatables/datatables.bootstrap.css"
+
+
+v 1.1.3
+
+1: add PSD file
+   added: "psd/ui.psd"
+
+2: add application layout
+   added: "tpl/layout_app.html"
+   changed: changed: "css/less/app.layout.less", add "app-content-full" class; 
+	"uiNav" directive in "js/directives.js". "js/app.js" to config "layout" router. 
+	"tpl/blocks/nav.html" to add layout nav items
+
+3: add full width layout
+   added: "tpl/layout.html", "tpl/layout_fullwidth.html", "tpl/layout_footer_fullwidth.html"
+
+4: add mobile layout
+   added: "tpl/layout_mobile.html", "tpl/layout_footer_mobile.html"
+
+5: add off screen nav "pull-right" option
+   changed: "css/less/app.nav.offscreen.less"
+   use the "off-screen pull-right" to push the nav right.
+
+6: improvement on ".item" css
+   changed: "css/less/app.item.less", the ".top, .bottom" does not have the 100% width. 
+   you can use the ".top" + ".w-full" to make it full width. 
+   affect: "tpl/app_dashboard.html", "tpl/ui_widgets.html"
+
+
+v 1.1.2
+
+1: add off-screen nav on mobile
+   added "css/less/app.nav.offscreen.less",
+   changed: "tpl/blocks/header.html", "tpl/app.html"
+
+2: add sample on signin/signup
+   added: "api" folder for simulate api, "SigninFormController", "SignupFormController" controller in "js/controllers.js"
+   changed: "tpl/page_signin.html", "tpl/page_signup.html"
+
+3: add .app-aside-right aside
+   changed: "tpl/app.html", "css/less/layout.css"
+
+4: add pricing table
+   added: "tpl/page_price.html"
+   
+5: use ui-sref-active to get the link active
+   changed: "tpl/blocks/nav.html"
+
+6: fix ui-bootstrap carousel conflict with ng-animate
+   added: directive "setNgAnimate" in "js/directives.js", 
+   changed: "tpl/ui-bootstrap.html",  add ' set-ng-animate="false" '
+
+7: fix refresh page when choose language
+   changed: "tpl/blocks/header.html" add lang.isopen, AppCtrl in "js/controllers.js".
+
+8: improvement foled.fixed aside nav on smart device
+   changed: uiNav directive in "js/directives.js", "css/less/app.nav.less"
+
+
+v 1.1.1
+
+1: add ui-module directive, this is used for load other dependence.
+   changed: add "js/modules" folder, and move the "js/app/calendar/ui-calendar.js" to "js/modules".
+   changed: "js/app.js"(loading ui-calendar.js path)
+
+2: add Angular Select2, use ui-module directive to load dependences
+   added: "js/jquery/select2" folder, "js/modules/ui-select2.js"
+   changed: "js/app.js" constant "MODULE_CONFIG", "js/controllers.js" "FormDemoCtrl", "tpl/form_elements.html"
+   
+3: add Angular Google Map
+   added: "js/app/map" folder, "tpl/ui_googlemap.html", "js/modules/ui-map.js"
+   changed: "tpl/blocks/nav.html" 
+
+4: fix nav padding on OS X trackpad users in WebKit/Blink
+   issue: http://stackoverflow.com/questions/7855590/how-can-i-prevent-scroll-bars-from-being-hidden-for-os-x-trackpad-users-in-webki
+   changed: "css/less/app.layout.css", regenerated "app.css"
+
+5: fix header show first when modal closing.
+   changed: "css/less/app.layout.css", regenerated "app.css"
+
+6: fix flot resize error
+   changed: "js/jquery/charts/flot/jquery.flot.resize.js"
+
+7: update documents
+   update about "ui-module" directive.
+
+
+v 1.1.0
+1: change .no-touch to .smart class
+   changed: "AppCtrl" in "js/controllers.js", detect is smart device then add "smart" class
+            "css/less/app.layout.less" change the ".no-touch" to ".smart" class.
+
+2: fix butterbar when page scrolled
+   changed: "uiButterbar" directive in "js/directives.js", scroll to top when page trasistion.
+
+3: add a example how to bind ngModel on the bootstrap-slider.js
+   changed: "FormDemoCtrl" in "js/controllers.js", "tpl/form_elements.html"
+
+4: fix .less files error
+   changed: "less/app.butterbar.less", "less/app.colors.less", "less/app.reset.less"
+
+
+v 1.0.3
+
+1: Save settings to local storage
+   add: "js/angular/ngStorage.min.js"
+   changed: "AppCtrl" in "js/controllers.js", "tpl/blocks/header.html", "tpl/blocks/settings.html", "index.html"
+
+2: Add scroll to top at the bottom
+   changed "tpl/app.html", use ui-scroll directive
+
+3: Fix scroll to top when modal opened
+   changed: "css/less/app.layout.css", regenerated "app.css"
+
+
+v 1.0.2
+
+1: Add angular-translate for international
+	add: "js/angular/angular-translate.js", "js/angular/angular-cookies.min.js", "l10n" folder
+	changed: "js/app.js", "js/controllers.js", "tpl/blocks/header.html", "tpl/blocks/nav.html"
+
+2: Add footable jquery plugin
+	added: "js/jquery/footable/footable.all.min.js", "tpl/table_footable.html"
+	changed "js/app.js" to config ui-jq footable files
+
+3: fix menu on small device.
+	changed: "tpl/blocks/header.html" add  ui-scroll="app" on menu button. 
+		and give a "#app" on "tpl/index.html".
+		you can change the name "#app" as you want.
+
+4: fix line-height on ".btn-icon" class
+	changed: "css/less/app.button.less", regenerated app.css
+
+
+
+v 1.0.1
+
+1: Add Fullscreen directive
+	usage:   <a ui-fullscreen></a> or <a ui-fullscreen target="#target"></a>
+	added:   "js/libs/screenfull.min.js"
+	changed: "tpl/blocks/header.html", "js/directives.js" add "uiFullscreen" directive
+
+2: Add Butterbar directive for loading indicator
+	usage: <div ui-butterbar></div>
+	added: "css/less/app.butterbar.less" 
+	changed: "tpl/app.html", "js/directives.js" add "uiButterbar" directive
+	
+3: Add list group .auto class
+	effect 404 page
+	List group has .auto class for "bg-info","bg-primary" ...
+	Changed, css/less/app.mixins.less, and regenerated app.css
+
+4: Fix scroll bounce when page transition
+	changed, css/less/app.ng.class, and regenerated app.css
