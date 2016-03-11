@@ -1,0 +1,125 @@
+﻿/*左侧音乐播放器CSS*/
+.jp-audio :focus,.jp-audio-stream :focus,.jp-video :focus{outline:0}
+.jp-audio button::-moz-focus-inner,.jp-audio-stream button::-moz-focus-inner,.jp-video button::-moz-focus-inner{border:0}
+
+.jp-audio-stream,.jp-video{/*外框*/
+		width:480px; height:94px;
+		position:fixed; left:-480px; bottom:20px; z-index:999;
+		font-size:16px; font-family:"微软雅黑"; line-height:1.6; color:#fff;
+		border-radius:4px; background:#123;}
+
+.jp-controls-holder{/*控件区*/
+		width:440px; margin:0 auto; clear:both; overflow:hidden; 
+		position:absolute; left:82px; top:25px;}
+.jp-controls{width:134px; margin-left:150px;}
+.jp-controls button{display:block; float:left; border-radius:50%; overflow:hidden; 
+		text-indent:-999px; border:none; cursor:pointer;}
+/*控件icons*/
+.jp-play{width:40px; height:40px; background:url(../images/player.png) no-repeat;}
+.jp-play:hover{background:url(../images/player.png) -41px 0 no-repeat;}
+.jp-state-playing .jp-play{background:url(../images/player.png) 0 -42px no-repeat;}
+.jp-state-playing .jp-play:hover{background:url(../images/player.png) -41px -42px no-repeat;}
+.jp-next,.jp-previous,.jp-stop{width:28px;height:28px;margin-top:6px;}
+.jp-stop{background:url(../images/player.png) 0 -83px no-repeat;margin-left:10px;}
+.jp-stop:hover{background:url(../images/player.png) -29px -83px no-repeat;}
+.jp-previous{background:url(../images/player.png) 0 -112px no-repeat;}
+.jp-previous:hover{background:url(../images/player.png) -29px -112px no-repeat;}
+.jp-next{background:url(../images/player.png) 0 -141px no-repeat;}
+.jp-next:hover{background:url(../images/player.png) -29px -141px no-repeat;}
+
+.jp-progress{overflow:hidden; background-color:#ddd;}
+.jp-audio .jp-progress{position:absolute ;top:32px; height:15px;}
+.jp-audio .jp-type-single .jp-progress{left:110px; width:186px;}
+.jp-audio .jp-type-playlist .jp-progress{left:166px; width:130px;}
+.jp-video .jp-progress{top:0;left:0;width:100%;height:4px;}/*进度条*/
+.jp-seek-bar{background:url(../images/player.png) 0 -202px repeat-x;width:0;height:100%;cursor:pointer;}
+.jp-play-bar{background:url(../images/player.png) 0 -218px repeat-x;width:0;height:100%;}
+.jp-seeking-bg{background:url(../images/player.seeking.gif);}
+
+/*音量控制*/
+.jp-volume-controls{width:100px; position:absolute; top:32px; left:260px;}
+.jp-video .jp-volume-controls{top:12px; left:30px;}
+.jp-volume-controls button{display:block; position:absolute; overflow:hidden;
+		text-indent:-9999px ;border:none; cursor:pointer;}
+.jp-mute,.jp-volume-max{width:18px; height:15px;}
+.jp-volume-max{left:74px;}
+.jp-mute{background:url(../images/player.png) 0 -170px no-repeat;}
+.jp-mute:hover{background:url(../images/player.png) -19px -170px no-repeat;}
+.jp-state-muted .jp-mute{background:url(../images/player.png) -60px -170px no-repeat;}
+.jp-state-muted .jp-mute:hover{background:url(../images/player.png) -79px -170px no-repeat;}
+.jp-volume-max{background:url(../images/player.png) 0 -186px no-repeat;}
+.jp-volume-max:hover{background:url(../images/player.png) -19px -186px no-repeat;}
+.jp-volume-bar{position:absolute;overflow:hidden;background:url(../images/player.png) 0 -250px repeat-x;top:6px;left:20px;width:50px;height:3px;cursor:pointer; border-radius:3px;}
+.jp-volume-bar-value{background:url(../images/player.png) 0 -256px repeat-x;width:0;height:5px}
+.jp-audio .jp-time-holder{position:absolute;top:50px;}
+.jp-audio .jp-type-single .jp-time-holder{left:110px;width:186px;}
+.jp-audio .jp-type-playlist .jp-time-holder{left:166px;width:130px;}
+.jp-current-time,.jp-duration{width:60px; font-size:10px; color:#dadada;}
+.jp-current-time{float:left; display:inline;cursor:default;}
+.jp-duration{float:right; display:inline;text-align:right;cursor:pointer;}
+/*播放时间*/
+.jp-video .jp-current-time{font-size:10px; position:absolute; left:115px; top:70px;}
+.jp-video .jp-duration{font-size:10px; position:absolute; right:35px; top:70px;}
+.jp-details{font-weight:700;text-align:center;cursor:default;}
+.jp-details,.jp-playlist{width:100%;background-color:#ccc;}
+.jp-type-playlist .jp-details,.jp-type-single .jp-details{border-top:none;}
+.jp-details .jp-title{margin:0;padding:5px 20px;font-size:.72em;font-weight:700;}
+
+/*播放列表*/
+.jp-playlist-box{width:100%; height:0px; position:absolute; left:0; top:94px; overflow:hidden;}
+.jp-playlist ul{list-style-type:none; margin:0;padding:0px;font-size:12px; background:rgba(0,0,0,0.4);
+		width:100%; height:200px; position:absolute; left:0; top:0px; font-family:"宋体";}
+.jp-playlist li{height:27px; line-height:27px; padding:0 0 0 27px; 
+		list-style-type:decimal; list-style-position:inside;}
+.jp-playlist li div{display:inline;}
+div.jp-type-playlist div.jp-playlist li.jp-playlist-current{background:rgba(0,0,0,.4);}
+div.jp-type-playlist div.jp-playlist a{color:#fff; font-family:"宋体"; text-decoration:none;}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-current,div.jp-type-playlist div.jp-playlist a:hover,div.jp-type-playlist div.jp-playlist li.jp-playlist-current span.jp-artist,div.jp-type-playlist div.jp-playlist a:hover span{
+		color:#0eaf52;}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-item-remove{
+		float:right; display:inline; text-align:right; 
+		margin-right:35px; color:#efefef;}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-item-remove:hover{color:#0DAD51;}
+span.jp-artist{font-size:12px;}/*歌手名*/
+/*循环、随机*/
+.jp-video .jp-toggles{width:100px; position:absolute; right:27px;margin:10px 0 0;}
+.jp-toggles button{display:block;float:left;width:25px;height:18px;
+		text-indent:-9999px; line-height:100%;border:none;cursor:pointer;}
+.jp-repeat{background:url(../images/player.png) 0 -290px no-repeat;}
+.jp-repeat:hover{background:url(../images/player.png) -30px -290px no-repeat;}
+.jp-state-looped .jp-repeat{background:url(../images/player.png) -60px -290px no-repeat;}
+.jp-state-looped .jp-repeat:hover{background:url(../images/player.png) -90px -290px no-repeat;}
+.jp-shuffle{background:url(../images/player.png) 0 -270px no-repeat;margin-left:5px;}
+.jp-shuffle:hover{background:url(../images/player.png) -30px -270px no-repeat;}
+.jp-state-shuffled .jp-shuffle{background:url(../images/player.png) -60px -270px no-repeat;}
+.jp-state-shuffled .jp-shuffle:hover{background:url(../images/player.png) -90px -270px no-repeat;}
+
+
+/*滚动条*/
+html,body,header,nav,footer,div,ul,ol,li,p,form,input,a,span,em,i,strong,b,font,img{
+		margin:0; padding:0; list-style:none; border:none;}
+.jp-video .scrollBar{width:4px; height:80px; background:#3A3B3B; 
+		position:absolute; right:0; bottom:0; border-radius:4px; display:none;}
+.jp-video .scrollBar .bar{width:4px; height:25px; background:#0DAD51;
+		position:absolute; left:0; top:0px; border-radius:4px; cursor:pointer;}
+/*播放器显示 隐藏*/
+.jp-video .folded_bt{width:20px; height:80px; display:block;
+		position:absolute; right:-20px; top:5px; border:none;
+		background:#111; cursor:pointer; padding:0; margin:0;}
+.jp-video .folded_bt span{width:20px; height:30px; display:block;
+		background:url(../images/player.png) no-repeat -90px -6px;}
+.jp-video .folded_bt:hover span{background-position:-116px -6px;}
+/*列表歌曲 清空*/
+#listRemove{
+		width:20px; height:20px; display:none;
+		position:absolute; right:5px; bottom:2px; cursor:pointer;
+		background:url(../images/player.png) no-repeat -93px -53px;}
+#listRemove:hover{background-position:-119px -53px;}
+/*歌曲列表 显示 隐藏*/
+#listClose{
+		width:30px; height:30px; cursor:pointer;
+		position:absolute; right:0px; top:0; 
+		background:url(../images/player.png) no-repeat -88px -85px;}
+#listClose:hover{background-position:-115px -85px;}
+
+
