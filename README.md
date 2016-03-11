@@ -7,3 +7,4 @@
 5. caplet-admin管理平台 http://www.wecloud.net.cn/cms/caplet-admin/dashboard.html
 6. Apricot管理平台 http://www.wecloud.net.cn/cms/Apricot/index.html
 7. angulr管理平台 http://www.wecloud.net.cn/cms/angulr/index.html
+8. 在线音乐播放网站 http://www.wecloud.net.cn/cms/music_online/index.html
