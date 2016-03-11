@@ -1,0 +1,78 @@
+/*
+00 - Multi Select 
+----------------------*/
+.ms-container {
+  background: transparent url('../img/switch.png') no-repeat 50% 50%;
+  width: 370px;
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    clear: both;
+    min-height: 0;
+    visibility: hidden;
+  }
+  .ms-selectable {
+    background: #fff;
+    color: #555555;
+    float: left;
+    width: 45%;
+  }
+  .ms-selection {
+    background: #fff;
+    color: #555555;
+    float: left;
+    width: 45%;
+    float: right;
+  }
+  .ms-list {
+    -webkit-transition: All linear 0.2s;
+    -moz-transition: All linear 0.2s;
+    -ms-transition: All linear 0.2s;
+    -o-transition: All linear 0.2s;
+    transition: All linear 0.2s;
+    border: 1px solid #ededed;
+    position: relative;
+    height: 200px;
+    padding: 0;
+    overflow-y: auto;
+    &.ms-focus {
+      border-color: #CCC;
+      outline: 0;
+      outline: thin dotted \9;
+    }
+  }
+  ul {
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+  }
+  .ms-optgroup-container {
+    width: 100%;
+  }
+  .ms-optgroup-label {
+    margin: 0;
+    padding: 5px 0px 0px 5px;
+    cursor: pointer;
+    color: #999;
+  }
+  .ms-selectable li.ms-elem-selectable, .ms-selection li.ms-elem-selection {
+    border-bottom: 1px #eee solid;
+    padding: 5px 10px;
+    color: #555;
+    font-size: 14px;
+  }
+  .ms-selectable li.ms-hover, .ms-selection li.ms-hover {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    background-color: $colors-theme-inverse;
+  }
+  .ms-selectable li.disabled, .ms-selection li.disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: text;
+  }
+}

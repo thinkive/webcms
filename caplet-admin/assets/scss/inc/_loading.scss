@@ -1,0 +1,193 @@
+#caplet-overlay {
+  background-color:#111;
+  // height:100%;
+  bottom:0;
+  left:0;
+  position:fixed;
+  top:0;
+  right:0;
+  opacity:0;
+  z-index:999;
+  // @include transition (all 0.5s);
+  // &.in{
+  //  opacity: 0.5;
+  // }
+}
+
+#loading-top {
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+}
+
+#canvas_loading {
+  padding: 10px;
+  text-align: center;
+  canvas {
+    display: inline-block !important;
+  }
+  span {
+    display: block !important;
+  }
+}
+
+/*
+00 - loading-spinner
+------------------------------------------------------------*/
+.loading-spinner {
+  left: 50%;
+  margin: -12px 0 0 -12px;
+  position: absolute;
+  top: 50%;
+}
+.loading-spinner .progress {
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  margin: 0;
+}
+.loading-spinner .txtLoad {
+  color: #FFF;
+  font-size: 11px;
+  padding: 3px;
+  text-align: center;
+}
+.animated {
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.shake {
+  -moz-animation-name: shake;
+  -o-animation-name: shake;
+  -webkit-animation-name: shake;
+  animation-name: shake;
+}
+@-webkit-keyframes shake {
+ 0%, 100% {
+-webkit-transform: translateX(0);
+}
+10%, 30%, 50%, 70%, 90% {
+-webkit-transform: translateX(-10px);
+}
+20%, 40%, 60%, 80% {
+-webkit-transform: translateX(10px);
+}
+}
+@-moz-keyframes shake {
+ 0%, 100% {
+-moz-transform: translateX(0);
+}
+10%, 30%, 50%, 70%, 90% {
+-moz-transform: translateX(-10px);
+}
+20%, 40%, 60%, 80% {
+-moz-transform: translateX(10px);
+}
+}
+@-o-keyframes shake {
+ 0%, 100% {
+-o-transform: translateX(0);
+}
+10%, 30%, 50%, 70%, 90% {
+-o-transform: translateX(-10px);
+}
+20%, 40%, 60%, 80% {
+-o-transform: translateX(10px);
+}
+}
+@keyframes shake {
+ 0%, 100% {
+transform: translateX(0);
+}
+10%, 30%, 50%, 70%, 90% {
+transform: translateX(-10px);
+}
+20%, 40%, 60%, 80% {
+transform: translateX(10px);
+}
+}
+
+/*
+00 - Load bubble
+------------------------------------------------------------*/
+.load-bubble {
+  background: #FFF;
+  border-radius: 25px;
+  height: 25px;
+  line-height: 22px;
+  margin: 5% auto auto;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  width: 82px;
+  &:after {
+    background: inherit;
+    border-radius: 10px;
+    content: " ";
+    height: 10px;
+    left: -15px;
+    position: absolute;
+    top: 20px;
+    width: 10px;
+  }
+  li {
+    border-radius: 50%;
+    display: inline-block;
+    height: 8px;
+    margin: 0 2px;
+    width: 8px;
+    &:first-of-type {
+      background: rgb(164, 163, 172);
+      -webkit-animation: first 1s linear alternate infinite;
+    }
+    &:nth-of-type(2) {
+      background: rgb(151, 150, 156);
+      -webkit-animation: second 1s linear alternate infinite;
+    }
+    &:last-of-type {
+      background: rgb(108, 107, 115);
+      -webkit-animation: third 1s linear alternate infinite;
+    }
+  }
+}
+@-webkit-keyframes third {
+0% {
+background:rgb(164,163,172);
+}
+50% {
+background:rgb(151,150,156);
+}
+100% {
+background:rgb(108,107,115);
+}
+}
+@-webkit-keyframes second {
+0% {
+background:rgb(151,150,156);
+}
+50% {
+background:rgb(108,107,115);
+}
+100% {
+background:rgb(164,163,172);
+}
+}
+@-webkit-keyframes first {
+0% {
+background:rgb(108,107,115);
+}
+50% {
+background:rgb(164,163,172);
+}
+100% {
+background:rgb(151,150,156);
+}
+}

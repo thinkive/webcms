@@ -1,0 +1,21 @@
+/*
+00 -  tabdrop
+------------------------------------------------------------*/
+.tabdrop {
+  position: relative;
+  .badge {
+    background-color: #F37864;
+    font-weight: 300;
+    height: 19px;
+    line-height: 19px;
+    min-width: 19px;
+    padding: 0 6px;
+    position: absolute;
+    right: -8px;
+    right: -10px;
+    text-align: center;
+    top: 4px;
+    top: -8px;
+    z-index: 2;
+  }
+}

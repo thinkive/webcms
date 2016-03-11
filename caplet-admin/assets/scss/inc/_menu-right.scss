@@ -1,0 +1,56 @@
+/*
+00 -  contact status
+------------------------------------------------------------*/
+#menu-right li {
+  position: relative;
+  &.img a {
+    opacity: 0.5;
+    &.online, &.busy, &.block {
+      opacity: 1;
+    }
+    small {
+      display: block;
+    }
+    &:before {
+      background-color: #262729;
+      border-radius: 50%;
+      content: "";
+      height: 10px;
+      margin-top: -5px;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      width: 10px;
+    }
+    &.online:before {
+      background-color: #00cc00;
+    }
+    &.busy:before {
+      background-color: #ff9900;
+    }
+    &.block:before {
+      background-color: #e15258;
+    }
+  }
+  .widget-collapse{
+    margin:-15px -10px -15px -20px;
+    header {
+      padding: 0 15px;
+      background: rgba(255, 255, 255, 0.05);
+      text-transform:uppercase;
+      a {
+        font-weight:700;
+        line-height:30px;
+        i {
+          &.collapse-caret {
+            margin-top: 7px;
+            color:rgba(255, 255, 255, 0.5);
+          }
+        }
+      }
+    }
+    section .collapse-boby {
+      padding: 15px 20px;
+    }
+  }
+}

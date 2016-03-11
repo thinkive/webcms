@@ -1,0 +1,134 @@
+// Core variables and mixins
+@import "bourbon/bourbon";
+
+
+$colors-bg-header-content:					#FFF;
+$header-border-bottom:						$colors-bg-header-content;
+$colors-bg-main-content:					#f5f5f5;
+$colors-bg-wraper-content:					#252034;
+
+$logo-bg-color:								darken(#697687, 2%);
+$logo-border-color:							$logo-bg-color ;
+
+
+$corner-flip-color:							$colors-bg-main-content;
+
+// Nav slide 
+$nav-slide-color: 							#2A2D34 !default;
+$nav-slide-link-color:						#FFCC33;
+
+$avatar-link-color:							rgba(white, 0.5);
+
+$menu-bg-off-canvas:						darken($nav-slide-color, 5%);
+
+
+//specal color in theme 1
+
+.bg-gradient-green{
+	@include linear-gradient(155deg, #1dc096 40%, #1896a1);
+}
+
+.bg-gradient-blue{
+	@include linear-gradient(155deg, #1edcde 40%, #1a86bf);
+}
+
+
+body.leftMenu:after {
+	background-color:transparent;
+}
+
+#header {
+	background: $colors-bg-header-content;
+	border-bottom-color: $header-border-bottom;
+	webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+//wraper layout
+#wrapper {
+  background: $colors-bg-wraper-content;
+}
+//main layout and nav layout
+#main {
+  background: $colors-bg-main-content;
+}
+#nav {
+	@include linear-gradient(155deg, #697687 40%, #2A2D34);
+}
+
+.logo-area {
+  background-color: $logo-bg-color;
+  border-bottom-color: $logo-border-color ;
+}
+
+#nav-title{
+  background-color: $logo-bg-color;
+	webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.mm-ismenu {
+  background: $menu-bg-off-canvas;
+}
+
+.breadcrumb {
+	border-bottom:1px #dfdfdf solid;
+}
+
+.avatar-slide {
+  .avatar-detail {
+    p {
+      a {
+        color: $nav-slide-link-color;
+      }
+    }
+  }
+  .avatar-link {
+    a {
+		em:before{
+		border-color:#F00;
+		}
+      &.btn {
+        border-left: 1px rgba(0,0,0, 0.2) solid;
+        border-radius: 0;
+        background:$avatar-link-color;
+      }
+      &.btn:hover {
+        background: darken($avatar-link-color, 3.2%);
+      }
+    }
+  }
+}
+
+.widget-collapse.dark header{
+	background: rgba(black, 0.2);
+	a{
+		color: white;
+	}
+}
+
+.mail-menu ul li{
+	&.active{
+		a{
+			border-left-color: $nav-slide-link-color;
+			background: rgba(black, 0.2);
+		}
+	}
+	a{
+		color:#FFF;
+		&:hover{
+			background: rgba(black, 0.2);
+			color:#FFF;
+		}
+	}
+}
+
+/*
+00 - Corner-flip
+------------------------------------------------------------*/
+.corner-flip {
+  position: relative;
+  .flip {
+    border-bottom-color: $corner-flip-color;
+	}
+}

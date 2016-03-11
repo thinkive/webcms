@@ -1,0 +1,46 @@
+/*
+00 -  wizard step
+------------------------------------------------------------*/
+.wizard-step {
+  background-color: #FFF;
+  ul.nav-wizard {
+    padding: 15px;
+    li {
+      display: inline-block;
+      margin: 5px;
+      a {
+        background-color: #f7f6f1;
+        border-radius: 50%;
+        color: #a1a1a1;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        position: relative;
+        text-align: center;
+        -moz-transition: background 0.5s ease-in-out;
+        -webkit-transition: background 0.5s ease-in-out;
+        transition: background 0.5s ease-in-out;
+        width: 40px;
+      }
+      &.active a, &.completed a {
+        background-color: #6cc3a0;
+        color: #FFF;
+      }
+      &.active a {
+        background-color: #5db491;
+      }
+    }
+  }
+  .pager {
+    margin-top: 0;
+  }
+  .wizard-status {
+    color: #CCC;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .final {
+    display: none;
+  }
+}

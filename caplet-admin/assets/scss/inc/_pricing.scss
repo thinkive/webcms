@@ -1,0 +1,65 @@
+/*
+00 - Pricing Table plan
+----------------------*/ 
+
+.pricing .plan {
+  background: #fff;
+  border-radius: 3px;
+  margin: 0 0 15px;
+  padding: 0 0 20px;
+  text-align: center;
+  @include transition (all 0.5s);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  li {
+    border-top: 1px solid #f5f5f5;
+    color: #ccc;
+    padding: 10px 15px;
+    @include transition (all 0.5s);
+    &.plan-price {
+      border-top: 0;
+    }
+    &.plan-name {
+      background: $colors-theme-inverse;
+      border-top: 0;
+      border-bottom: 5px solid darken($colors-theme-inverse, 10%);
+      color: #fff;
+      font-size: 24px;
+      padding: 30px;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    &.plan-price {
+      color: #a1a1a1;
+      font-size: 54px;
+      font-weight: 300;
+      padding: 5px 0;
+      i {
+        font-size: 28px;
+        font-style: normal;
+        position: relative;
+        top: -8px;
+      }
+      span {
+        display: block;
+        font-size: $font-size-base;
+        font-style: normal;
+        position: relative;
+        top: -10px;
+      }
+    }
+    > strong {
+      color: #a1a1a1;
+    }
+    &.plan-action {
+      border-top: 0;
+      margin-top: 10px;
+    }
+  }
+  &.featured {
+    li.plan-name {
+      background: $colors-bg-dark;
+      border-bottom: 5px solid lighten($colors-bg-dark, 10%);
+    }
+  }
+}

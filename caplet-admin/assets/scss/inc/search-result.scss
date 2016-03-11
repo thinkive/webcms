@@ -1,0 +1,47 @@
+/*
+00 - Search result
+----------------------*/
+
+.resultSearch {
+  margin:0;
+  small.resultStats {
+    color: #CCC;
+    display: block;
+    padding: 7px 0 22px 0;
+    border-bottom: 1px #ededed solid;
+    margin-bottom: 25px;
+  }
+  ul.resultItem {
+    li {
+      margin-bottom: 30px;
+      h4 a{
+        color:#1e0fbe;
+      }
+      h4 a:hover {
+        text-decoration: underline;
+      }
+      p time {
+        color: #CCC;
+        display: inline-block;
+        margin-right: 7px;
+      }
+      .rating span {
+        color: #CCC;
+        display: inline-block;
+        margin-right: 7px;
+        &:before {
+          color: #ffcc33;
+        }
+      }
+      img {
+        width: 100%;
+      }
+    }
+    &.resultImages li {
+      margin-bottom: 20px;
+    }
+    .resultThumbnail {
+      padding: 0;
+    }
+  }
+}

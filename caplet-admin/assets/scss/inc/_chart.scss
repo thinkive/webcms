@@ -1,0 +1,70 @@
+/*
+00 -  Chart tooltip
+------------------------------------------------------------*/
+.jqstooltip {
+  @include box-sizing(content-box);
+}
+
+/* Chart*/
+.jqstooltip, #flotTip {
+  -webkit-box-sizing:content-box;
+  -moz-box-sizing:content-box;
+  box-sizing:content-box;
+}
+.chart_flot, #flotTip, .flot-text {
+  color:#FFF;
+  font-family:Arial, Helvetica, sans-serif;
+}
+#tooltipPie {
+  font-size:10px;
+  padding:5px;
+}
+#flotTip {
+  background-color: $colors-bg-dark;
+  font-size:11px;
+  padding:4px 7px;
+  text-align:center;
+  text-shadow:none;
+}
+
+
+/*
+00 - label of chart (flot ,sparkline)
+------------------------------------------------------------*/
+.label-flot-custom {
+  padding: 20px;
+  li {
+    color: #999;
+    display: inline-block;
+    font-size: $font-size-small;
+    padding: 7px;
+  }
+}
+
+.label-sparkline li {
+  color: #999;
+  display: inline-block;
+  font-size: $font-size-small;
+  padding: 7px;
+}
+
+.label-flot-custom li span, .label-sparkline li span {
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  margin-right: 5px;
+  width: 10px;
+}
+
+.label-flot-custom-title {
+  font-size: 1.5em;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
+.label-sparkline {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5px;
+}

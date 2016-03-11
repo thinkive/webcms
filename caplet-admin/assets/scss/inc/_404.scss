@@ -1,0 +1,72 @@
+/*
+00 -  404 error page
+------------------------------------------------------------*/  
+$r-search-width:  600px;  
+
+
+.wrapper-shadow {
+  background-color: #000;
+  -webkit-box-shadow: 0 0px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.real-border {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.real-boxs {
+  bottom: 0;
+  left: 0;
+  padding: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.real-search {
+  background-color: #FFF;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+  padding: 0;
+  position: absolute;
+  left:50%;
+  margin-left:-$r-search-width/2;
+  top: 50px;
+  width: $r-search-width;
+  z-index: 2;
+}
+
+@media all and (max-width: 767px) {
+  .real-search {
+    margin-left:-$r-search-width/4;
+    width: $r-search-width/2;
+  }
+}
+
+.error-template {
+  padding: 80px 15px;
+  h1 {
+    font-family: "Ubuntu";
+    font-size: 3.5em;
+    font-weight: 300;
+    line-height: 55px;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+  }
+}
+
+.error-details {
+  padding: 10px 0;
+}
+
+.error-actions {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  .btn {
+    margin-right: 10px;
+  }
+}

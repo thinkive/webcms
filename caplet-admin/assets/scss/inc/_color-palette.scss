@@ -1,0 +1,25 @@
+/*
+00 - Color palette
+------------------------------------------------------------*/
+.bootstrap-colorpalette {
+  border: 1px #ededed solid;
+  line-height: 1;
+  padding: 3px 3px;
+  white-space: normal;
+  div {
+    line-height: 0;
+    width: 160px;
+  }
+  a.btn-color {
+    border: 0;
+    display: inline-block;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: all .2s ease-in-out;
+    width: 20px;
+  }
+  .btn-color:hover {
+    -webkit-transform: scale(1.2);
+  }
+}

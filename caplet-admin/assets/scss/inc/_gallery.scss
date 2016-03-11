@@ -1,0 +1,99 @@
+/*
+00 -  gallery albums
+------------------------------------------------------------*/
+.gallery-albums h5 {
+  margin: 7px 0 0;
+}
+
+.img-preview {
+  height: inherit!important;
+  width: 100%!important;
+}
+
+#gallery-content {
+  min-height: 700px;
+  position: relative;
+  width: 100%;
+  #canvas_loading {
+    left: 50%;
+    margin-left: -16px;
+    position: absolute;
+    top: 50%;
+  }
+  &.fullScreen {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+#gallery {
+  position: relative;
+  div {
+    background-color: #262729;
+    float: left;
+    opacity: 0;
+    position: relative;
+    -moz-transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -moz-transition: 0.4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    span.img-tools {
+      bottom: 10px;
+      left: 7px;
+      position: absolute;
+      right: 7px;
+      text-align: center;
+    }
+    a {
+      background-color: #C30;
+      color: #FFF;
+      display: inline-block;
+      margin: 0 2px;
+      opacity: 0;
+      padding: 5px 10px;
+      -moz-transition: 0.4s;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+  }
+  section {
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    -moz-transition: 0.4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  div {
+    &.static:hover section, &.show:hover section {
+      opacity: 0.6 !important;
+    }
+    &.static:hover a, &.show:hover a {
+      opacity: 1 !important;
+    }
+    &.static {
+      opacity: 1;
+      -moz-transform: none;
+      -webkit-transform: none;
+      transform: none;
+      -moz-transition: opacity 0.4s;
+      -webkit-transition: opacity 0.4s;
+      transition: opacity 0.4s;
+    }
+    &.next, &.prev {
+      background-color: #262729;
+      color: #FFF;
+      cursor: pointer;
+      font-size: 24px;
+      text-align: center;
+    }
+    &.show {
+      opacity: 1;
+      -moz-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+}

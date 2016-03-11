@@ -1,0 +1,39 @@
+/*
+00 -  parsley validate
+------------------------------------------------------------*/
+input.parsley-success:focus, textarea.parsley-success:focus {
+  border: 1px solid #D6E9C6 !important;
+  color: #468847 !important;
+}
+input.parsley-error, textarea.parsley-error {
+  border: 1px solid #F36523 !important;
+  color: #B94A48 !important;
+}
+ul.parsley-error-list {
+  color: #E15258;
+  font-size: 12px;
+  list-style-type:none;
+  margin: 3px 0;
+}
+
+/*
+00 - Text Limit
+------------------------------------------------------------*/
+.cl-textlimit textarea, .cl-textlimit-result {
+  -moz-transition: border 0.5s, color 0.5s;
+  -webkit-transition: border 0.5s, color 0.5s;
+  transition: border 0.5s, color 0.5s;
+}
+
+.cl-textlimit textarea.limited {
+  border: 1px #F30 solid;
+}
+
+.cl-textlimit-result {
+  color: #269881;
+  font-size: 12px;
+  &.limited {
+    color: #F30;
+  }
+}
+

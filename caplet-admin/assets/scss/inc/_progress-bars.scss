@@ -1,0 +1,136 @@
+/*
+00 - Progress
+------------------------------------------------------------*/
+.progress-bar {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  position: relative;
+}
+
+.progress {
+  background-color: #EEE;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin-bottom: 5px;
+  overflow: visible;
+  position: relative;
+  &.progress-dark {
+    background-color: $progress-dark-color;
+  }
+  &.progress-white {
+    background-color: rgba(0,0,0,0.3);
+  }
+  &.progress-sm {
+    height: $progress-sm;
+  }
+  &.progress-xs {
+    height: $progress-xs;
+  }
+}
+
+.progress-label {
+  font-size: 10px;
+  margin-bottom: 15px;
+  position: relative;
+  top: -5px;
+  &.lasted {
+    margin-bottom: 0px;
+  }
+  &.label-white{
+    color:#FFF!important;
+  }
+}
+
+.progress .progress-tooltip {
+  @include opacity (0.6);
+  background-color: #000;
+  color: #FFF;
+  display: none;
+  font-size: 10px;
+  padding: 3px 5px 3px 7px;
+  position: absolute;
+  right: -10px;
+  top: -25px;
+  &:before {
+    @include triangle(10px, #000, down); // triangle($size, $color, $direction)
+    bottom: -10px;
+    content: "";
+    position: absolute;
+    right: 5px;
+  }
+}
+
+.progress-bar-theme {
+  background-color: #6CC3A0;
+}
+
+.progress-bar-success {
+  background-color: #5cb85c;
+}
+
+.progress-bar-white {
+  background-color: #FFF;
+}
+
+.progress {
+  &:hover .progress-tooltip, &.tooltip-in .progress-tooltip {
+    display: inline-block;
+  }
+}
+
+.progress-stripes .progress-bar {
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  @include animation(animate-stripes 3s linear infinite);
+  -webkit-background-size: 30px 30px;
+  -moz-background-size: 30px 30px;
+  background-size: 30px 30px;
+}
+
+.progress-shine {
+  span {
+    position: absolute;
+  }
+  .progress-bar::after {
+    background: #fff;
+    bottom: 0;
+    content: '';
+    left: 0;
+    @include opacity (0);
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include animation(animate-shine 2s ease-out infinite);
+  }
+}
+
+
+//prograss bar animation
+@include keyframes(animate-stripes) {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 60px 0;
+  }
+}
+
+
+@include keyframes(animate-shine) {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 0;
+    width: 95%;
+  }
+}

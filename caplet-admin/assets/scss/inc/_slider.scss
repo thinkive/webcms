@@ -1,0 +1,229 @@
+/*
+00 -  jslider
+------------------------------------------------------------*/
+.jslider {
+  display: block;
+  font-family: Arial, sans-serif;
+  height: 1em;
+  margin-top: 30px;
+  position: relative;
+  top: 0.6em;
+  table {
+    border: 0;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  td, th {
+    border: 0;
+    padding: 0;
+    text-align: left;
+    vertical-align: top;
+  }
+  table {
+    vertical-align: top;
+    width: 100%;
+    tr {
+      vertical-align: top;
+      width: 100%;
+      td {
+        vertical-align: top;
+        width: 100%;
+      }
+    }
+  }
+  .jslider-bg {
+    position: relative;
+    i {
+      background-color: #EEE;
+      font-size: 0;
+      height: 5px;
+      position: absolute;
+      top: 0;
+    }
+    .l {
+      background-position: 0 0;
+      left: 0;
+      width: 50%;
+    }
+    .r {
+      background-position: right 0;
+      left: 50%;
+      width: 50%;
+    }
+    .v {
+      background: #CCC;
+      height: 5px;
+      left: 20%;
+      position: absolute;
+      top: 0;
+      width: 60%;
+    }
+  }
+  .jslider-pointer {
+    background-color: #FFF;
+    border: 1px #DDD solid;
+    border-radius: 4px;
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.125);
+    cursor: pointer;
+    height: 15px;
+    left: 20%;
+    margin-left: -6px;
+    position: absolute;
+    top: -5px;
+    width: 15px;
+  }
+  .jslider-pointer-to {
+    left: 80%;
+  }
+  .jslider-label {
+    color: black;
+    font-size: 10px;
+    left: 0px;
+    line-height: 12px;
+    opacity: 0.4;
+    padding: 0px 2px;
+    position: absolute;
+    top: -24px;
+    white-space: nowrap;
+  }
+  .jslider-label-to {
+    left: auto;
+    right: 0;
+  }
+  .jslider-value {
+    background: #f5f5f5;
+    font-size: 9px;
+    left: 20%;
+    line-height: 12px;
+    padding: 3px 8px 1px;
+    position: absolute;
+    top: -28px;
+    white-space: nowrap;
+  }
+  .jslider-value-to {
+    left: 80%;
+  }
+  .jslider-label small, .jslider-value small {
+    position: relative;
+    top: -0.4em;
+  }
+  .jslider-scale {
+    position: relative;
+    top: 12px;
+    span {
+      border-left: 1px solid #DDD;
+      font-size: 0;
+      height: 5px;
+      position: absolute;
+    }
+    ins {
+      color: #DDD;
+      font-size: 9px;
+      left: 0px;
+      position: absolute;
+      text-decoration: none;
+      top: 7px;
+    }
+  }
+}
+
+.jslider-single {
+  .jslider-pointer-to, .jslider-value-to, .jslider-bg .v {
+    display: none;
+  }
+}
+
+.jslider-limitless .jslider-label {
+  display: none;
+}
+
+
+/*
+00 - modern  slider
+------------------------------------------------------------*/
+.slider-wrapper {
+  margin-bottom: 45px;
+  .inline {
+    display: inline-block;
+    padding: 0 15px;
+    width: 80%;
+  }
+  + .slider-wrapper {
+    margin-bottom: 55px;
+  }
+}
+
+.cp-slider-wrapper {
+  margin: 0 auto;
+  padding: 20px 5px 20px;
+  position: relative;
+  -webkit-transition: width 150ms ease-out;
+  transition: width 150ms ease-out;
+  width: 0px;
+  nav a {
+    color: #DDD;
+    cursor: pointer;
+    font-size: 20px;
+    height: 38px;
+    line-height: 38px;
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    width: 38px;
+    &:hover {
+      color: #CCC;
+    }
+    &.cp-prev {
+      left: -65px;
+    }
+    &.cp-next {
+      right: -68px;
+    }
+  }
+}
+
+.cp-slider {
+  background: #EEE;
+  border-radius: 8px;
+  height: 17px;
+  position: relative;
+  .ui-slider-range-min, .ui-slider-range-max {
+    border-radius: 8px;
+  }
+  .ui-slider-handle {
+    background-color: #F37864;
+    background-image: none;
+    border: none;
+    border-radius: 50%;
+    -webkit-box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    height: 40px;
+    left: 0;
+    margin-left: -20px;
+    outline: none;
+    position: absolute;
+    top: -12px;
+    width: 40px;
+    &.ui-state-default {
+      border: 1px transparent solid;
+    }
+    span {
+      background: transparent;
+      color: #FFF;
+      font-size: 14px;
+      font-weight: 700;
+      height: 100%;
+      line-height: 40px;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+}
+
+.cp-slider-open .ui-slider-handle span {
+  color: #FFF;
+}

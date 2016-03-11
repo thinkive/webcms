@@ -1,0 +1,86 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,800);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,700);
+@import url(../plugins/form/icheck/skins/all.css);
+@import url(../plugins/form/switch/switch.css);
+@import url(../plugins/datetime/datetime.css);
+@import url(animation.css);
+@import url(jquery-ui.css);
+
+
+
+// Core variables and mixins
+@import "bourbon/bourbon";
+
+
+// Core variables and mixins
+@import "inc/variables";
+@import "inc/mixins";
+
+
+
+@import "inc/normalize";
+
+
+@import "inc/composition";
+@import "inc/widget";
+@import "inc/nav-account";
+@import "inc/corner-flip";
+
+
+@import "inc/colors";
+
+// import css pages
+@import "inc/dashboard-widget";
+@import "inc/mailbox";
+@import "inc/gallery";
+@import "inc/profile";
+@import "inc/invoice";
+@import "inc/search-result";
+@import "inc/pricing";
+@import "inc/map";
+@import "inc/slider-trash";
+@import "inc/login-account";
+@import "inc/typography";
+@import "inc/404";
+@import "inc/dropdown-submenu";
+
+// import css plugin
+@import "inc/menu";
+@import "inc/chart";
+@import "inc/progress-bars";
+@import "inc/color-picker";
+@import "inc/color-palette";
+@import "inc/bootstamp-select";
+@import "inc/loading";
+@import "inc/modal";
+@import "inc/fileinput";
+@import "inc/code-pretty";
+@import "inc/notific8";
+@import "inc/slider";
+@import "inc/tab";
+@import "inc/tag-input";
+@import "inc/validate";
+@import "inc/wizard";
+@import "inc/menu-right";
+@import "inc/select-table";
+@import "inc/ios-check";
+@import "inc/nestable";
+@import "inc/treeview";
+@import "inc/jcrop";
+@import "inc/data-table";
+@import "inc/vmap";
+
+@import "inc/grid-box";
+@import "inc/footer";
+
+// import css mobile fix.
+@import "inc/mobile-fix";
+
+// import css responsive
+@import "inc/responsive-fix";
+
+// import css retina display
+@import "inc/retina-fix";
+
+// import css theme color
+@import "inc/theme_color";

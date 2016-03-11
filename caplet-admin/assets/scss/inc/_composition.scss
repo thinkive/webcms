@@ -1,0 +1,389 @@
+// Header layout
+
+#header {
+  background: $colors-bg-header-content;
+  border-bottom: $header-border-bottom $header-border-color solid;
+  height: $header-heigth;
+  left:0;
+  position: absolute;
+  right:0;
+  top: 0;
+  z-index: 15;
+  -webkit-transition: -webkit-transform 0.5s  ;
+  transition: transform 0.5s ;
+  .tools-bar {
+    margin-left: $nav-slide-width;
+    padding: 0 15px 0 0;
+    ul {
+
+      li.h-seperate{
+          border-left: 1px solid $gray-lighter;
+          height:$header-heigth - $header-border-bottom;
+      }
+
+      li a {
+        @include transition (all 0.25s);
+        color: #A1A1A1;
+        line-height: $header-heigth - $header-border-bottom;
+        padding: 0 15px;
+      }
+      &.nav li a:hover {
+        color: #C1C1C1;
+      }
+      li a.h-seperate:before {
+        border-left: 1px solid #62707D;
+        content: "";
+        height: 14px;
+        left: -10px;
+        margin: 0px 10px 0px 10px;
+        position: absolute;
+        top: 19px;
+      }
+    }
+    a.icon-toolsbar {
+      color: $header-toolsbar-link;
+      font-size: 21px;
+      padding: 0 25px;
+    }
+    ul li button{
+      width:34px;
+      height:34px;
+      text-align:center;
+      padding:0;
+      background-color: #f6f6f6;
+      border-color: #f6f6f6;
+      &.btn-header-search{
+        margin:8px 15px 0 0;
+        i{
+          position:absolute;
+          color: #A1A1A1;
+          top:18px;
+          left:9px;
+        }
+      }
+    }
+    ul li a {
+      &:hover {
+        background-color: transparent;
+      }
+      &.avatar-header {
+        height: $header-heigth - $header-border-bottom;
+        padding: 0px;
+        position: relative;
+        width: $avatar-mini-size;
+        .badge {
+          background-color: $header-badge-color;
+          font-weight: $font-weight-lighter;
+          height: 19px;
+          line-height: 19px;
+          min-width: 19px;
+          padding: 0 6px;
+          position: absolute;
+          right: -8px;
+          text-align: center;
+          top: 4px;
+          z-index: 2;
+        }
+        img {
+          @include transition (all 0.5s);
+          left: 50%;
+          margin-left: -$avatar-mini-size/2;
+          margin-top: -$avatar-mini-size/2;
+          position: absolute;
+          top: 50%;
+          width: $avatar-mini-size;
+        }
+      }
+    }
+  }
+  .dropdown a em {
+    font-style: normal!important;
+  }
+  .tools-bar ul li a.avatar-header:hover img {
+    @include opacity (0.7);
+  }
+  ul {
+    li a i.dropdown-icon {
+      margin: 0 0 0 5px;
+      position: relative;
+      top: 1px;
+    }
+    &.dropdown-menu {
+      margin-top: 5px;
+      min-width: 200px;
+      li a {
+        background-color: transparent;
+        line-height: 28px;
+        &:hover {
+          background-color: #F7F6F1;
+          color: #A1A1A1;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .dropdown-menu {
+    li a i {
+      height: 17px;
+      margin-right: 3px;
+      text-align: center;
+      width: 17px;
+    }
+    &.icon-right li a i {
+      float: right;
+      margin-right: -3px;
+      margin-top: 6px;
+    }
+  }
+}
+
+//wraper layout
+#wrapper {
+  background: $colors-bg-wraper-content;
+  height: 100%;
+  left: 0;
+  margin-left: $left-menu-show;
+  min-width: $site-min-width;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+}
+
+//main layout and nav layout
+#main {
+  background: $colors-bg-main-content;
+  height: 100%;
+  left: 0;
+  margin-left: $nav-slide-width;
+  overflow: auto;
+  overflow-x: hidden;
+  padding-top: $header-heigth;
+  position: absolute;
+  right: 0;
+  -webkit-transition: -webkit-transform 0.5s , padding-top 0.5s ;
+  transition: transform 0.5s , padding-top 0.5s ;
+  z-index: 9;
+  -webkit-overflow-scrolling: touch;
+  &.nav-collapse-out {
+    @include transform(translate3d(-$nav-slide-width, 0, 0));
+    right: -$nav-slide-width;
+  }
+  &.slideDown {
+    @include transform(translate3d(0, 100px, 0));
+  }
+}
+
+
+#nav {
+  @include transition (all 0.5s);
+  background-color: $nav-slide-color;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  width: $nav-slide-width;
+  z-index:2;
+  &.nav-collapse-out {
+    //visibility: hidden;
+  }
+}
+
+body.nav-collapse{
+  #header {
+    @include transform(translate3d(0, 0, 0));
+    right:0;
+    left: 0;
+  }
+  #main{
+    @include transform(translate3d(-$nav-slide-width, 0, 0));
+    right: -$nav-slide-width;
+  }
+  #nav{
+    @include transform(translate3d(-100px, 0, 0));
+    @include opacity (0);
+  }
+  &.nav-collapse-in{
+    #header {
+      @include transform(translate3d($nav-slide-width, 0, 0));
+      right:$nav-slide-width;
+      left: 0;
+    }
+    #main{
+      @include transform(translate3d(0, 0, 0));
+      right: 0;
+    }
+    #nav{
+      @include transform(translate3d(0, 0, 0));
+      @include opacity (1);
+    }
+  }
+}
+
+body.nav-collapse-in{
+  #header {
+    @include transform(translate3d(-$nav-slide-width, 0, 0));
+    right:-$nav-slide-width;
+    left: 0;
+  }
+  #main{
+    @include transform(translate3d(-$nav-slide-width, 0, 0));
+    right: -$nav-slide-width;
+  }
+  #nav{
+    @include transform(translate3d(-100%, 0, 0));
+    @include opacity (0);
+  }
+}
+
+#nav-title{
+    height: $header-heigth;
+    background-color: lighten($colors-bg-dark, 3.5%);
+    position:relative;
+    color:#FFF;
+    text-align:center;
+    h3{
+      font-family: $font-ubuntu;
+      line-height: $header-heigth - $header-border-bottom;
+      padding:0 15px;
+      @include text-overflow();
+    }
+}
+
+#nav-scroll {
+  @include touch-scroll();
+  height: 100%;
+  padding-bottom: 200px;
+  padding-top: $header-heigth;
+  position: absolute;
+  width: $nav-slide-width + $scroll-bar-width;
+}
+
+.nav-slide-collapse{
+  background-color: $nav-slide-color;
+  line-height:38px;
+  float:left;
+  top:150px;
+  right:0px;
+  position:absolute;
+  padding:0 15px;
+  a{
+    color:$colors-white;
+  }
+}
+
+#content {
+  padding: 15px 30px 0;
+  &.after-mail-box {
+    @include touch-scroll();
+    bottom: 0;
+    left: 0;
+    margin-left: $mail-box-width;
+    position: absolute;
+    right: 0;
+    top: $header-heigth ;
+    &::-webkit-scrollbar {
+      background: $color-scrollbar;
+      width: $scroll-bar-width-mini;
+    }
+    &::-webkit-scrollbar-thumb{
+      background: $color-scrollbar-thumb;
+    }
+  }
+}
+
+//scroll bar color
+#main::-webkit-scrollbar, #nav-scroll::-webkit-scrollbar, #mailbox #nav-scroll::-webkit-scrollbar,.mm-menu > .mm-panel::-webkit-scrollbar,
+.ms-list::-webkit-scrollbar {
+  @extend #content.after-mail-box::-webkit-scrollbar;
+}
+
+#main::-webkit-scrollbar-thumb, #nav-scroll::-webkit-scrollbar-thumb,#mailbox #nav-scroll::-webkit-scrollbar-thumb,.mm-menu > .mm-panel::-webkit-scrollbar-thumb,
+.ms-list::-webkit-scrollbar-thumb  {
+  @extend #content.after-mail-box::-webkit-scrollbar-thumb;
+}
+
+#nav-scroll::-webkit-scrollbar, #mailbox #nav-scroll::-webkit-scrollbar,.mm-menu > .mm-panel::-webkit-scrollbar {
+  width: $scroll-bar-width;
+}
+
+
+
+
+.logo-area {
+  background-color: $logo-bg-color;
+  border-bottom: $header-border-bottom $logo-border-color solid;
+  float: left;
+  height: $header-heigth;
+  position: relative;
+  text-align: center;
+  width: $nav-slide-width;
+  display:block;
+  z-index:5;
+}
+a.logo {
+  background: url(../img/logo_white.png) no-repeat center center;
+  display: block;
+  height: $header-heigth - $header-border-bottom;
+  position: relative;
+}
+
+
+body.leftMenu{
+  background:  url(../img/logo_white_icon.png) no-repeat;
+  background-position:11px 10px;
+  background-color: $logo-bg-color;
+  &:after{
+    content:"";
+    position:absolute;
+    width:$left-menu-show-alway;
+    height:$header-border-bottom;
+    top:$header-heigth - $header-border-bottom;
+    background-color:$logo-border-color;
+    z-index:-1;
+  }
+  &.in{
+    #wrapper{
+      margin-left: $left-menu-show;
+    }
+  }
+  &.nav-collapse{
+    #header{
+      left:0;
+    }
+  }
+  #header{
+    left:250px;
+    .logo-area{
+      display:none;
+    }
+    .tools-bar {
+      margin-left:0;
+    }
+  }
+  #wrapper{
+    margin-left: $left-menu-show-alway;
+  }
+  #nav-scroll{
+    padding-top:0;
+  }
+}
+
+
+// body.hideNavslide{
+//   #main{
+//     @include transform(translate3d(-$nav-slide-width, 0, 0));
+//     right: -$nav-slide-width;
+//     &.nav-collapse-out {
+//       @include transform(translate3d(0, 0, 0));
+//       right: 0
+//     }
+//   }
+//   #nav {
+//       @include transform(translate3d(-100px, 0, 0));
+//       @include opacity (0);
+//     &.nav-collapse-out {
+//       @include transform(translate3d(0, 0, 0));
+//       @include opacity (1);
+//       //visibility: hidden;
+//     }
+//   }
+// }

@@ -1,0 +1,33 @@
+/*
+00 - Search result
+----------------------*/
+.resultSearch {
+  margin: 0; }
+  .resultSearch small.resultStats {
+    color: #CCC;
+    display: block;
+    padding: 7px 0 22px 0;
+    border-bottom: 1px #ededed solid;
+    margin-bottom: 25px; }
+  .resultSearch ul.resultItem li {
+    margin-bottom: 30px; }
+    .resultSearch ul.resultItem li h4 a {
+      color: #1e0fbe; }
+    .resultSearch ul.resultItem li h4 a:hover {
+      text-decoration: underline; }
+    .resultSearch ul.resultItem li p time {
+      color: #CCC;
+      display: inline-block;
+      margin-right: 7px; }
+    .resultSearch ul.resultItem li .rating span {
+      color: #CCC;
+      display: inline-block;
+      margin-right: 7px; }
+      .resultSearch ul.resultItem li .rating span:before {
+        color: #ffcc33; }
+    .resultSearch ul.resultItem li img {
+      width: 100%; }
+  .resultSearch ul.resultItem.resultImages li {
+    margin-bottom: 20px; }
+  .resultSearch ul.resultItem .resultThumbnail {
+    padding: 0; }

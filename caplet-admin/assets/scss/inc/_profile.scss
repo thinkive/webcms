@@ -1,0 +1,213 @@
+/*
+00 -  profile overview
+------------------------------------------------------------*/
+#overview {
+  background: url(../img/overview.jpg) no-repeat left top;
+  background-color: #454545;
+  background-size: cover!important;
+  border-bottom: 5px $colors-theme-inverse solid;
+  height: 237px;
+  position: relative;
+  -webkit-background-size: cover!important;
+  -moz-background-size: cover!important;
+  -o-background-size: cover!important;
+}
+
+.profile-cover {
+  background: url(../img/overview.png) bottom repeat;
+  height: 232px;
+  margin-right: -100px;
+  overflow: hidden;
+  padding: 15px 25px;
+}
+
+.profile-status {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  bottom: 17px;
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  a {
+    color: #FFF;
+    font-size: 1.5em;
+    font-weight: 700;
+    &:hover {
+      color: #EEE;
+    }
+    small {
+      display: block;
+      font-size: 0.5em;
+      font-weight: 300;
+    }
+  }
+}
+
+.profile-avatar {
+  bottom: 15px;
+  position: absolute;
+  div {
+    margin: 10px 0 5px;
+  }
+  span {
+    background-color: #FFF;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 18px;
+    margin-left: -13px;
+    padding: 2px 15px 5px;
+  }
+  img {
+    border: 3px #FFF solid;
+    display: inline-block;
+    margin: 0 0 7px;
+    position: relative;
+    width: 50px;
+    z-index: 2;
+  }
+}
+
+.profile-about {
+  background-color: #FFF;
+  height: 232px;
+  overflow: hidden;
+  padding: 15px 25px;
+  position: absolute;
+}
+
+/*
+00 -  profile comment
+------------------------------------------------------------*/
+.comment {
+  margin: 20px auto 0 auto;
+  padding: 5px;
+  .reply {
+    margin: 20px 0px 0 80px;
+  }
+}
+
+.comment-content {
+  margin: 0 0 0 80px;
+  > span {
+    background: $comment-bg-content;
+    border-radius: 3px 3px 0 0px;
+    color: #444;
+    display: block;
+    display: block;
+    font-size: .9em;
+    line-height: 150%;
+    padding: 10px 15px 10px 15px;
+    position: relative;
+    width: 100%;
+  }
+}
+
+.comment {
+  .reply .comment-content > span {
+    background: $comment-bg-reply;
+  }
+  p {
+    font-family: 'Open Sans';
+    text-shadow: 1px 1px 2px #fff;
+  }
+  strong {
+    font-weight: 700;
+  }
+  .author {
+    font-size: .8em;
+    font-weight: 300;
+  }
+  img {
+    border: 3px rgba(111, 111, 111, 0.1) solid;
+    display: inline-block;
+    float: left;
+    margin: 0 10px;
+    max-width: 50px;
+  }
+  footer {
+    background-color: $comment-bg-footer;
+    border-radius: 0 0 3px 3px;
+    padding: 10px 10px 10px 7px;
+    img {
+      border: 3px rgba(255, 255, 255, 0.5) solid;
+      max-width: 35px;
+    }
+    > .message-input {
+      margin-left: 60px;
+      input[type=text] {
+        border: none;
+        border-radius: 2px;
+        color: #c2c2c2;
+        float: left;
+        font-size: 11px;
+        margin: 0;
+        padding: 10px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+/*
+00 - box-feed and Isotope filtering 
+------------------------------------------------------------*/
+.box-feed [class*=col-] {
+  margin-bottom: 20px;
+}
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.isotope {
+  -moz-transition-duration: 0.8s;
+  -ms-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+  -moz-transition-property: height, width;
+  -ms-transition-property: height, width;
+  -o-transition-property: height, width;
+  -webkit-transition-property: height, width;
+  transition-property: height, width;
+  .isotope-item {
+    -moz-transition-duration: 0.8s;
+    -ms-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -moz-transition-property: -moz-transform, opacity;
+    -ms-transition-property: -ms-transform, opacity;
+    -o-transition-property: top, left, opacity;
+    -webkit-transition-property: -webkit-transform, opacity;
+    transition-property: transform, opacity;
+  }
+  &.no-transition {
+    -moz-transition-duration: 0s;
+    -ms-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+    .isotope-item {
+      -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+      -o-transition-duration: 0s;
+      -webkit-transition-duration: 0s;
+      transition-duration: 0s;
+    }
+  }
+  .isotope-item.no-transition {
+    -moz-transition-duration: 0s;
+    -ms-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+  }
+}

@@ -1,0 +1,35 @@
+/*
+00 -  slide trash
+------------------------------------------------------------*/
+#slide-trash {
+  background-color: #2E2E31;
+  bottom: 10px;
+  color: #CCC;
+  position: absolute;
+  right: -300px;
+  text-align: center;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  width: 300px;
+  z-index: 20;
+  &.active {
+    -webkit-transform: translate3d(-310px, 0, 0);
+    transform: translate3d(-310px, 0, 0);
+  }
+  section {
+    padding: 25px 10px;
+  }
+  i {
+    display: block;
+    font-size: 36px;
+  }
+  span {
+    display: block;
+    margin: 7px;
+  }
+  &.active-hover {
+    background-color: #D9534F;
+    color: #EEE;
+  }
+}

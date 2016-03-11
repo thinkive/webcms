@@ -1,0 +1,92 @@
+/**
+ * MacOS X like theme for elFinder.
+ * Required jquery ui "smoothness" theme.
+ *
+ * @author Dmitry (dio) Levashov
+ **/
+
+/* dialogs */
+.std42-dialog, .std42-dialog .ui-widget-content { background-color:#262729; background-image:none; background-clip: content-box; 	border: 1px #2e2e31 solid;}
+.std42-dialog .ui-dialog-buttonpane {
+	background-color:#2e2e31;
+	padding: 0;
+}
+.std42-dialog .ui-state-default,
+.std42-dialog .ui-widget-content .ui-state-default,
+.std42-dialog .ui-widget-header .ui-state-default {
+	border: 1px solid #575757;
+	background: #575757;
+	font-weight: normal;
+	color: #CCC;
+	-webkit-transition:all 0.5s;
+	-moz-transition:all 0.5s;
+	transition: all 0.5s;
+}
+.std42-dialog .ui-state-hover,
+.std42-dialog .ui-widget-content .ui-state-hover,
+.std42-dialog .ui-widget-header .ui-state-hover,
+.std42-dialog .ui-state-focus,
+.std42-dialog .ui-widget-content .ui-state-focus,
+.std42-dialog .ui-widget-header .ui-state-focus {
+	border: 1px solid #1c1d1f;
+	background: #1c1d1f;
+	outline:none;
+}
+
+.std42-dialog .ui-dialog-buttonpane .ui-dialog-buttonset{
+	padding: 5px 15px ;
+}
+.elfinder.ui-widget-content.no-borders{
+	border:0px;
+	border-top:1px #ededed solid;
+	}
+/* navbar */
+.elfinder .elfinder-navbar { 
+background:#fafafa;
+padding:10px;
+-webkit-box-sizing:content-box;
+-moz-box-sizing:content-box;
+box-sizing:content-box;
+}
+.elfinder-navbar .ui-state-hover  { background:transparent; border-color:transparent; }
+.elfinder-navbar .ui-state-active { background: #6CC3A0;    border-color:#6CC3A0; color:#fff;  }
+/* disabled elfinder */
+.elfinder-disabled .elfinder-navbar .ui-state-active { background: #aaa; border-color:#aaa; color:#fff; }
+
+
+/* current directory */
+/* selected file in "icons" view */
+.elfinder-cwd-view-icons .elfinder-cwd-file .ui-state-hover { background:#6CC3A0; background-color:rgba(108,195,160,0.5);}
+/* list view*/
+.elfinder .elfinder-button {
+	width:auto;
+	height:auto;
+}
+
+.elfinder-cwd table tr:nth-child(even) { background-color:#F7F6F1; }
+.elfinder-cwd table tr { border-top:1px solid #fff; }
+
+/* common selected background/color */
+.elfinder-cwd-view-icons .elfinder-cwd-file .elfinder-cwd-filename.ui-state-hover,
+.elfinder-cwd table td.ui-state-hover,
+.elfinder-button-menu .ui-state-hover { background: #6CC3A0; color:#fff;}
+/* disabled elfinder */
+.elfinder-disabled .elfinder-cwd-view-icons .elfinder-cwd-file .elfinder-cwd-filename.ui-state-hover,
+.elfinder-disabled .elfinder-cwd table td.ui-state-hover { background:#dadada;}
+
+/* statusbar */
+.elfinder .elfinder-statusbar { color:#AAA; }
+.elfinder .elfinder-statusbar a { text-decoration:none; color:#AAA;}
+
+
+.std42-dialog .elfinder-help, .std42-dialog .elfinder-help .ui-widget-content { background:#fff;}
+
+/* contextmenu */
+.elfinder-contextmenu .ui-state-hover { background: #6CC3A0; color:#fff; }
+.elfinder-contextmenu .ui-state-hover .elfinder-contextmenu-arrow { background-image:url('../img/arrows-active.png'); }
+
+
+
+
+
+

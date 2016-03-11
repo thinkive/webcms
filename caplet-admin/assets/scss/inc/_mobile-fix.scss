@@ -1,0 +1,37 @@
+/*
+00 - Mobile device fixed
+----------------------*/
+.isMobile {
+  #main.none {
+    -webkit-transition: none;
+    transition: none;
+  }
+  #nav-scroll {
+    width: 250px;
+  }
+  #mailbox #nav-scroll {
+    width: 300px!important;
+  }
+  .widget-chat .chat-body {
+    margin-right: 0;
+  }
+  #main::-webkit-scrollbar, #nav-scroll::-webkit-scrollbar, 
+  #mailbox #nav-scroll::-webkit-scrollbar,
+  .mm-menu > .mm-panel::-webkit-scrollbar,
+  .ms-list::-webkit-scrollbar {
+    background:transparent;
+  }
+
+  #main::-webkit-scrollbar-thumb, #nav-scroll::-webkit-scrollbar-thumb,
+  #mailbox #nav-scroll::-webkit-scrollbar-thumb,
+  .mm-menu > .mm-panel::-webkit-scrollbar-thumb,
+  .ms-list::-webkit-scrollbar-thumb  {
+    background:transparent;
+  }
+
+  #nav-scroll::-webkit-scrollbar, 
+  #mailbox #nav-scroll::-webkit-scrollbar,
+  .mm-menu > .mm-panel::-webkit-scrollbar {
+    width: auto;
+  }
+}

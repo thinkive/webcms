@@ -1,0 +1,91 @@
+
+// Color select site 
+::-moz-selection{
+  @include selection-colors();
+}
+::selection{
+  @include selection-colors();
+}
+
+
+html {
+  min-width: $site-min-width;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+body {
+  background: #1C1D1F;
+  color: $font-colors-base;
+  font-family: $font-base;
+  font-weight: $font-weight-lighter;
+  min-width: $site-min-width;
+  -webkit-font-smoothing: antialiased;
+  &.full-lg {
+    #wrapper, #main {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $font-open-sans;
+  font-weight: $font-weight-lighter;
+  margin: 0;
+}
+
+a {
+  color: $colors-link;
+  &:hover {
+    color: $colors-link-hover;
+    text-decoration: none;
+  }
+  &.toggle-column-hide {
+    color: #CCC!important;
+    text-decoration: line-through;
+  }
+}
+
+label {
+  color: #A1A1A1;
+  font-family: $font-arial;
+  font-size: $font-size-small;
+  &.lighter{
+    font-weight: $font-weight-lighter;
+  }
+}
+
+textarea {
+  @include transition (height 0.2s);
+  &:focus {
+    outline: 0;
+    outline: thin;
+  }
+}
+
+
+input {
+  &[type="text"]:focus, &[type="password"]:focus, &[type="datetime"]:focus, &[type="datetime-local"]:focus, &[type="date"]:focus, &[type="month"]:focus, &[type="time"]:focus, &[type="week"]:focus, &[type="number"]:focus, &[type="email"]:focus, &[type="url"]:focus, &[type="search"]:focus, &[type="tel"]:focus, &[type="color"]:focus {
+    @extend textarea:focus;
+  }
+}
+
+.uneditable-input:focus {
+  @extend textarea:focus;
+}
+
+.box-circle{
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+img.circle, ul.circle li img {
+  @extend .box-circle;
+}

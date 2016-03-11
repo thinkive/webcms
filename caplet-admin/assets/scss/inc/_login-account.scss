@@ -1,0 +1,165 @@
+/*
+00 -  Account login and lock screen page
+------------------------------------------------------------*/
+.account-wall {
+  margin-top: 60px;
+  padding: 0px 0px 20px 0px;
+  @include transition (all 0.5s ease-in-out); 
+  .account-avatar {
+    min-height: $avatar-chart-size;
+    img {
+      margin-left: ($avatar-chart-size - $avatar-chart-image-size )/2;
+      margin-top: ($avatar-chart-size - $avatar-chart-image-size )/2;
+      position: absolute;
+      width: $avatar-chart-image-size;
+    }
+  }
+  .login-title {
+    color: $font-colors-base;
+    display: block;
+    font-size: $font-size-extra-large;
+    font-weight: $font-weight-lighter;
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+    span {
+      font-weight: $font-weight-border;
+    }
+    small {
+      display: block;
+      color: $font-colors-base;
+      font-size: $font-size-small;
+      font-weight: $font-weight-lighter;
+      padding-top: 10px;
+      text-transform: capitalize;
+    }
+  }
+  .form-signin {
+    margin: 0 auto;
+    max-width: $form-signin-width;
+    padding: 15px;
+    .form-signin-heading, .checkbox, section {
+      margin-bottom: 10px;
+    }
+    .form-control {
+      background-color: transparent;
+      border-color: transparent;
+      font-size: 16px;
+      height: auto;
+      padding: 10px 20px;
+      position: relative;
+    }
+    .input-group {
+      background-color: #FFF;
+      border-top: 1px #f5f5f5 solid;
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+      margin-bottom: -1px;
+      &:nth-child(2) {
+        margin-bottom: 20px;
+      }
+    }
+    .input-group-addon {
+      background-color: transparent;
+      border: none;
+      position: relative;
+      i {
+        color: #e1e1e1;
+        margin: auto 5px;
+        text-align: center;
+        width: 18px;
+        &:after {
+          border-left: 1px #e1e1e1 solid;
+          content: "";
+          height: 50%;
+          margin-left: 15px;
+          position: absolute;
+          top: 25%;
+        }
+      }
+    }
+  }
+  span.or {
+    color: #666666;
+    display: block;
+    font-size: 12px;
+    margin: 20px 10px 25px;
+    position: relative;
+    text-align: center;
+    &:after {
+      background-color: darken($colors-bg-main-content,5%);
+     // color: #A1A1A1;
+      content: attr(data-text);
+     // padding: 5px 20px;
+      display:inline-block;
+      width:50px;
+      height:50px;
+      line-height:50px;
+      position: relative;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+    }
+    &:before {
+      background-color: $colors-bg-light;
+      content: "";
+      height: 1px;
+      left: -10px;
+      right: -10px;
+      position: absolute;
+      top: 50%;
+    }
+  }
+  .help {
+    margin-top: 5px;
+  }
+  .footer-link {
+    display: block;
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+/*
+00 -  Color full box in top page (login , lock screen ,404)
+------------------------------------------------------------*/
+.real-border .col-xs-1 {
+  height: 3px;
+  padding: 0;
+  &:nth-child(1) {
+    background-color: #6CC3A0;
+  }
+  &:nth-child(2) {
+    background-color: #DC4D79;
+  }
+  &:nth-child(3) {
+    background-color: #BD3B47;
+  }
+  &:nth-child(4) {
+    background-color: #DD4444;
+  }
+  &:nth-child(5) {
+    background-color: #FD9C35;
+  }
+  &:nth-child(6) {
+    background-color: #FEC42C;
+  }
+  &:nth-child(7) {
+    background-color: #D4DF5A;
+  }
+  &:nth-child(8) {
+    background-color: #2ECC71;
+  }
+  &:nth-child(9) {
+    background-color: #3DA0DB;
+  }
+  &:nth-child(10) {
+    background-color: #08408B;
+  }
+  &:nth-child(11) {
+    background-color: #575757;
+  }
+  &:nth-child(12) {
+    background-color: #111;
+  }
+}

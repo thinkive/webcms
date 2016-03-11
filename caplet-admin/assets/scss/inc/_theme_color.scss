@@ -1,0 +1,27 @@
+div {
+  &.color-themes {
+	cursor: pointer;
+	text-indent: -9999px;
+	display: inline-block;
+	margin-right: 3px;
+	margin-bottom: 3px;
+	width: 35px;
+	height: 30px;
+	border:2px rgba(#FFF, 0.5) solid;
+  }
+  &.col1 {
+    background: #697687;
+  }
+  &.col2 {
+    background: #FBBA52;
+  }
+  &.col3 {
+    background: #008192;
+  }
+  &.col4 {
+    background: #384A63;
+  }
+  &.col5 {
+    background: #1B1E24;
+  }
+}

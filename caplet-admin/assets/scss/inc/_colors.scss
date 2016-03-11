@@ -1,0 +1,43 @@
+/*
+00 -Text color
+------------------------------------------------------------*/
+@for $i from 0 to length($colors-name) {
+    .color-#{unquote(nth($colors-name, $i+1))} {
+        color: unquote(nth($colors-code, $i+1)) !important;
+    }
+}
+/*
+00 - Background Color
+------------------------------------------------------------*/
+@for $i from 0 to length($colors-name) {
+    .bg-#{unquote(nth($colors-name, $i+1))} {
+        background-color: unquote(nth($colors-code, $i+1)) !important;
+        color: unquote(nth($colors-text-code, $i+1)) !important;
+    }
+    .bg-#{unquote(nth($colors-name, $i+1))}-lighten {
+
+        background-color: lighten(unquote(nth($colors-code, $i+1)),5%) !important;
+        color: unquote(nth($colors-text-code, $i+1)) !important;
+    }
+    .bg-#{unquote(nth($colors-name, $i+1))}-darken {
+        background-color: darken(unquote(nth($colors-code, $i+1)),5%) !important;
+        color: unquote(nth($colors-text-code, $i+1)) !important;
+    }
+    .bg-#{unquote(nth($colors-name, $i+1))}-gradient {
+        background-color: unquote(nth($colors-code, $i+1)) !important;
+        @include linear-gradient(155deg, unquote(nth($colors-code, $i+1)) 40%, darken(unquote(nth($colors-code, $i+1)),20%));
+        color: unquote(nth($colors-text-code, $i+1)) !important;
+    }
+}
+
+/*
+00 - Border Color
+------------------------------------------------------------*/
+@for $i from 0 to length($colors-name) {
+    .bd-#{unquote(nth($colors-name, $i+1))} {
+        border-color: unquote(nth($colors-code, $i+1)) !important;
+    }
+    .bd-#{unquote(nth($colors-name, $i+1))}-darken  {
+        border-color: darken(unquote(nth($colors-code, $i+1)),5%) !important;
+    }
+}

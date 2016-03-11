@@ -1,0 +1,1076 @@
+// footer variable
+$footer-h: 35px;
+
+footer{
+	&#site-footer{
+		//line-height:45px;
+		background-color: $footer-color;
+		padding: 10px 0 10px 0;
+		font-size: 12px;
+		&.fixed{
+			position:fixed;
+			bottom:0;
+			z-index:10;
+			left:0;
+			right:0;
+		}
+		section{
+			font-size:$font-size-mini;
+			padding:0 30px 0 10px;
+		}
+
+		#copyright {
+		  display: block;
+		  float: right;
+		  color: #999;
+		  margin-right: 0px;
+		  line-height:$footer-h;
+		  > p {
+		    display: inline;
+		    font-size: 11px;
+		  }
+		  a {
+		    color: $colors-theme-inverse;
+		  }
+		}
+
+		.social-bar {
+		  display: inline-block;
+		  margin: -3px 0 0 20px;
+		  a {
+		    background: $colors-inverse;
+		    color: #FFF!important;
+		    display: inline-block;
+		    width: 20px;
+		    height: 20px;
+		    text-align: center;
+		    line-height: 20px;
+		    text-decoration: none;
+		    margin: 0 0 0 2px;
+		    position: relative;
+		    font-size: 12px;
+		    vertical-align: middle;
+		    &:hover {
+		      background: lighten($colors-inverse, 5%);
+		    }
+		  }
+		}
+
+		/***** 2.4. Hover effects *****/
+
+		.fade-in,
+		#footer-inner :hover,
+		#footer-inner :focus,
+		a.tip span,
+		#tabs .tab-wrapper > div,
+		#tabs input:hover + label,
+		#inner-block-1 .overlay-icon,
+		#tabs .overlay-text,
+		#expanded-menu label {
+			-webkit-transition: all .2s ease-in-out;
+			-moz-transition: all .2s ease-in-out;
+			-ms-transition: all .2s ease-in-out;
+			-o-transition: all .2s ease-in-out;
+			transition: all .2s ease-in-out;
+		}
+
+		/***** 2.2. Clearfixes, paddings amd margins *****/
+
+		.clrfx-1 {
+			display: block;
+			height: 10px;
+			content: "";
+		}
+		.clrfx-2 {
+			display: inline;
+			margin: 10px 6px 0 0;
+		}
+		.clrfx-3 {
+			display: inline-block;
+			padding: 0 4px;
+		}
+		.clrfx-4 {
+			display: block;
+			height: 20px;
+			content: "";
+		}
+		.no-margin-padding { /* Resets previous margins to 0 if we need a block column as wrapper */
+			margin: 0 !important;
+			padding: 0 !important;
+		}
+		.no-padding { /* Resets paddings back to 0 if we're using a column inside block */
+			padding: 0 !important;
+		}
+		.narrow-margin { /* This is a additional value for icons showcase, don't have to use it if you don't need it */
+			margin-bottom: 14px !important;
+			padding-left: 0 !important; 
+		}
+
+		/***** 2.3. Tooltips *****/
+
+		a.tip span {
+			width: auto;
+			min-width: 120px;
+			white-space: normal;
+			height: auto;
+			pointer-events: none;
+			line-height: normal;
+			padding: 12px 10px;
+			left: -48px;
+			right: 0;
+			bottom: 60px;
+			top: auto;
+			margin: 0 auto;
+			font-size: 10px;
+			color: $font-colors-base;
+			background: #fff;
+			text-indent: 0;
+			position: absolute;
+			text-align: center;
+			text-transform: uppercase;
+			opacity: 0;
+			box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+			font-family: 'Source Sans Pro', sans-serif;
+			z-index: -1;
+			visibility: hidden;
+		}
+		a.tip:hover span {
+			opacity: 1;
+			bottom: 40px;
+			z-index: 999;
+			visibility: visible;
+		}
+		a.tip span:before, a.tip span:after {
+			content: '';
+			position: absolute;
+			bottom: -10px;
+			left: 50%;
+			margin-left: -10px;
+			width: 0;
+			height: 0;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 8px solid rgba(34, 34, 34, 0.1);
+		}
+		a.tip span:after {
+			bottom: -8px;
+			margin-left: -10px;
+			border-top: 8px solid #fff;
+		}
+
+		/***** 2.5. Links and buttons *****/
+		$a-padding: 30px;
+		ul.dropdown a.menu {
+		  color: inherit;
+		  text-decoration: none;
+		  padding: 10px $a-padding 10px ($a-padding - 12px);
+		  display: block;
+		  text-transform: uppercase;
+		  white-space: nowrap;
+		  width: auto;
+		  &:visited {
+		    color: inherit;
+		    text-decoration: none;
+		    padding: 10px $a-padding 10px ($a-padding - 12px);
+		    display: block;
+		    text-transform: uppercase;
+		    white-space: nowrap;
+		    width: auto;
+		  }
+		  &.right {
+		    padding: 10px ($a-padding - 12px) 10px $a-padding;
+		  }
+		  i {
+		    width: 20px;
+		    font-size:14px;
+		    text-align:center;
+		    margin-right:5px;
+		  }
+		  &:hover {
+		    color: #fff;
+		    background: $colors-theme-inverse;
+		  }
+		  span {
+		    display: inline-block;
+		    width: 34px;
+		  }
+		}
+
+		a {
+		  &.button-1 {
+		    color: #fff;
+		    background: #e4e4e4;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 10px;
+		    position: relative;
+		    padding: 0;
+		    width: 24px;
+		    height: 24px;
+		    text-align: center;
+		    line-height: 24px;
+		    &:hover {
+		      background: #999;
+		    }
+		  }
+		  &.button-2 {
+		    color: #222;
+		    display: inline-block;
+		    padding: 14px 0 0 0;
+		    text-decoration: none;
+		    float: right;
+		    font-size: 11px;
+		    &:hover {
+		      color: #999;
+		      text-decoration: none;
+		    }
+		    span {
+		      padding-left: 6px;
+		      font-size: 11px;
+		      vertical-align: middle;
+		    }
+		  }
+		  &.link-1 {
+		    color: #222;
+		    text-decoration: none;
+		    &:hover {
+		      color: #999;
+		    }
+		    span {
+		      font-size: 14px;
+		      width: 20px;
+		      display: inline-block;
+		    }
+		  }
+		}
+
+		/***** 2.6. Speach bubbles and quotes *****/
+
+		.bubble-1, .bubble-2, .bubble-3 {
+		  background: #e4e4e4;
+		  font-style: italic;
+		  font-style: 10px;
+		  display: block;
+		  line-height: 16px;
+		  padding: 14px;
+		  position: relative;
+		  float: left;
+		}
+
+		.bubble-1 {
+		  color: #222;
+		  margin-top: 20px;
+		}
+
+		.bubble-2, .bubble-3 {
+		  /* Adjust this values to your needings, they are for demo purpouses */
+		  max-width: 185px;
+		  margin: 20px 0 0 0;
+		}
+
+		.bubble-2 {
+		  background: #e4e4e4;
+		  color: #222;
+		  margin-right: 26px;
+		}
+
+		.bubble-3 {
+		  background: #999;
+		  color: #fff;
+		}
+
+		.bubble-1:before, .bubble-2:before, .bubble-3:before {
+		  content: "\00a0";
+		  display: block;
+		  height: 16px;
+		  width: 16px;
+		  position: absolute;
+		  bottom: auto;
+		  left: 26px;
+		  top: -7px;
+		  transform: rotate(-58deg) skew(0deg, 28deg);
+		  -moz-transform: rotate(-58deg) skew(0deg, 28deg);
+		  -webkit-transform: rotate(-58deg) skew(0deg, 28deg);
+		  -o-transform: rotate(-58deg) skew(0deg, 28deg);
+		  -ms-transform: rotate(-58deg) skew(0deg, 28deg);
+		}
+
+		.bubble-1:before, .bubble-2:before {
+		  background: #e4e4e4;
+		}
+
+		.bubble-3:before {
+		  background: #999;
+		}
+
+		.cite-1, .cite-2 {
+		  padding-left: 10px;
+		  margin: 10px 0;
+		  display: inline-block;
+		  font-style: italic;
+		  font-style: 11px;
+		  line-height: 16px;
+		  color: #bbb;
+		}
+
+		.cite-1 {
+		  border-left: solid 6px #e4e4e4;
+		}
+
+		.cite-2 {
+		  border-left: solid 6px #999;
+		}
+
+		b {
+		  &.dark {
+		    color: #222;
+		    font-weight: 400;
+		  }
+		  &.color {
+		    color: #999;
+		    font-weight: 400;
+		  }
+		}
+		/***********************
+		    3. Dropdown menu
+		************************/
+
+		/***** 3.1. Main styles *****/
+		
+		ul#footer-menu {
+		  font-family: 'Source Sans Pro', sans-serif;
+		  font-weight: 300;
+		  a.home {
+		    font-size: 25px;
+		    width:	$footer-h;
+		    height:	 $footer-h;
+		    line-height: $footer-h;
+		    text-align:center;
+		    color: $font-colors-base;
+		    text-decoration: none;
+		    display: inline-block;
+		    border-radius: 50%;
+		  }
+		}
+
+		.main-item {
+		  margin: 0 5px;
+		  text-transform: uppercase;
+		  font-size: 10px;
+		  display: inline-block;
+		  cursor: pointer;
+		  color: $font-colors-base;
+		  font-weight: 400;
+		  line-height:$footer-h;
+		  position: relative;
+		  span {
+		    font-size: 12px;
+		    padding: 0 0 0 2px;
+		    vertical-align: middle;
+		    display: inline-block;
+		    margin-top: -2px;
+		  }
+		}
+
+		ul {
+		  &.dropdown {
+		    margin: 0 10px;
+		    padding: 0;
+		    list-style: none outside none;
+		    li, ul {
+		      margin: 0;
+		      padding: 0;
+		      list-style: none outside none;
+		    }
+		    position: relative;
+		    z-index: 9999;
+		    float: left;
+		    li {
+		      float: left;
+		      min-height: 1px;
+		      vertical-align: middle;
+		      position: relative;
+		      color: $font-colors-base;
+		      &:hover {
+		        > .main-item {
+		          color: lighten($font-colors-base,10%);
+		        }
+		        position: relative;
+		        z-index: 99;
+		      }
+		    }
+		    ul {
+		      left: -20px;
+		      position: absolute;
+		      top: 100%;
+		      visibility: hidden;
+		      margin: 0;
+		      width: auto;
+		      opacity: 0;
+		      -ms-filter: "alpha(opacity=0)";
+		      filter: alpha(opacity = 0);
+		    }
+		    li:hover > ul {
+		      visibility: visible;
+		      -ms-filter: "alpha(opacity=100)";
+		      filter: alpha(opacity = 100);
+		      opacity: 1;
+		      zoom: 1;
+		      z-index: 999;
+		    }
+		    ul {
+		      li {
+		        float: none;
+		        font-weight: normal;
+		      }
+		      ul {
+		        top: auto;
+		        bottom: 0;
+		        left: 100%;
+		        &.right {
+		          /* Right submenu aligment */
+		          left: auto;
+		          right: 100%;
+		        }
+		      }
+		    }
+		  }
+		  &.dropdown-up ul {
+		    bottom: 100%;
+		    top: auto;
+		    left: auto;
+		    background: rgba(255, 255, 255, 0);
+		    /* IE fix */
+		    &.right {
+		      /* Right orientated menu, like used in sitemap menu */
+		      right: 0;
+		    }
+		    &.center {
+		      /* Center orientated menu, like used in content preview menu with a full width columns of 820px */
+		      right: auto;
+		      left: -400px;
+		      /* This is a half width value of 820px column. Adjust this value according to the column you're using */
+		    }
+		  }
+		  &.dropdown .has-menu {
+		    position: relative;
+		  }
+		  &.dropdown-up ul .has-menu {
+		    &:before {
+		      font-family: 'FontAwesome';
+		      content: "\f0da";
+		      color: #ddd;
+		      font-size: 14px;
+		      position: absolute;
+		      top: 8px;
+		      right: 12px;
+		    }
+		    &.right:before {
+		      /* Arrow of submenu and it's orientation of the right aligned menu */
+		      content: "\f055";
+		    }
+		  }
+		}
+
+		.dropdown-box {
+		  //box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+		  background: #fff;
+		  position: relative;
+		  padding: 10px 0;
+		  width: auto;
+		  z-index: 10;
+		  &:hover {
+		    z-index: 9999;
+		  }
+		  &.lvl-1 {
+		    margin-bottom: 5px;
+		  }
+		  &.lvl-2, &.lvl-3 {
+		    margin: 0 0 -20px 20px;
+		  }
+		  &.lvl-2.right {
+		    /* Submenu aligment for right orientated menu */
+		    margin: 0 20px -20px 0;
+		  }
+		  &.lvl-1:after, &.lvl-2:after, &.lvl-3:after {
+		    background: #fff;
+		    //box-shadow: -2px 2px 2px 0 rgba(187, 187, 187, 0.4);
+		    content: "\00a0";
+		    display: block;
+		    height: 16px;
+		    width: 16px;
+		    position: absolute;
+		    top: auto;
+		  }
+		  &.lvl-1 {
+		    &:after {
+		      left: 26px;
+		      bottom: -7px;
+		      transform: rotate(-58deg) skew(0deg, 28deg);
+		      -moz-transform: rotate(-58deg) skew(0deg, 28deg);
+		      -webkit-transform: rotate(-58deg) skew(0deg, 28deg);
+		      -o-transform: rotate(-58deg) skew(0deg, 28deg);
+		      -ms-transform: rotate(-58deg) skew(0deg, 28deg);
+		    }
+		    &.right:after {
+		      /* Bottom arrow aligment when using right orientated menu */
+		      left: auto;
+		      right: 26px;
+		    }
+		    &.center:after {
+		      /* Bottom arrow aligment when using center orientated menu */
+		      left: 430px;
+		      /* This value centers the bottom arrow according to the width of the column we're using (usualy half of the parent's width + XXpx for left/right adjustment) */
+		      right: auto;
+		    }
+		  }
+		  &.lvl-2:after, &.lvl-3:after {
+		    transform: rotate(32deg) skew(0deg, 28deg);
+		    -moz-transform: rotate(32deg) skew(0deg, 28deg);
+		    -webkit-transform: rotate(32deg) skew(0deg, 28deg);
+		    -o-transform: rotate(32deg) skew(0deg, 28deg);
+		    -ms-transform: rotate(32deg) skew(0deg, 28deg);
+		    left: -7px;
+		    bottom: 30px;
+		  }
+		  &.lvl-2.right:after {
+		    left: auto;
+		    right: -7px;
+		    transform: rotate(212deg) skew(0deg, 28deg);
+		    -moz-transform: rotate(212deg) skew(0deg, 28deg);
+		    -webkit-transform: rotate(212deg) skew(0deg, 28deg);
+		    -o-transform: rotate(212deg) skew(0deg, 28deg);
+		    -ms-transform: rotate(212deg) skew(0deg, 28deg);
+		  }
+		}
+
+		/***** 3.2. Menu dropdown bottom title *****/
+
+		ul.dropdown ul li.menu-title {
+			font-size:20px;
+			padding: 24px 0 15px 26px;
+			border-top: solid 1px #ccc;
+			color: #bbb;
+			text-transform: uppercase;
+			font-weight: 300;
+			white-space: nowrap;
+		}
+		ul.dropdown ul li.menu-title.right { /* Title aligment when using right orientated menu */
+			text-align: right;
+			padding: 24px 26px 15px 0;
+		}
+		ul.dropdown ul li.menu-title.center { /* Title aligment when using center orientated menu */
+			text-align: center;
+			padding: 24px 26px 15px 0;
+		}
+		ul.dropdown ul li.menu-title span {
+			font-size: 22px;
+			font-family: 'FontAwesome';
+			padding: 0 14px 0 0;
+			font-weight: normal;
+		}
+		ul.dropdown ul li.menu-title:hover,
+		ul.dropdown ul li.content-full-width:hover,
+		ul.dropdown ul li.no-hover:hover {
+			background: none;
+			color: #bbb;
+		}
+
+		/***** 3.3. Inner blocks of menu *****/
+
+		#inner-block-1 {
+			position: relative;
+			width: 426px;
+			display: inline-block;
+			white-space: normal;
+			padding: 14px 26px 10px 26px;
+		}
+		#inner-block-1 .content {
+			display: inline-block;
+			width: 190px;
+		}
+		#inner-block-1 .title {
+			font-size: 14px;
+			color: #222;
+			font-weight: 400;
+			text-transform: uppercase;
+		}
+		#inner-block-1 p {
+			line-height: 16px;
+			font-size: 11px;
+			color: #bbb;
+			padding-top: 6px;
+		}
+		#inner-block-1 a.overlay-img {
+			width: auto;
+			height: 100%;
+			float: left;
+			margin-right: 20px;
+			display: inline-block;
+			position: relative;
+		}
+		#inner-block-1 .overlay-icon {
+			position: absolute;
+			width: 160px;
+			height: 93px;
+			background:  #222;
+			opacity: 0;
+			display: block;
+			top: 0;
+			left: 0;
+			padding-top: 36px;
+			color: #fff;
+			text-align: center;
+			font-size: 24px;
+		}
+		#inner-block-1 .overlay-icon:hover {
+			opacity: 0.8;
+		}
+
+
+		/***** 3.4. Tabs *****/
+
+		#tabs label:first-of-type {
+			z-index: 99;
+		}
+		/* Selectors for narrow tabs, which are presented in extended menu */
+		#tabs input#tab-1.tab-1-selector:checked ~ .tab-wrapper .tab-1,
+		#tabs input#tab-2.tab-2-selector:checked ~ .tab-wrapper .tab-2,
+		#tabs input#tab-3.tab-3-selector:checked ~ .tab-wrapper .tab-3,
+		#tabs input#tab-4.tab-4-selector:checked ~ .tab-wrapper .tab-4,
+		/* Selectors for tabs, which are presented in tabs content menu */
+		#tabs input#tab-1-wide.tab-1-wide-selector:checked ~ .tab-wrapper .tab-1-wide,
+		#tabs input#tab-2-wide.tab-2-wide-selector:checked ~ .tab-wrapper .tab-2-wide,
+		#tabs input#tab-3-wide.tab-3-wide-selector:checked ~ .tab-wrapper .tab-3-wide,
+		#tabs input#tab-4-wide.tab-4-wide-selector:checked ~ .tab-wrapper .tab-4-wide {
+			z-index: 999;
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+			filter: alpha(opacity=100);
+			opacity: 1;
+			position: absolute;
+		}
+		#tabs input:hover + label {
+			background: #222;
+			color: #fff;
+			cursor: pointer;
+			z-index: 999;
+		}
+		#tabs input {
+			position: absolute;
+			z-index: 9999;
+			width: 20px;
+			height: 20px;
+			left: auto;
+			top: auto;
+			bottom: -50px;
+			opacity: 0;
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+			filter: alpha(opacity=0);
+			cursor: pointer;
+		}
+		#tabs label {
+			background: #ccc;
+			font-size: 12px;
+			line-height: 24px;
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			padding: 0;
+			display: block;
+			margin: 0 0 0 6px;
+			color: #fff;
+			text-align: center;
+			font-weight: 400;
+			top: auto;
+			bottom: -50px;
+		}
+		#tabs label.tab-label-1,
+		#tabs input.first {
+			right: 116px;
+		}
+		#tabs label.tab-label-2,
+		#tabs input.second {
+			right: 86px;
+		}
+		#tabs label.tab-label-3,
+		#tabs input.third {
+			right: 56px;
+		}
+		#tabs label.tab-label-4,
+		#tabs input.fourth {
+			right: 26px;
+		}
+		#tabs input:checked + label {
+			background: #222;
+			color: #fff;
+			z-index: 9;
+		}
+		#tabs .tab-wrapper > div {
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 16px 26px 14px 26px;
+			width: 100%;
+			height: auto;
+			z-index: 1;
+			opacity: 0;
+			min-width: 448px; /* Hack for Chrome first load, adjust this accordingly if changing the width of the tabs in below on .tab-wrapper */
+		}
+		#tabs .tab-wrapper {
+			position: relative;
+			width: 520px;
+			height: 280px;
+			z-index: 5;
+		}
+		#tabs .tab-wrapper.wide { /* Used for menu with wide content in tabs */
+			width: auto;
+			height: 320px;
+		}
+		#tabs img {
+			float: left;
+			margin-right: 20px;
+			display: inline-block;
+		}
+		#tabs img.wide {
+			width: 397px;
+			height: 300px;
+		}
+		#tabs .content {
+			display: inline-block;
+			width: 220px;
+			float: right;
+		}
+		#tabs .title {
+			font-size: 16px;
+			color: #222;
+			display:block;
+			text-transform: uppercase;
+		}
+		#tabs p {
+			line-height: 16px;
+			color: #bbb;
+		}
+		#tabs .small-info {
+			font-style: italic;
+			font-size: 10px;
+			display: inline-block;
+			padding-top: 18px;
+			color: #bbb;
+		}
+		#tabs .category {
+			display: inline-block;
+			font-style: italic;
+			font-size: 10px;
+			padding: 6px 0 8px 0;
+			color: #bbb;
+		}
+		#tabs a.overlay-img {
+			width: 397px;
+			height: 300px;
+			float: left;
+			margin-right: 26px;
+			display: inline-block;
+			position: relative;
+		}
+		#tabs .overlay-text {
+			position: absolute;
+			width: 397px;
+			height: 300px;
+			background: #000;
+			opacity: 0;
+			display: block;
+			top: 0;
+			left: 0;
+			padding-top: 130px;
+			color: #fff;
+			text-align: center;
+			font-size: 12px;
+		}
+		#tabs .overlay-text:hover {
+			opacity: 0.8;
+		}
+		#tabs .overlay-title {
+			text-transform: uppercase;
+			font-weight: 300;
+			font-size: 18px;
+			display: block;
+		}
+		#tabs .overlay-text span {
+			font-size: 34px;
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		/***** 3.6. Demo video styles *****/
+
+		iframe.video-medium {
+		  padding: 18px 26px 22px 26px;
+		}
+
+		/***********************
+		    4. Contact form
+		************************/
+
+		#form-1 {
+		  display: block;
+		  width: auto;
+		  height: auto;
+		  padding: 20px 26px;
+		}
+
+		p {
+		  &.title {
+		    text-transform: uppercase;
+		    font-size: 16px;
+		    color: #222;
+		    padding-bottom: 4px;
+		  }
+		  &.form-intro {
+		    color: #222;
+		    padding-bottom: 26px;
+		    &:hover {
+		      color: #222;
+		    }
+		  }
+		}
+
+		#form-1 {
+		  .field {
+		    display: inline-block;
+		    width: 360px;
+		    position: relative;
+		    margin: 0 0 16px 0;
+		    p {
+		      display: inline-block;
+		      width: 30px;
+		      height: 36px;
+		      text-align: center;
+		      background: #999;
+		      color: #fff;
+		      position: absolute;
+		      left: 0;
+		      top: 0;
+		      font-size: 14px;
+		      padding-top: 8px;
+		    }
+		  }
+		  input.form-1, select, textarea {
+		    font-size: 12px;
+		    font-family: 'Source Sans Pro', sans-serif;
+		    font-weight: 400;
+		  }
+		  input.form-1 {
+		    width: 100%;
+		    padding: 0 10px 0 42px;
+		    height: 36px;
+		    border: solid 1px #ccc;
+		    outline: none;
+		  }
+		}
+
+		.field select {
+		  border: solid 1px #ccc;
+		  position: relative;
+		  margin: 0;
+		  width: 100%;
+		  color: #4f4e4c;
+		  font-family: Arial, Helvetica, sans-serif;
+		  padding: 9px 10px 8px 40px;
+		  -moz-appearance: none;
+		  -webkit-appearance: none;
+		  appearance: none;
+		  background: none;
+		  background-color: rgba(0, 0, 0, 0);
+		  height: 36px;
+		}
+
+		.disabled {
+		  display: none;
+		}
+
+		#form-1 {
+		  textarea {
+		    width: 100%;
+		    padding: 8px 24px 8px 8px;
+		    border: solid 1px #ccc;
+		    resize: none;
+		    max-height: 110px;
+		    height: 110px;
+		    overflow-y: hidden;
+		    &:focus {
+		      height: 160px;
+		      max-height: 160px;
+		      border: solid 1px #222;
+		    }
+		    &:hover {
+		      border: solid 1px #222;
+		    }
+		  }
+		  input.form-1 {
+		    &:focus, &:hover {
+		      border: solid 1px #222;
+				padding: 0 10px 0 42px;
+		    	height: 36px;
+		    }
+		  }
+		  select {
+		    &:focus, &:hover {
+		      border: solid 1px #222;
+		    }
+		  }
+		}
+
+		input {
+		  &.send {
+		    display: inline-block;
+		    background: #222;
+		    color: #fff;
+		    width: auto;
+		    padding: 6px 28px;
+		    border: none;
+		    outline: none;
+		    font-size: 13px;
+		    margin: 0 30px 0 0;
+		    clear: none;
+		    &:hover {
+		      border: none;
+		      outline: none;
+		      background: #777;
+		      cursor: pointer;
+		    }
+		    &:focus {
+		      border: none;
+		      outline: none;
+		    }
+		  }
+		  &[type="checkbox"].check {
+		    display: none;
+		    + label {
+		      color: #bbb;
+		      font-size: 11px;
+		      display: inline-block;
+		      line-height: 18px;
+		      vertical-align: middle;
+		      font-weight: 300;
+		      span {
+		        font-size: 18px;
+		        &:before {
+		          display: inline-block;
+		          cursor: pointer;
+		          float: left;
+		          font-family: 'FontAwesome', sans-serif;
+		          content: "\f096";
+		          width: 24px;
+		          padding-top: 2px;
+		        }
+		      }
+		    }
+		    &:checked + label span:before {
+		      font-family: 'FontAwesome', sans-serif;
+		      content: "\f046";
+		      color: #4f4e4c;
+		    }
+		  }
+		}
+
+
+		/**** Show arrow in webkit browsers and IE9/10 (pointer events don't work in those IE, so we have to hide it with this hack) ****/
+		@media screen and (-webkit-min-device-pixel-ratio: 0) {
+		  #arrow-select-svg {
+		    display: none;
+		  }
+		}
+
+		/**** Hack for Opera ****/
+
+		x:-o-prefocus, #arrow-select {
+		  display: none;
+		}
+
+		/************************
+		    5. Expanded content
+		*************************/
+
+		#expanded-menu {
+		  width: 100%;
+		  text-align: left;
+		  background: white;
+		  .wrapper {
+		    width: 1000px;
+		    margin: 0 auto;
+		    position: relative;
+		  }
+		  label {
+		    position: absolute;
+		    z-index: 999;
+		    display: inline-block;
+		    right: 1px;
+		    top: -33px;
+		    color: #999;
+		    cursor: pointer;
+		    font-size: 14px;
+		    font-family: 'FontAwesome';
+		    &:after {
+		      content: "\f055";
+		    }
+		    &:hover {
+		      color: #fff;
+		    }
+		  }
+		  input {
+		    &:checked + label {
+		      &:after {
+		        content: "\f056";
+		      }
+		      &:hover {
+		        color: #fff;
+		      }
+		    }
+		    display: none;
+		  }
+		  article {
+		    margin: 0;
+		    overflow: hidden;
+		    max-height: 0px;
+		    position: relative;
+		    z-index: 99;
+		    -webkit-transition: max-height 0.8s ease-in-out;
+		    -moz-transition: max-height 0.8s ease-in-out;
+		    -o-transition: max-height 0.8s ease-in-out;
+		    -ms-transition: max-height 0.8s ease-in-out;
+		    transition: max-height 0.8s ease-in-out;
+		  }
+		  input:checked ~ article {
+		    -webkit-transition: max-height 0.5s ease-in-out;
+		    -moz-transition: max-height 0.5s ease-in-out;
+		    -o-transition: max-height 0.5s ease-in-out;
+		    -ms-transition: max-height 0.5s ease-in-out;
+		    transition: max-height 0.5s ease-in-out;
+		    &.expanded {
+		      /* The height of expanded content menu. The height must have a value in order for transition to work */
+		      max-height: 1000px;
+		    }
+		  }
+		}
+
+		article {
+		  .title {
+		    display: block;
+		    font-size: 20px;
+		    color: #222;
+		    text-transform: uppercase;
+		    padding-bottom: 10px;
+		    margin-bottom: 20px;
+		    font-weight: 300;
+		    border-bottom: solid 1px #ccc;
+		  }
+		  p {
+		    line-height: 18px;
+		    color: #bbb;
+		  }
+		}
+
+
+
+	}
+}

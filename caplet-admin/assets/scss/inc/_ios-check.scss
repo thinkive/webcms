@@ -1,0 +1,47 @@
+
+/*
+00 -iOS color switch
+------------------------------------------------------------*/
+.dark .ios-switch .has-switch {
+  &:before, &:after {
+    background-color: lighten($colors-bg-dark,15%);
+  }
+}
+
+@for $i from 0 to length($colors-name) {
+    .ios-switch.#{unquote(nth($colors-name, $i+1))} .has-switch.checked:before {
+        background-color: unquote(nth($colors-code, $i+1));
+    }
+}
+// .ios-switch {
+//   &.red .has-switch.checked:before {
+//     background-color: $colors-danger;
+//   }
+//   &.green .has-switch.checked:before {
+//     background-color: $colors-success;
+//   }
+//   &.blue .has-switch.checked:before {
+//     background-color: $colors-primary;
+//   }
+//   &.aero .has-switch.checked:before {
+//     background-color: $colors-info;
+//   }
+//   &.grey .has-switch.checked:before {
+//     background-color: #73716e;
+//   }
+//   &.dorange .has-switch.checked:before {
+//     background-color: #f70;
+//   }
+//   &.warning .has-switch.checked:before {
+//     background-color: $colors-warning;
+//   }
+//   &.purple .has-switch.checked:before {
+//     background-color: $colors-purple;
+//   }
+//   &.theme .has-switch.checked:before {
+//     background-color: $colors-theme;
+//   }
+//   &.theme-inverse .has-switch.checked:before {
+//     background-color: $colors-theme-inverse;
+//   }
+// }

@@ -1,0 +1,106 @@
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+//Site selection colors
+@mixin selection-colors() {
+ 	background-color:$colors-select;
+	color:$colors-select-font;
+}
+
+//Touch scroll
+@mixin touch-scroll() {
+  overflow: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+//Box shadow 
+@mixin theme-shadow() {
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+
+//shadows
+@mixin box-shadow($shadow...) {
+	-webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+			box-shadow: $shadow;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+	// IE8 filter
+	$opacity-ie: ($opacity * 100);
+	filter: #{alpha(opacity=$opacity-ie)};
+	opacity: $opacity;
+}
+
+// Clear margin & padding
+@mixin clear-margin {
+    margin: 0;
+    padding: 0;
+}
+
+
+// Button variants
+// -------------------------
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: $color;
+    background-color: darken($background, 8%);
+        border-color: darken($border, 8%);
+  }
+  .open & { &.dropdown-toggle {
+    color: $color;
+    background-color: darken($background, 8%);
+        border-color: darken($border, 8%);
+  } }
+  &:active,
+  &.active {
+    background-image: none;
+  }
+  .open & { &.dropdown-toggle {
+    background-image: none;
+  } }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+  &.btn-transparent{
+    color: #AAA;
+    border-color: $background;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        background-color: $background;
+        color: $color;
+    }
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}

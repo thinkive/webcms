@@ -1,0 +1,281 @@
+
+
+
+$font-ubuntu:								"Ubuntu" !default;
+$font-open-sans:							"Open Sans" !default;
+$font-arial:								"Arial", sans-serif !default;
+$font-base:									$font-ubuntu !default;
+
+$font-size-base:							14px !default;
+$font-size-extra-large:						ceil($font-size-base * 1.85) !default; // ~26px
+$font-size-large:							ceil($font-size-base * 1.25) !default; // ~18px
+$font-size-small:							ceil($font-size-base * 0.85) !default; // ~12px
+$font-size-mini:							ceil($font-size-base * 0.715) !default; // ~10px
+
+$font-weight-lighter: 						300;
+$font-weight-normal: 						400;
+$font-weight-border: 						700;
+
+// size min width
+
+$site-min-width:         					320px !default;
+
+// Text colors
+$font-colors-base:                          #6f7b8a;
+
+// theme colors
+
+$gray-darker:           					lighten(#000, 13.5%) !default; // #222
+$gray-dark:              					lighten(#000, 20%) !default;   // #333
+$gray:                   					lighten(#000, 33.5%) !default; // #555
+$gray-light:             					lighten(#000, 60%) !default;   // #999
+$gray-lighter:           					lighten(#000, 93.5%) !default; // #eee
+
+
+$colors-primary:         					#0090d9 !default;
+$colors-success:         					#2ECC71 !default;
+$colors-warning:         					#FFCC33 !default;
+$colors-danger:          					#d9534f !default;
+$colors-info:           					#B5D1D8 !default;
+$colors-white:            					#FFFFFF !default;
+$colors-inverse:           					#62707D !default;
+$colors-theme:            					#f35958 !default;
+$colors-theme-inverse:           			#0aa699 !default;
+$colors-palevioletred:           			#372b32 !default;
+$colors-green:            					#99CC00 !default;
+$colors-lightseagreen:           			#3db9af !default;
+$colors-purple:								#736086 !default;
+$colors-darkorange:							#f9ba46 !default;
+$colors-pink:								#d13a7a !default;
+
+// Site select color
+$colors-select:         					$colors-theme-inverse !default;
+$colors-select-font:         				$colors-white !default;
+
+
+$colors-name: ( 
+	'primary', 
+	'success',
+	'warning', 
+	'danger', 
+	'info' ,
+	'white', 
+	'inverse',
+	'theme',
+	'theme-inverse',
+	'palevioletred', 
+	'green', 
+	'lightseagreen',
+	'purple', 
+	'darkorange',
+	'pink'
+);
+$colors-code: (
+ 	$colors-primary, 
+ 	$colors-success, 
+ 	$colors-warning, 
+ 	$colors-danger,
+ 	$colors-info, 
+ 	$colors-white, 
+ 	$colors-inverse, 
+ 	$colors-theme, 
+ 	$colors-theme-inverse,
+ 	$colors-palevioletred, 
+ 	$colors-green, 
+ 	$colors-lightseagreen, 
+ 	$colors-purple,
+ 	$colors-darkorange,
+ 	$colors-pink
+ );
+$colors-text-code: (
+ 	$colors-white, // color text primary 
+ 	$colors-white, // color text success 
+ 	$colors-white, // color text warning 
+ 	$colors-white, // color text danger 
+ 	$colors-white, // color text info 
+ 	"#777",	       // color text white 
+ 	$colors-white, // color text inverse 
+ 	$colors-white, // color text theme 
+ 	$colors-white, // color text theme-inverse 
+ 	$colors-white, // color text palevioletred 
+ 	$colors-white, // color text green 
+ 	$colors-white, // color text lightseagreen 
+ 	$colors-white, // color text purple 
+ 	$colors-white, // color text darkorange 
+ 	$colors-white, // color text pink 
+ );
+
+
+
+$colors-online:            					#0C0 !default;
+$colors-busy:            					#F90 !default;
+$colors-block:            					#F90 !default;
+
+
+
+// fonts color
+$colors-font:            					#717171 !default;
+$colors-link:            					darken($colors-theme-inverse ,5%)!default;
+$colors-link-hover:            				darken($colors-link,2.3%) !default;
+
+
+// bg color
+$colors-bg:									#e5e9ec !default;
+$colors-bg-light: 							#FFF !default;
+$colors-bg-dark: 							#1b1e24 !default;
+$colors-bg-soft: 							#edece5 !default;
+
+$colors-bg-wraper-content: 					lighten($colors-bg-dark,2.3%) !default;
+$colors-bg-header-content: 					$colors-bg-light !default;
+$colors-bg-main-content: 					$colors-bg;  // #e5e9ec !default;
+
+
+$color-scrollbar:							#F2F0EB;
+$color-scrollbar-thumb:						#CDCDCD;
+
+// buttons
+$btn-font-weight:                			300 !default;
+$btn-link-disabled-color:       			$gray-light !default;
+
+
+
+
+
+// header 
+$header-heigth: 							55px;
+$header-border-bottom: 						5px;
+$header-avatar-width: 						34px;
+$header-border-color: 						$colors-theme-inverse !default;
+
+$header-toolsbar-link:						darken($colors-link, 1%) !default;
+$header-badge-color:						$colors-theme !default;
+
+
+
+// logo  
+$logo-bg-color: 							lighten($colors-bg-dark, 5%);
+$logo-border-color: 						darken($logo-bg-color, 6%) !default;
+
+
+
+// Scrollbar 
+$scroll-bar-width: 							17px;
+$scroll-bar-width-mini: 					5px;
+
+
+// breadcrumb
+$breadcrumb-color:							lighten($colors-bg-main-content, 4%);
+
+
+// well
+$well-color:								darken($colors-bg-main-content, 5%);
+
+// Left Menu Show 
+$left-menu-show: 							50px;
+
+
+
+// Off canvas menu
+$menu-left-size:							250px;
+$menu-right-size:							300px;
+
+$menu-btn-size: 							40px !default;
+$menu-padding: 								10px !default;
+$menu-font: 								$font-arial !default;
+$menu-font-size: 							$font-size-small !default;
+$menu-icon-size: 							$font-size-base !default;
+$menu-sub-offset: 							40% !default;
+$menu-bg-off-canvas: 						darken($colors-bg-dark, 5%) !default;
+
+// Off canvas menu (Left menu show alway)
+$left-menu-show-alway: 						250px;
+
+
+
+// Nav slide 
+$nav-slide-width: 							250px;
+$nav-slide-color: 							$colors-bg-dark !default;
+$nav-slide-link-color: 						$colors-theme-inverse !default;
+
+
+
+// Mailbox 
+$mail-box-width: 							320px;
+$mail-box-color: 							$colors-white;
+
+
+// Footer
+$footer-color:								lighten($colors-bg-main-content, 4%);
+
+
+// Avatar Chart
+$avatar-chart-size: 						118px;
+$avatar-chart-image-size: 					96px;
+
+$avatar-small-size: 						50px;
+$avatar-mini-size: 							34px;
+
+$avatar-status-size: 						10px;
+$avatar-status-border: 						2px;
+
+$avatar-percent-color:						$colors-theme;
+$avatar-link-color:							#372b32;
+
+
+
+//Progress-bar
+$progress-dark-color: 						#2D3237;
+$progress-sm:								10px;
+$progress-xs:								5px; 
+
+
+
+// widget-slide
+$widget-slide-padding:						15px;
+
+
+//List Rounded
+$list-rounded-size:							30px;
+$list-rounded-color:						$colors-theme;
+
+
+//List Rectangle
+$list-rectangle-size:						30px;
+$list-rectangle-color:						$colors-theme-inverse;
+
+
+//form-signin
+$form-signin-width:							330px;
+
+
+//widget clock 
+$widget-clock-bg: 							darken($colors-white, 2%);
+$widget-clock-stroke: 						$colors-theme-inverse;
+$widget-clock-sec: 							darken($widget-clock-stroke, 15%) !default;
+$widget-clock-min: 							darken($widget-clock-stroke, 40%) !default;
+$widget-clock-hour: 						darken($widget-clock-stroke, 40%) !default;
+
+$widget-dateTime-month: 					$colors-theme-inverse;
+$widget-dateTime-year: 						$colors-theme;
+
+
+
+//widget-chat 
+$widget-chat-header: 						$colors-purple;
+$widget-chat-header-size: 					45px; 
+$widget-chat-body-height: 					500px;
+$widget-chat-body-color: 					#f2f4f6;
+$widget-chat-to-color: 						lighten($colors-theme-inverse, 5%) !default;
+
+
+// profile comment
+$comment-bg-content: 						$widget-chat-body-color;
+$comment-bg-reply:							$comment-bg-content;
+$comment-bg-footer:							darken($comment-bg-content, 3%);
+
+
+//corner-flip 
+$corner-flip-color: 						$colors-bg-main-content;
+
+//tab nav , nav-pill 
+$nav-tab-color: 							darken($colors-bg-main-content, 4%);

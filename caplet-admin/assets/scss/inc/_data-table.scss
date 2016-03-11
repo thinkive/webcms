@@ -1,0 +1,202 @@
+div {
+  &.dataTables_length {
+    margin-bottom: 5px !important;
+    label {
+      vertical-align: middle;
+    }
+    select {
+      min-width: 75px;
+    }
+  }
+  &.dataTables_filter {
+    label {
+      vertical-align: middle;
+    }
+    margin-bottom: 5px !important;
+  }
+  &.dataTables_info {
+    padding: 18px 0 8px;
+    font-size: 12px;
+  }
+  &.dataTables_paginate {
+    margin: 10px 0;
+    font-size: 12px;
+    ul.pagination {
+      margin: 2px;
+    }
+  }
+}
+
+table {
+  &.table {
+    clear: both;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    thead {
+      .sorting, .sorting_asc, .sorting_desc, .sorting_asc_disabled, .sorting_desc_disabled {
+        cursor: pointer;
+      }
+      .sorting {
+        background: url('img/sort_both.png') no-repeat center right;
+      }
+      .sorting_asc {
+        background: url('img/sort_asc.png') no-repeat center right;
+      }
+      .sorting_desc {
+        background: url('img/sort_desc.png') no-repeat center right;
+      }
+      .sorting_asc_disabled {
+        background: url('img/sort_asc_disabled.png') no-repeat center right;
+      }
+      .sorting_desc_disabled {
+        background: url('img/sort_desc_disabled.png') no-repeat center right;
+      }
+      .sorting, .sorting_asc, .sorting_desc, .sorting_asc_disabled, .sorting_desc_disabled {
+        padding-right: 20px;
+      }
+    }
+  }
+  &.dataTable th:active {
+    outline: none;
+  }
+}
+
+
+/* Scrolling */
+div {
+  &.dataTables_scrollHead table {
+    margin-bottom: 0 !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    thead tr:last-child {
+      th:first-child, td:first-child {
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+      }
+    }
+  }
+  &.dataTables_scrollBody {
+    table {
+      border-top: none;
+      margin-bottom: 0 !important;
+    }
+    tbody tr:first-child {
+      th, td {
+        border-top: none;
+      }
+    }
+  }
+  &.dataTables_scrollFoot table {
+    border-top: none;
+  }
+}
+
+/*
+ * TableTools styles
+ */
+.table tbody tr.active {
+  td, th {
+    background-color: #08C;
+    color: white;
+  }
+  &:hover {
+    td, th {
+      background-color: #0075b0 !important;
+    }
+  }
+}
+
+.table-striped tbody tr.active:nth-child(odd) {
+  td, th {
+    background-color: #017ebc;
+  }
+}
+
+table.DTTT_selectable tbody tr {
+  cursor: pointer;
+}
+
+div.DTTT .btn {
+  color: #333 !important;
+  font-size: 12px;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+ul.DTTT_dropdown.dropdown-menu {
+  z-index: 2003;
+  a {
+    color: #333 !important;
+  }
+  li {
+    position: relative;
+    &:hover a {
+      background-color: #0088cc;
+      color: white !important;
+    }
+  }
+}
+
+
+/* TableTools information display */
+div.DTTT_print_info {
+  &.modal {
+    height: 150px;
+    margin-top: -75px;
+    text-align: center;
+  }
+  h6 {
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 28px;
+    margin: 1em;
+  }
+  p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+/*
+ * FixedColumns styles
+ */
+div {
+  &.DTFC_LeftHeadWrapper table, &.DTFC_LeftFootWrapper table, &.DTFC_RightHeadWrapper table, &.DTFC_RightFootWrapper table , table.DTFC_Cloned tr.even{
+    background-color: white;
+	}
+  &.DTFC_RightHeadWrapper table, &.DTFC_LeftHeadWrapper table {
+    margin-bottom: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+  &.DTFC_RightHeadWrapper table thead tr:last-child {
+    th:first-child, td:first-child {
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+  &.DTFC_LeftHeadWrapper table thead tr:last-child {
+    th:first-child, td:first-child {
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+  &.DTFC_RightBodyWrapper table, &.DTFC_LeftBodyWrapper table {
+    border-top: none;
+    margin-bottom: 0 !important;
+  }
+  &.DTFC_RightBodyWrapper tbody tr:first-child {
+    th, td {
+      border-top: none;
+    }
+  }
+  &.DTFC_LeftBodyWrapper tbody tr:first-child {
+    th, td {
+      border-top: none;
+    }
+  }
+  &.DTFC_RightFootWrapper table, &.DTFC_LeftFootWrapper table {
+    border-top: none;
+  }
+}

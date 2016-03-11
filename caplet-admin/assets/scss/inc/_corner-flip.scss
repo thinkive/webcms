@@ -1,0 +1,45 @@
+/*
+00 - Corner-flip
+------------------------------------------------------------*/
+.corner-flip {
+  position: relative;
+  .flip {
+    border-bottom-color: $corner-flip-color;
+    border-right: 23px solid transparent;
+    border-top: 23px solid #FFF;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    z-index: 3;
+  }
+  &.flip-bg-white .flip {
+    border-bottom-color: #FFF;
+    border-top: 23px solid $corner-flip-color;
+  }
+  .flip {
+    &:after {
+      border-bottom: 23px solid rgba(0, 0, 0, 0.1);
+      border-left: 23px solid transparent;
+      content: "";
+      position: absolute;
+      right: 0;
+      top: -23px;
+    }
+    &:before {
+      border-bottom: 28px solid;
+      border-bottom-color: inherit;
+      border-left: 28px solid transparent;
+      bottom: -2px;
+      content: "";
+      position: absolute;
+      right: -25px;
+    }
+  }
+  &.flip-gray .flip {
+    border-top-color: #CCC;
+  }
+}
+
+.panel.corner-flip .flip {
+  border-top-color: #CCC;
+}

@@ -1,0 +1,331 @@
+
+@media all and (max-width: 767px) {
+  #main {
+    margin-left: 0px;
+    top: 0;
+  }
+  .nav-main-xs {
+    left: 0;
+  }
+  .navbar-right {
+    float: right;
+    .dropdown a em {
+      display: none;
+      font-style: normal!important;
+    }
+  }
+  .navbar-nav {
+    margin: 0;
+    > li {
+      float: left;
+      > a {
+        padding-bottom: 15px;
+        padding-top: 15px;
+      }
+    }
+  }
+  #header .logo-area a.logo {
+    width: 100%;
+  }
+
+  // #nav-scroll, #mailbox #nav-scroll {
+  //   padding: 0;
+  // }
+
+  .modal-crop {
+    .col-md-8, .col-md-4 {
+      padding: 0px;
+    }
+  }
+
+  .profile-cover {
+    margin-right: 0;
+    position: relative;
+    text-align: center;
+  }
+
+  .profile-status {
+    margin-top: 15px;
+    position: relative;
+  }
+
+  .profile-avatar {
+    left: 0;
+    right: 0;
+  }
+
+  #content.after-mail-box {
+    margin-left: 0px;
+  }
+
+  #main.in #content.after-mail-box {
+    overflow: hidden;
+  }
+
+  #mailbox {
+    margin-left: 0;
+    z-index: 100;
+    @include transform(translate3d(-$mail-box-width, 0, 0));
+  }
+  
+  #main.in {
+    #content.after-mail-box:after {
+      opacity: 1;
+      visibility: visible;
+    }
+    #mailbox {
+      @include transform(translate3d(0, 0, 0));
+    }
+    .mail-collapse {
+      z-index: 100;
+    }
+  }
+  .widget-timeline li {
+    margin-bottom: 45px;
+    &.left section, &.right section {
+      margin: auto;
+    }
+    &.left, &.right {
+      clear: all;
+      float: none;
+      width: 100%;
+    }
+    &.left:before {
+      border-bottom: 10px solid;
+      border-bottom-color: inherit;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      left: 50%;
+      margin-left: -10px;
+      right: auto;
+      top: -20px;
+    }
+    &.right {
+      &:before {
+        border-bottom: 10px solid;
+        border-bottom-color: inherit;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        left: 50%;
+        margin-left: -10px;
+        right: auto;
+        top: -20px;
+      }
+      + li.left:before {
+        top: -20px;
+      }
+    }
+    &.left {
+      + li.right:before {
+        top: -20px;
+      }
+      &:after {
+        left: 50%;
+        margin-left: -6px;
+        right: auto;
+        top: -30px;
+      }
+    }
+    &.right {
+      &:after {
+        left: 50%;
+        margin-left: -6px;
+        right: auto;
+        top: -30px;
+      }
+      + li.left:after {
+        top: -30px;
+      }
+    }
+    &.left + li.right:after {
+      top: -30px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  #main {
+    margin-left: 0px;
+  }
+  #header {
+    border: none;
+    height: auto;
+    position: relative;
+    .logo-area {
+      float: none;
+      height: 55px;
+      position: absolute;
+      width: 100%;
+    }
+    a.logo {
+      width: 250px;
+    }
+    .tools-bar {
+      border: none;
+      margin-left: 0;
+      position: relative;
+      z-index:20;
+    }
+    ul.nav li a, .tools-bar a.icon-toolsbar {
+      color: #FFF;
+    }
+    ul {
+      &.nav li a:hover {
+        color: #EEE!important;
+      }
+      &.dropdown-menu li a:hover {
+        color: #A1A1A1!important;
+      }
+      &.nav li a.h-seperate:before {
+        border-left: 1px solid #009E7D;
+      }
+      li.h-seperate{
+        border-color: $logo-border-color !important;
+      }
+      .btn-header-search{
+        background-color: $logo-border-color !important;
+        border-color: $logo-border-color !important;
+        color:#FFF!important;
+      }
+    }
+  }
+  .navbar-nav {
+    display: inline-block;
+  }
+  .isMobile #main.none {
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+  }
+  #nav {
+    opacity: 0;
+    @include transform(translate3d(-100px, 0, 0));
+    &.nav-collapse-out {
+      opacity: 1;
+      @include transform(translate3d(0, 0, 0));
+    }
+  }
+  #main.nav-collapse-out {
+    right: 0px;
+    @include transform(translate3d(250px, 0, 0));
+  }
+  #content {
+    padding: 15px 15px 0;
+  }
+
+  body{
+    &.leftMenu{
+        .logo-area{
+          display:block!important;
+          background-color: $menu-bg-off-canvas;
+          border-bottom: $header-border-bottom $logo-bg-color solid;
+          .logo{
+            background-image:none;
+          }
+        }
+        #wrapper{
+          margin-left: $left-menu-show;
+        }
+    }
+    &.nav-collapse{
+      #main{
+        @include transform(translate3d(0, 0, 0));
+        right: 0;
+      }
+      &.nav-collapse-in{
+        #header {
+          @include transform(translate3d(0, 0, 0));
+          left:0;
+          .tools-bar{
+            right:0;
+            margin-left: 0 !important;
+          }
+        }
+        #main{
+          @include transform(translate3d($nav-slide-width, 0, 0));
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 979px) {
+  .modal-open.page-overflow .page-container {
+    .navbar-fixed-top, .navbar-fixed-bottom {
+      overflow-y: visible;
+    }
+  }
+  .modal {
+    bottom: auto;
+    height: auto !important;
+    left: 1%;
+    margin: 0 !important;
+    padding: 0 !important;
+    right: 1%;
+    top: 1%;
+    width: auto !important;
+    &.container, &.modal-overflow {
+      bottom: auto;
+      height: auto !important;
+      left: 1%;
+      margin: 0 !important;
+      padding: 0 !important;
+      right: 1%;
+      top: 1%;
+      width: auto !important;
+    }
+    &.fade.in, &.container.fade.in, &.modal-overflow.fade.in {
+      bottom: auto;
+      top: 1%;
+    }
+  }
+  .modal-body, .modal-overflow .modal-body {
+    height: auto !important;
+    margin: 0;
+    max-height: none !important;
+    overflow: visible !important;
+    position: static;
+  }
+  .modal-footer, .modal-overflow .modal-footer {
+    position: static;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal.container {
+    margin-left: -585px;
+    width: 1170px;
+  }
+}
+
+
+@media all and (max-width: 550px) {
+  body{
+    &.leftMenu{
+        #wrapper{
+          margin-left: 0!important;
+        }
+    }
+  }
+  #wrapper {
+    margin-left: 0px;
+  }
+  .toggle-menu {
+    display: none;
+  }
+  #header {
+    .logo-area a.logo {
+      background-size: 90px 23px;
+      width: 190px;
+    }
+    .tools-bar a.icon-toolsbar {
+      padding: 0 15px;
+    }
+  }
+  .widget-top-search form{
+    h2{
+      margin-bottom:10px;
+      font-size:2.5em;
+    }
+  }
+}

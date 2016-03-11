@@ -1,0 +1,160 @@
+// Core variables and mixins
+@import "bourbon/bourbon";
+
+
+$colors-bg-header-content:					#FFF;
+$header-border-bottom:						$colors-bg-header-content;
+$colors-bg-main-content:					#F1F3F5;
+$colors-bg-wraper-content:					#252034;
+
+$logo-bg-color:								#384A63;
+
+$logo-border-color:							$logo-bg-color;
+
+
+$corner-flip-color:							$colors-bg-main-content;
+
+// Nav slide 
+$nav-slide-color: 							#384A63 !default;
+$nav-slide-link-color:						#FFCC33;
+
+$avatar-link-color:							rgba(black, 0.2);
+
+$menu-bg-off-canvas:						darken($nav-slide-color, 10%);
+
+//linear-gradient(155deg, #2292d9 40%,#1d48ba)
+//specal color in theme 1
+
+.bg-gradient-green{
+	@include linear-gradient(155deg, #1dc096 40%, #1896a1);
+}
+
+.bg-gradient-blue{
+	@include linear-gradient(155deg, #1edcde 40%, #1a86bf);
+}
+
+
+body.leftMenu:after {
+	background-color:transparent;
+}
+
+#header {
+	background: $colors-bg-header-content;
+	border-bottom-color: $header-border-bottom;
+	webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+//wraper layout
+#wrapper {
+  background: $colors-bg-wraper-content;
+}
+//main layout and nav layout
+#main {
+  background: $colors-bg-main-content;
+}
+
+#nav {
+	 //linear-gradient(155deg, #2292d9 40%,#1d48ba);
+	// @include linear-gradient(155deg,   #C3C3C3 40%, #929292);
+	@include linear-gradient(155deg, #384A63 40%, #AE5B65);
+	 //background-color:#F97282;
+}
+
+.logo-area {
+  background-color: $logo-bg-color;
+  border-bottom-color: $logo-border-color ;
+}
+
+#nav-title{
+  background-color: $logo-bg-color;
+	webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.mm-ismenu {
+  background: $menu-bg-off-canvas;
+}
+
+.mm-search{
+	border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+}
+
+.breadcrumb {
+	border-bottom:1px #dfdfdf solid;
+	background: rgba(white, 0.5);
+}
+
+.avatar-slide {
+  .avatar-detail {
+    p {
+      a {
+        color: $nav-slide-link-color;
+      }
+    }
+    span {
+    	background-color:rgba(white, 0.2);
+    }
+  }
+  .avatar-link {
+    a {
+      &.btn {
+        border-left: 1px rgba(0,0,0, 0.2) solid;
+        border-radius: 0;
+        background:$avatar-link-color;
+      }
+      &.btn:hover {
+        background: darken($avatar-link-color, 3.2%);
+      }
+    }
+  }
+}
+.panel{
+	border: 1px solid #f5f5f5;
+	// webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+	// box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.widget-collapse.dark header{
+	background: rgba(black, 0.2);
+	a{
+		color: white;
+	}
+
+}
+.widget-collapse.dark p{
+	border-bottom: 1px #FFF solid;
+	 &:after{
+		border-top-color: #FFF;
+	}
+}
+
+.dark .widget-mini-chart p{
+	color: rgba(#FFF, 0.4);
+}
+
+.mail-menu ul li{
+	&.active{
+		a{
+			border-left-color: $nav-slide-link-color;
+			background: rgba(black, 0.2);
+		}
+	}
+	a{
+		color:#FFF;
+		&:hover{
+			background: rgba(black, 0.2);
+			color:#FFF;
+		}
+	}
+}
+
+/*
+00 - Corner-flip
+------------------------------------------------------------*/
+.corner-flip {
+  position: relative;
+  .flip {
+    border-bottom-color: $corner-flip-color;
+	}
+}

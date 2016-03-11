@@ -1,0 +1,175 @@
+/*
+00 - List Rounded
+------------------------------------------------------------*/
+ol {
+  counter-reset: li;
+  list-style: none;
+  margin-bottom: 1em;
+  padding: 0;
+  ol {
+    margin: 0 0 0 2em;
+  }
+  &.rounded-list {
+    li {
+      position: relative;
+    }
+    a {
+      background: #FFF;
+      color: #A1A1A1;
+      display: block;
+      margin: 10px 0 10px 20px;
+      padding: .7em .4em .7em 2em;
+      position: relative;
+      text-decoration: none;
+      @include transition (all .3s ease-out); 
+      &:hover {
+        background: lighten($colors-bg-main-content, 4%);
+      }
+    }
+  }
+  &.rectangle-list a:hover {
+    background: lighten($colors-bg-main-content, 4%);
+  }
+  &.rounded-list a {
+    &:hover:before {
+      @include transform(rotate(360deg));
+    }
+    &:before {
+      background: $list-rounded-color;
+      @extend .box-circle;
+      color: #FFF;
+      content: counter(li);
+      counter-increment: li;
+      height: $list-rounded-size;
+      left: -1.3em;
+      line-height: $list-rounded-size;
+      margin-top: -$list-rounded-size / 2;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      @include transition (all .3s ease-out); 
+      width: $list-rounded-size;
+    }
+  }
+}
+
+/*
+00 - List Rectangle
+------------------------------------------------------------*/
+ol.rectangle-list a {
+  background: #FFF;
+  color: #A1A1A1;
+  display: block;
+  margin: 0px 0 10px 30px;
+  padding: .4em .4em .4em .8em;
+  position: relative;
+  text-decoration: none;
+  @include transition (all .3s ease-out); 
+  small {
+    color: #A1A1A1;
+    font-size: 10px;
+    font-style: italic;
+    padding-left: 5px;
+  }
+  &:before {
+    background: $list-rectangle-color;
+    color: #FFF;
+    content: counter(li);
+    counter-increment: li;
+    height: $list-rectangle-size;
+    left: -$list-rectangle-size;
+    line-height: $list-rectangle-size;
+    margin-top: -$list-rectangle-size/2;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: $list-rectangle-size;
+    z-index: 2;
+  }
+  &:after {
+    border: .5em solid transparent;
+    content: '';
+    left: -$list-rectangle-size/2;
+    margin-top: 4px;
+    position: absolute;
+    //top: 50%;
+    @include transition (all .3s ease-out); 
+  }
+  &:hover:after {
+    border-left-color: darken($list-rectangle-color,5%);
+    left: 0;
+  }
+}
+
+/*
+00 -  Breaking line
+------------------------------------------------------------*/
+.breakline {
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  h2 {
+    background-color: #666666;
+    border-bottom: 3px #454545 solid;
+    color: #FFF;
+    display: inline-block;
+    font-family: $font-open-sans;
+    font-size: $font-size-large;
+    font-weight: $font-weight-lighter;
+    margin: 0;
+    padding: 7px 20px 5px;
+    position: relative;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.1);
+    @include transition (all .3s linear); 
+    z-index: 4;
+    [class^="icon-"]:before, [class*=" icon-"]:before {
+      color: #FFF;
+      font-size: $font-size-large;
+      margin: 8px 8px 8px 0;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+    }
+  }
+  &.center {
+    text-align: center;
+  }
+  &.right {
+    text-align: right;
+  }
+  &:after {
+    border-bottom: 3px #d6d6d6 solid;
+    margin-top: -1px;
+  }
+  &:before, &:after {
+    border-bottom: 3px #d6d6d6 solid;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+}
+
+/*
+00 - divider header
+------------------------------------------------------------*/
+div.divider {
+  margin: 20px 0 15px;
+  padding-bottom: 7px;
+  h2, h3, h4, h5 {
+    font-family: "Ubuntu";
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+  h4! strong, h3! strong, h5! strong, h2! strong { }
+  label.color {
+    margin-bottom: 0;
+  }
+}
+
+li div.divider {
+  margin: 20px 0 15px;
+  padding-bottom: 0px;
+}

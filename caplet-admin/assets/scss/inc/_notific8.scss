@@ -1,0 +1,132 @@
+
+/*
+00 - alert notific8 
+------------------------------------------------------------*/
+.jquery-notific8-container {
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  &.top {
+    top: 55px;
+    &.right {
+      right: 15px;
+    }
+  }
+  &.bottom.right {
+    right: 15px;
+  }
+  &.top.left {
+    left: 15px;
+  }
+  &.bottom {
+    bottom: 0;
+    &.left {
+      left: 15px;
+    }
+  }
+}
+
+.jquery-notific8-notification {
+  border-radius: 1px;
+  display: block;
+  opacity: 0;
+  padding: 10px 15px;
+  position: relative;
+  -webkit-transform: translate3d(50%, 0, 0);
+  transform: translate3d(50%, 0, 0);
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  width: 290px;
+  &.in {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  &:hover .jquery-notific8-close {
+    display: block;
+  }
+}
+
+.jquery-notific8-heading {
+  font-weight: bold;
+  margin-bottom: 0.3125em;
+}
+
+.jquery-notific8-message! { }
+
+.jquery-notific8-close {
+  cursor: pointer;
+  display: none;
+  padding: 0 0.25em;
+  position: absolute;
+  top: 5px;
+}
+
+.jquery-notific8-close-sticky {
+  cursor: pointer;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 5.5625em;
+  span {
+    display: inline-block;
+    font-size: 0.625em;
+    padding: 5px 0;
+  }
+}
+
+.right {
+  .jquery-notific8-notification {
+    clear: right;
+    float: right;
+    padding-right: 2.0625em;
+  }
+  .jquery-notific8-close {
+    right: 7px;
+  }
+}
+
+.left .jquery-notific8-close {
+  right: 7px;
+}
+
+.right .jquery-notific8-close-sticky {
+  right: -5px;
+  top: -5px;
+}
+
+.left {
+  .jquery-notific8-notification {
+    clear: left;
+    float: left;
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+    &.in {
+      opacity: 1;
+      -webkit-transform: translate3d(0%, 0, 0);
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+  .jquery-notific8-close-sticky {
+    right: -5px;
+    top: -5px;
+  }
+}
+
+.top .jquery-notific8-notification {
+  margin-top: 0.625em;
+}
+
+.bottom .jquery-notific8-notification {
+  margin-bottom: 0.625em;
+}
+
+.jquery-notific8-notification {
+  background-color: #F7F4D0;
+  &.default {
+    color: #FFF;
+  }
+}
